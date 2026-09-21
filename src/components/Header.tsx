@@ -56,8 +56,8 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-3 text-left group"
         >
-          <div className="w-10 h-10 rounded-full bg-emerald-950/60 border border-amber-400/40 flex items-center justify-center text-amber-300 group-hover:scale-105 transition-transform shadow-inner shrink-0">
-            <Trees className="w-5 h-5 text-amber-300" />
+          <div className="w-12 h-12 rounded-full overflow-hidden bg-white border border-amber-400/40 flex items-center justify-center group-hover:scale-105 transition-transform shadow-inner shrink-0">
+            <img src="/nouvelles_photos/logo.jpg" alt="Logo White Palace" className="w-full h-full object-cover" />
           </div>
           <div>
             <div className="font-serif text-xl sm:text-2xl font-bold tracking-widest text-amber-100 uppercase leading-none">
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Action Button - White Pill button right next to nav links */}
           <button
             onClick={onOpenRoomBooking}
-            className="ml-2 bg-white text-[#041915] hover:bg-amber-50 font-bold text-[11px] lg:text-xs px-5 py-2 lg:px-6 lg:py-2.5 rounded-full tracking-widest uppercase shadow-md transition-all whitespace-nowrap"
+            className="ml-2 bg-white text-[#050A14] hover:bg-amber-50 font-bold text-[11px] lg:text-xs px-5 py-2 lg:px-6 lg:py-2.5 rounded-full tracking-widest uppercase shadow-md transition-all whitespace-nowrap"
           >
             RÉSERVER
           </button>
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#041915]/95 backdrop-blur-lg border-t border-emerald-800/60 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
+        <div className="lg:hidden bg-[#050A14]/95 backdrop-blur-lg border-t border-slate-800/60 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
           <div className="flex flex-col space-y-3">
             {navItems.map((item) => (
               <button
@@ -122,8 +122,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => handleNavClick(item.id)}
                 className={`text-left py-2 px-3 text-xs tracking-wider uppercase rounded transition-colors ${
                   currentView === item.id
-                    ? 'bg-emerald-900/60 text-amber-300 font-semibold border-l-2 border-amber-400'
-                    : 'text-emerald-100/80 hover:bg-emerald-900/30 hover:text-white'
+                    ? 'bg-slate-900/60 text-amber-300 font-semibold border-l-2 border-amber-400'
+                    : 'text-slate-100/80 hover:bg-slate-900/30 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -131,13 +131,13 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </div>
 
-          <div className="pt-4 border-t border-emerald-800/40 flex flex-col gap-3">
+          <div className="pt-4 border-t border-slate-800/40 flex flex-col gap-3">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenRoomBooking();
               }}
-              className="w-full bg-white text-[#07251E] font-bold text-xs py-3 rounded-full text-center tracking-widest uppercase shadow-lg flex items-center justify-center gap-2"
+              className="w-full bg-white text-[#0F172A] font-bold text-xs py-3 rounded-full text-center tracking-widest uppercase shadow-lg flex items-center justify-center gap-2"
             >
               <Calendar className="w-4 h-4" />
               <span>RÉSERVER UNE CHAMBRE</span>
@@ -147,7 +147,7 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenTableBooking();
               }}
-              className="w-full bg-emerald-900/70 border border-emerald-700/60 text-amber-200 font-medium text-xs py-2.5 rounded-full text-center tracking-widest uppercase flex items-center justify-center gap-2"
+              className="w-full bg-slate-900/70 border border-slate-700/60 text-amber-200 font-medium text-xs py-2.5 rounded-full text-center tracking-widest uppercase flex items-center justify-center gap-2"
             >
               <UtensilsCrossed className="w-4 h-4 text-amber-400" />
               <span>Réserver une table au restaurant</span>
@@ -158,3 +158,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

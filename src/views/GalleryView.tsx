@@ -15,10 +15,10 @@ export const GalleryView: React.FC = () => {
   const activeItem = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-10">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-10">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={VILLA_NATURE_IMAGE}
@@ -69,7 +69,7 @@ export const GalleryView: React.FC = () => {
               onClick={() => setFilter(tab.id as any)}
               className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                 filter === tab.id
-                  ? 'bg-[#004D40] text-white shadow-sm'
+                  ? 'bg-[#1E293B] text-white shadow-sm'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border border-[#EAE6DE]'
               }`}
             >
@@ -101,7 +101,7 @@ export const GalleryView: React.FC = () => {
       <div className="text-center pt-4">
         <button
           onClick={() => setFilter('all')}
-          className="bg-[#004D40] hover:bg-[#00382E] text-white font-bold text-xs px-8 py-3 rounded-xl uppercase tracking-wider shadow-sm transition-all"
+          className="bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs px-8 py-3 rounded-xl uppercase tracking-wider shadow-sm transition-all"
         >
           VOIR PLUS DE PHOTOS
         </button>

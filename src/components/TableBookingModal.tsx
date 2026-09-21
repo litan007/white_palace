@@ -46,13 +46,13 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in overflow-y-auto">
-      <div className="bg-[#041915] border border-emerald-800/80 rounded-3xl max-w-lg w-full text-white shadow-2xl overflow-hidden my-auto relative">
+      <div className="bg-[#050A14] border border-slate-800/80 rounded-3xl max-w-lg w-full text-white shadow-2xl overflow-hidden my-auto relative">
         
         {/* Decorative Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
-        <div className="bg-[#07241E] border-b border-emerald-900/80 px-6 py-5 flex items-center justify-between relative z-10">
+        <div className="bg-[#0F172A] border-b border-slate-900/80 px-6 py-5 flex items-center justify-between relative z-10">
           <div className="flex items-center gap-3.5">
             <div className="w-10 h-10 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-300 shadow-inner">
               <UtensilsCrossed className="w-5 h-5" />
@@ -69,7 +69,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-emerald-950/80 hover:bg-emerald-900 text-gray-300 hover:text-white transition-all flex items-center justify-center border border-emerald-800/50"
+            className="w-9 h-9 rounded-full bg-slate-950/80 hover:bg-slate-900 text-gray-300 hover:text-white transition-all flex items-center justify-center border border-slate-800/50"
           >
             <X className="w-5 h-5" />
           </button>
@@ -91,7 +91,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                     min={today}
                     value={booking.date}
                     onChange={(e) => setBooking({ ...booking, date: e.target.value })}
-                    className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                    className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                   />
                 </div>
 
@@ -104,7 +104,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                   <select
                     value={booking.timeSlot}
                     onChange={(e) => setBooking({ ...booking, timeSlot: e.target.value })}
-                    className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                    className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                   >
                     {timeSlots.map(slot => (
                       <option key={slot} value={slot}>{slot}</option>
@@ -123,7 +123,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                   <select
                     value={booking.guestsCount}
                     onChange={(e) => setBooking({ ...booking, guestsCount: Number(e.target.value) })}
-                    className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                    className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                   >
                     {[1, 2, 3, 4, 5, 6, 8, 10, 12].map(num => (
                       <option key={num} value={num}>{num} Personne{num > 1 ? 's' : ''}</option>
@@ -140,7 +140,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                   <select
                     value={booking.seatingArea}
                     onChange={(e) => setBooking({ ...booking, seatingArea: e.target.value as any })}
-                    className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                    className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                   >
                     <option value="terrasse">Terrasse panoramique</option>
                     <option value="vue-lac">Bord du lac & flambeaux</option>
@@ -150,7 +150,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
               </div>
 
               {/* Guest details */}
-              <div className="space-y-3.5 pt-3 border-t border-emerald-900/80">
+              <div className="space-y-3.5 pt-3 border-t border-slate-900/80">
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-bold text-amber-300/80 uppercase tracking-widest block">Nom complet *</label>
                   <input
@@ -159,7 +159,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                     placeholder="ex. Sophie Bernard"
                     value={booking.customerName}
                     onChange={(e) => setBooking({ ...booking, customerName: e.target.value })}
-                    className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                    className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                   />
                 </div>
 
@@ -172,7 +172,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                       placeholder="sophie@example.com"
                       value={booking.customerEmail}
                       onChange={(e) => setBooking({ ...booking, customerEmail: e.target.value })}
-                      className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                      className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -183,7 +183,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                       placeholder="+261 34 00 000 00"
                       value={booking.customerPhone}
                       onChange={(e) => setBooking({ ...booking, customerPhone: e.target.value })}
-                      className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                      className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                     />
                   </div>
                 </div>
@@ -195,7 +195,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                     placeholder="Précisez tout régime particulier ou occasion spéciale..."
                     value={booking.specialRequests}
                     onChange={(e) => setBooking({ ...booking, specialRequests: e.target.value })}
-                    className="w-full bg-[#07241E] border border-emerald-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
+                    className="w-full bg-[#0F172A] border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400"
                   />
                 </div>
               </div>
@@ -203,7 +203,7 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
               <div className="pt-3">
                 <button
                   type="submit"
-                  className="w-full bg-amber-400 hover:bg-amber-300 text-[#041915] font-bold text-xs py-4 rounded-full tracking-widest uppercase shadow-xl hover:scale-[1.02] transition-all"
+                  className="w-full bg-amber-400 hover:bg-amber-300 text-[#050A14] font-bold text-xs py-4 rounded-full tracking-widest uppercase shadow-xl hover:scale-[1.02] transition-all"
                 >
                   RÉSERVER MA TABLE
                 </button>
@@ -219,40 +219,40 @@ export const TableBookingModal: React.FC<TableBookingModalProps> = ({ isOpen, on
                 TABLE RÉSERVÉE AVEC SUCCÈS !
               </h4>
 
-              <div className="bg-[#07241E] border border-amber-400/40 rounded-3xl p-6 text-left text-xs space-y-3 shadow-2xl">
-                <div className="flex justify-between border-b border-emerald-800/80 pb-3">
+              <div className="bg-[#0F172A] border border-amber-400/40 rounded-3xl p-6 text-left text-xs space-y-3 shadow-2xl">
+                <div className="flex justify-between border-b border-slate-800/80 pb-3">
                   <span className="text-emerald-400 uppercase tracking-widest font-semibold">CODE RÉSERVATION</span>
                   <span className="font-mono font-bold text-amber-300 text-sm">{bookingRef}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-emerald-200/70">Nom:</span>
+                  <span className="text-slate-200/70">Nom:</span>
                   <span className="text-white font-medium">{booking.customerName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-emerald-200/70">Date & Heure:</span>
+                  <span className="text-slate-200/70">Date & Heure:</span>
                   <span className="text-white font-medium">{booking.date} à {booking.timeSlot}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-emerald-200/70">Couverts:</span>
+                  <span className="text-slate-200/70">Couverts:</span>
                   <span className="text-amber-200 font-medium">{booking.guestsCount} personne(s)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-emerald-200/70">Emplacement:</span>
-                  <span className="text-emerald-200 font-medium uppercase">{booking.seatingArea}</span>
+                  <span className="text-slate-200/70">Emplacement:</span>
+                  <span className="text-slate-200 font-medium uppercase">{booking.seatingArea}</span>
                 </div>
               </div>
 
               <div className="flex justify-center gap-4 pt-2">
                 <button
                   onClick={() => window.print()}
-                  className="bg-emerald-900/80 hover:bg-emerald-800 text-amber-200 border border-emerald-700 text-xs px-5 py-3 rounded-full flex items-center gap-2 font-semibold"
+                  className="bg-slate-900/80 hover:bg-slate-800 text-amber-200 border border-slate-700 text-xs px-5 py-3 rounded-full flex items-center gap-2 font-semibold"
                 >
                   <Printer className="w-4 h-4" />
                   <span>Imprimer</span>
                 </button>
                 <button
                   onClick={onClose}
-                  className="bg-amber-400 hover:bg-amber-300 text-[#041915] text-xs px-8 py-3 rounded-full font-bold uppercase tracking-wider shadow-xl"
+                  className="bg-amber-400 hover:bg-amber-300 text-[#050A14] text-xs px-8 py-3 rounded-full font-bold uppercase tracking-wider shadow-xl"
                 >
                   FERMER
                 </button>

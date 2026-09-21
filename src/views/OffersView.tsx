@@ -19,10 +19,10 @@ export const OffersView: React.FC<OffersViewProps> = ({ onOpenRoomBooking, onOpe
   });
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-10">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-10">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={SUITE_LAGON_IMAGE}
@@ -72,7 +72,7 @@ export const OffersView: React.FC<OffersViewProps> = ({ onOpenRoomBooking, onOpe
               onClick={() => setFilter(tab.id as any)}
               className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                 filter === tab.id
-                  ? 'bg-[#004D40] text-white shadow-sm'
+                  ? 'bg-[#1E293B] text-white shadow-sm'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border border-[#EAE6DE]'
               }`}
             >
@@ -104,7 +104,7 @@ export const OffersView: React.FC<OffersViewProps> = ({ onOpenRoomBooking, onOpe
               </div>
 
               <div className="p-6 space-y-3">
-                <h3 className="font-serif text-lg font-bold text-[#072E27]">
+                <h3 className="font-serif text-lg font-bold text-[#111827]">
                   {offer.title}
                 </h3>
 
@@ -115,10 +115,10 @@ export const OffersView: React.FC<OffersViewProps> = ({ onOpenRoomBooking, onOpe
                 <div className="pt-2 border-t border-[#EAE6DE] flex items-center justify-between">
                   <div>
                     <span className="text-[10px] uppercase tracking-widest text-gray-400 font-medium block">Tarif privilège</span>
-                    <span className="font-serif font-bold text-lg text-[#072E27]">{offer.price}€</span>
+                    <span className="font-serif font-bold text-lg text-[#111827]">{offer.price.toLocaleString('fr-MG')} Ar</span>
                   </div>
 
-                  <span className="text-xs font-bold text-[#004D40] group-hover:translate-x-1 transition-transform uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#1E293B] group-hover:translate-x-1 transition-transform uppercase tracking-wider">
                     RÉSERVER →
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export const OffersView: React.FC<OffersViewProps> = ({ onOpenRoomBooking, onOpe
 
       {/* Table Reservation Banner */}
       <div className="max-w-5xl mx-auto px-4 sm:px-8 pt-6">
-        <div className="relative bg-[#00382E] text-white rounded-2xl overflow-hidden p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="relative bg-[#0F172A] text-white rounded-2xl overflow-hidden p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <img
               src={RESTAURANT_INTERIOR_IMAGE}
@@ -151,7 +151,7 @@ export const OffersView: React.FC<OffersViewProps> = ({ onOpenRoomBooking, onOpe
           <div className="relative z-10">
             <button
               onClick={onOpenTableBooking || onOpenRoomBooking}
-              className="bg-[#004D40] hover:bg-[#002B24] text-white font-bold text-xs px-6 py-3 rounded-xl uppercase tracking-wider shadow-md transition-all whitespace-nowrap border border-white/20"
+              className="bg-[#1E293B] hover:bg-[#002B24] text-white font-bold text-xs px-6 py-3 rounded-xl uppercase tracking-wider shadow-md transition-all whitespace-nowrap border border-white/20"
             >
               RÉSERVER UNE TABLE
             </button>

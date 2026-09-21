@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BLOG_POSTS, LEMUR_CLOSE_IMAGE } from '../data/hotelData';
+import { BLOG_POSTS, BLOG_HERO_IMAGE } from '../data/hotelData';
 import { BlogPost } from '../types';
 import { 
   ChevronDown, 
@@ -45,13 +45,13 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
   };
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-20 space-y-12">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-20 space-y-12">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src={LEMUR_CLOSE_IMAGE}
+            src={BLOG_HERO_IMAGE}
             alt="Blog & Actualités White Palace"
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
@@ -102,8 +102,8 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                 onClick={() => setSelectedCategory(tab.id)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all uppercase ${
                   selectedCategory === tab.id
-                    ? 'bg-[#004D40] text-white shadow-sm'
-                    : 'bg-[#FAF7F2] text-gray-600 hover:bg-emerald-50 hover:text-[#004D40]'
+                    ? 'bg-[#1E293B] text-white shadow-sm'
+                    : 'bg-[#F8FAFC] text-gray-600 hover:bg-slate-50 hover:text-[#1E293B]'
                 }`}
               >
                 {tab.label}
@@ -119,7 +119,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
               placeholder="Rechercher un article..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#FAF7F2] text-xs pl-9 pr-4 py-2.5 rounded-full border border-[#EAE6DE] focus:outline-none focus:border-[#004D40] text-[#072E27]"
+              className="w-full bg-[#F8FAFC] text-xs pl-9 pr-4 py-2.5 rounded-full border border-[#EAE6DE] focus:outline-none focus:border-[#1E293B] text-[#111827]"
             />
           </div>
 
@@ -140,7 +140,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute top-4 left-4 bg-amber-400 text-[#041915] font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
+              <div className="absolute top-4 left-4 bg-amber-400 text-[#050A14] font-bold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3" />
                 <span>À LA UNE</span>
               </div>
@@ -148,8 +148,8 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
 
             <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-xs text-emerald-800 font-medium">
-                  <span className="bg-emerald-50 text-[#004D40] px-3 py-1 rounded-full font-semibold uppercase tracking-wider text-[10px]">
+                <div className="flex items-center gap-3 text-xs text-slate-800 font-medium">
+                  <span className="bg-slate-50 text-[#1E293B] px-3 py-1 rounded-full font-semibold uppercase tracking-wider text-[10px]">
                     {featuredPost.category.replace('-', ' ')}
                   </span>
                   <div className="flex items-center gap-1 text-gray-500">
@@ -158,7 +158,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                   </div>
                 </div>
 
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#004D40] group-hover:text-amber-600 transition-colors leading-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1E293B] group-hover:text-amber-600 transition-colors leading-tight">
                   {featuredPost.title}
                 </h2>
 
@@ -173,7 +173,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                   <span>{featuredPost.author}</span>
                 </div>
                 
-                <span className="text-xs font-semibold text-[#004D40] group-hover:text-amber-600 flex items-center gap-1">
+                <span className="text-xs font-semibold text-[#1E293B] group-hover:text-amber-600 flex items-center gap-1">
                   Lire l'article
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -186,7 +186,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
       {/* ARTICLES GRID */}
       <section className="max-w-6xl mx-auto px-4 sm:px-8 space-y-6">
         <div className="flex items-center justify-between">
-          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#004D40]">
+          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1E293B]">
             {filteredPosts.length > 0 ? 'Tous nos articles' : 'Aucun article trouvé'}
           </h3>
           <span className="text-xs text-gray-500">
@@ -202,7 +202,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
             </p>
             <button
               onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
-              className="text-xs text-[#004D40] underline font-semibold hover:text-amber-600"
+              className="text-xs text-[#1E293B] underline font-semibold hover:text-amber-600"
             >
               Réinitialiser les filtres
             </button>
@@ -223,7 +223,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <span className="absolute top-3 left-3 bg-[#041915]/80 backdrop-blur-md text-amber-300 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border border-amber-400/30">
+                    <span className="absolute top-3 left-3 bg-[#050A14]/80 backdrop-blur-md text-amber-300 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase border border-amber-400/30">
                       {post.category.replace('-', ' ')}
                     </span>
                   </div>
@@ -241,7 +241,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                       </div>
                     </div>
 
-                    <h4 className="font-serif text-lg font-bold text-[#072E27] group-hover:text-amber-600 transition-colors leading-snug line-clamp-2">
+                    <h4 className="font-serif text-lg font-bold text-[#111827] group-hover:text-amber-600 transition-colors leading-snug line-clamp-2">
                       {post.title}
                     </h4>
 
@@ -254,13 +254,13 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                 <div className="p-6 pt-0 border-t border-[#EAE6DE]/60 mt-4 flex items-center justify-between">
                   <div className="flex flex-wrap gap-1">
                     {post.tags.slice(0, 2).map((tag, idx) => (
-                      <span key={idx} className="bg-emerald-50 text-[#004D40] text-[10px] px-2 py-0.5 rounded-md font-medium">
+                      <span key={idx} className="bg-slate-50 text-[#1E293B] text-[10px] px-2 py-0.5 rounded-md font-medium">
                         #{tag}
                       </span>
                     ))}
                   </div>
 
-                  <span className="text-xs font-semibold text-[#004D40] group-hover:text-amber-600 flex items-center gap-1 shrink-0">
+                  <span className="text-xs font-semibold text-[#1E293B] group-hover:text-amber-600 flex items-center gap-1 shrink-0">
                     Lire
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -274,10 +274,10 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
       {/* FULL ARTICLE MODAL */}
       {activeArticle && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fade-in overflow-y-auto">
-          <div className="bg-[#FAF7F2] text-[#072E27] w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col my-auto border border-emerald-900/30">
+          <div className="bg-[#F8FAFC] text-[#111827] w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl flex flex-col my-auto border border-slate-900/30">
             
             {/* Modal Header Bar */}
-            <div className="bg-[#041915] text-white px-6 py-4 flex items-center justify-between shrink-0 border-b border-emerald-800">
+            <div className="bg-[#050A14] text-white px-6 py-4 flex items-center justify-between shrink-0 border-b border-slate-800">
               <div className="flex items-center gap-2 text-xs text-amber-300 uppercase tracking-widest font-semibold">
                 <BookOpen className="w-4 h-4 text-amber-400" />
                 <span>Le Journal de White Palace</span>
@@ -286,7 +286,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={handleShare}
-                  className="text-xs text-emerald-200 hover:text-white flex items-center gap-1.5 bg-emerald-900/60 px-3 py-1.5 rounded-full border border-emerald-700 transition-colors"
+                  className="text-xs text-slate-200 hover:text-white flex items-center gap-1.5 bg-slate-900/60 px-3 py-1.5 rounded-full border border-slate-700 transition-colors"
                 >
                   {copiedLink ? (
                     <>
@@ -303,7 +303,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
 
                 <button
                   onClick={() => setActiveArticle(null)}
-                  className="w-8 h-8 rounded-full bg-emerald-900/60 hover:bg-emerald-800 text-white flex items-center justify-center transition-colors"
+                  className="w-8 h-8 rounded-full bg-slate-900/60 hover:bg-slate-800 text-white flex items-center justify-center transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -315,8 +315,8 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
               
               {/* Article Hero */}
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-3 text-xs text-emerald-800 font-medium">
-                  <span className="bg-[#004D40] text-amber-300 px-3 py-1 rounded-full font-semibold uppercase tracking-wider text-[10px]">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-800 font-medium">
+                  <span className="bg-[#1E293B] text-amber-300 px-3 py-1 rounded-full font-semibold uppercase tracking-wider text-[10px]">
                     {activeArticle.category.replace('-', ' ')}
                   </span>
                   <span>•</span>
@@ -325,16 +325,16 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                   <span>{activeArticle.readTime}</span>
                 </div>
 
-                <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#004D40] leading-tight">
+                <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#1E293B] leading-tight">
                   {activeArticle.title}
                 </h1>
 
                 <div className="flex items-center gap-3 pt-2 text-xs text-gray-600 border-b border-[#EAE6DE] pb-4">
-                  <div className="w-8 h-8 rounded-full bg-[#004D40] text-amber-300 font-bold flex items-center justify-center text-xs">
+                  <div className="w-8 h-8 rounded-full bg-[#1E293B] text-amber-300 font-bold flex items-center justify-center text-xs">
                     {activeArticle.author.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-semibold text-[#072E27]">{activeArticle.author}</p>
+                    <p className="font-semibold text-[#111827]">{activeArticle.author}</p>
                     <p className="text-[10px] text-gray-500">Rédacteur pour White Palace Hotel</p>
                   </div>
                 </div>
@@ -353,7 +353,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
               {/* Content Paragraphs */}
               <div className="space-y-5 text-sm sm:text-base text-gray-700 leading-relaxed font-light">
                 {activeArticle.content.map((paragraph, index) => (
-                  <p key={index} className="first-letter:text-3xl first-letter:font-serif first-letter:font-bold first-letter:text-[#004D40] first-letter:mr-1">
+                  <p key={index} className="first-letter:text-3xl first-letter:font-serif first-letter:font-bold first-letter:text-[#1E293B] first-letter:mr-1">
                     {paragraph}
                   </p>
                 ))}
@@ -363,18 +363,18 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
               <div className="pt-4 flex flex-wrap items-center gap-2 border-t border-[#EAE6DE]">
                 <Tag className="w-3.5 h-3.5 text-amber-600" />
                 {activeArticle.tags.map((tag, idx) => (
-                  <span key={idx} className="bg-emerald-50 text-[#004D40] text-xs px-3 py-1 rounded-full font-medium">
+                  <span key={idx} className="bg-slate-50 text-[#1E293B] text-xs px-3 py-1 rounded-full font-medium">
                     #{tag}
                   </span>
                 ))}
               </div>
 
               {/* Call to action inside modal */}
-              <div className="bg-[#041915] text-white rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-emerald-800">
+              <div className="bg-[#050A14] text-white rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-slate-800">
                 <h4 className="font-serif text-xl text-amber-300 font-bold">
                   Envie de vivre cette expérience en direct ?
                 </h4>
-                <p className="text-xs sm:text-sm text-emerald-100 font-light max-w-md mx-auto">
+                <p className="text-xs sm:text-sm text-slate-100 font-light max-w-md mx-auto">
                   Réservez dès maintenant votre séjour au cœur de la forêt d'Andasibe et laissez-nous organiser vos visites guidées.
                 </p>
                 <button
@@ -382,7 +382,7 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
                     setActiveArticle(null);
                     onOpenRoomBooking();
                   }}
-                  className="bg-amber-400 hover:bg-amber-300 text-[#041915] font-bold text-xs px-8 py-3.5 rounded-full uppercase tracking-wider shadow-lg transition-all"
+                  className="bg-amber-400 hover:bg-amber-300 text-[#050A14] font-bold text-xs px-8 py-3.5 rounded-full uppercase tracking-wider shadow-lg transition-all"
                 >
                   RÉSERVER UN SÉJOUR
                 </button>
@@ -397,3 +397,4 @@ export const BlogView: React.FC<BlogViewProps> = ({ onOpenRoomBooking }) => {
     </div>
   );
 };
+

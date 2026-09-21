@@ -22,10 +22,10 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
   });
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-10">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-10">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={RESTAURANT_INTERIOR_IMAGE}
@@ -49,7 +49,7 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={onOpenTableBooking}
-              className="bg-[#004D40] hover:bg-[#00382E] text-white font-semibold text-xs sm:text-sm px-8 py-3.5 rounded-full tracking-wider uppercase transition-all shadow-xl hover:scale-105 flex items-center gap-2"
+              className="bg-[#1E293B] hover:bg-[#0F172A] text-white font-semibold text-xs sm:text-sm px-8 py-3.5 rounded-full tracking-wider uppercase transition-all shadow-xl hover:scale-105 flex items-center gap-2"
             >
               <UtensilsCrossed className="w-4 h-4 text-amber-300" />
               <span>RÉSERVER UNE TABLE</span>
@@ -91,7 +91,7 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                 activeTab === tab.id
-                  ? 'bg-white text-[#072E27] shadow-sm border border-[#EAE6DE]'
+                  ? 'bg-white text-[#111827] shadow-sm border border-[#EAE6DE]'
                   : 'text-gray-500 hover:text-gray-800'
               }`}
             >
@@ -118,11 +118,11 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
 
               <div className="flex-1 space-y-1">
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="font-serif text-sm font-bold text-[#072E27]">
+                  <h3 className="font-serif text-sm font-bold text-[#111827]">
                     {item.title}
                   </h3>
-                  <span className="font-serif text-sm font-bold text-[#072E27] shrink-0">
-                    {item.price}€
+                  <span className="font-serif text-sm font-bold text-[#111827] shrink-0">
+                    {item.price.toLocaleString('fr-MG')} Ar
                   </span>
                 </div>
 
@@ -137,7 +137,7 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
 
       {/* Bottom Note & Action Button */}
       <div className="max-w-xl mx-auto text-center space-y-6 pt-4 px-4">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-[#072E27] text-xs font-medium">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-[#111827] text-xs font-medium">
           <ChefHat className="w-4 h-4 text-amber-600" />
           <span>Nos plats sont élaborés chaque jour à partir de produits frais et bio locaux.</span>
         </div>
@@ -145,7 +145,7 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
         <div>
           <button
             onClick={onOpenMenuPdf}
-            className="bg-[#004D40] hover:bg-[#00382E] text-white font-bold text-xs px-8 py-4 rounded-full uppercase tracking-widest shadow-xl transition-all hover:scale-105 flex items-center gap-2 mx-auto"
+            className="bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs px-8 py-4 rounded-full uppercase tracking-widest shadow-xl transition-all hover:scale-105 flex items-center gap-2 mx-auto"
           >
             <Download className="w-4 h-4 text-amber-300" />
             <span>TÉLÉCHARGER LA CARTE COMPLÈTE (PDF)</span>

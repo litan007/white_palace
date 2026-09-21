@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { ROOMS } from '../data/hotelData';
 import { 
   Users, 
@@ -31,16 +31,16 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
   const [selectedImg, setSelectedImg] = useState(room.images[0]);
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-6">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-6">
       
       {/* Breadcrumb Navigation Bar */}
       <div className="bg-transparent py-4 px-4 sm:px-8 text-xs text-gray-500">
         <div className="max-w-6xl mx-auto flex items-center gap-2 font-light">
-          <button onClick={() => onNavigate('home')} className="hover:text-[#004D40] transition-colors">Accueil</button>
+          <button onClick={() => onNavigate('home')} className="hover:text-[#1E293B] transition-colors">Accueil</button>
           <span>&gt;</span>
-          <button onClick={() => onNavigate('rooms')} className="hover:text-[#004D40] transition-colors">Chambres</button>
+          <button onClick={() => onNavigate('rooms')} className="hover:text-[#1E293B] transition-colors">Chambres</button>
           <span>&gt;</span>
-          <span className="text-[#072E27] font-semibold">{room.title}</span>
+          <span className="text-[#111827] font-semibold">{room.title}</span>
         </div>
       </div>
 
@@ -49,10 +49,10 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
         {/* Title Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAE6DE] pb-4">
           <div>
-            <h1 className="font-serif text-3xl font-bold tracking-wide text-[#072E27] uppercase">
+            <h1 className="font-serif text-3xl font-bold tracking-wide text-[#111827] uppercase">
               {room.title}
             </h1>
-            <span className="text-xs text-gray-500 block pt-0.5">À partir de {room.price}€/nuit</span>
+            <span className="text-xs text-gray-500 block pt-0.5">À partir de {room.price.toLocaleString('fr-MG')} Ar/nuit</span>
           </div>
 
           <div className="flex text-amber-400 gap-1">
@@ -78,7 +78,7 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
                 key={i}
                 onClick={() => setSelectedImg(img)}
                 className={`aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all ${
-                  selectedImg === img ? 'border-[#004D40] shadow-sm' : 'border-transparent opacity-70 hover:opacity-100'
+                  selectedImg === img ? 'border-[#1E293B] shadow-sm' : 'border-transparent opacity-70 hover:opacity-100'
                 }`}
               >
                 <img src={img} alt={`Thumbnail ${i}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
@@ -90,27 +90,27 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
         {/* Key Features Badges Strip */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 bg-white p-4 rounded-2xl border border-[#EAE6DE] text-xs text-center shadow-sm">
           <div className="p-1 flex flex-col items-center gap-1">
-            <Users className="w-4 h-4 text-[#072E27]" />
+            <Users className="w-4 h-4 text-[#111827]" />
             <span className="font-medium text-gray-700">{room.capacity} personnes</span>
           </div>
           <div className="p-1 flex flex-col items-center gap-1">
-            <Maximize2 className="w-4 h-4 text-[#072E27]" />
+            <Maximize2 className="w-4 h-4 text-[#111827]" />
             <span className="font-medium text-gray-700">{room.surface} m²</span>
           </div>
           <div className="p-1 flex flex-col items-center gap-1">
-            <Eye className="w-4 h-4 text-[#072E27]" />
+            <Eye className="w-4 h-4 text-[#111827]" />
             <span className="font-medium text-gray-700">{room.view}</span>
           </div>
           <div className="p-1 flex flex-col items-center gap-1">
-            <Sparkles className="w-4 h-4 text-[#072E27]" />
+            <Sparkles className="w-4 h-4 text-[#111827]" />
             <span className="font-medium text-gray-700">Balcon privé</span>
           </div>
           <div className="p-1 flex flex-col items-center gap-1">
-            <Coffee className="w-4 h-4 text-[#072E27]" />
+            <Coffee className="w-4 h-4 text-[#111827]" />
             <span className="font-medium text-gray-700">Salle de bain</span>
           </div>
           <div className="p-1 flex flex-col items-center gap-1">
-            <Wifi className="w-4 h-4 text-[#072E27]" />
+            <Wifi className="w-4 h-4 text-[#111827]" />
             <span className="font-medium text-gray-700">Wi-Fi</span>
           </div>
         </div>
@@ -122,7 +122,7 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
           <div className="lg:col-span-8 space-y-6">
             {/* À propos */}
             <div className="space-y-2 bg-white p-6 rounded-2xl border border-[#EAE6DE] shadow-sm">
-              <h3 className="font-serif text-lg font-bold text-[#072E27]">
+              <h3 className="font-serif text-lg font-bold text-[#111827]">
                 À propos de la suite
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
@@ -132,13 +132,13 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
 
             {/* Équipements & Services */}
             <div className="space-y-3 bg-white p-6 rounded-2xl border border-[#EAE6DE] shadow-sm">
-              <h3 className="font-serif text-lg font-bold text-[#072E27]">
+              <h3 className="font-serif text-lg font-bold text-[#111827]">
                 Équipements & services
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 {room.amenities.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-gray-700">
-                    <Check className="w-3.5 h-3.5 text-[#004D40]" />
+                    <Check className="w-3.5 h-3.5 text-[#1E293B]" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -149,7 +149,7 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
           {/* Sticky Booking Widget Sidebar */}
           <div className="lg:col-span-4 sticky top-24 bg-white border border-[#EAE6DE] rounded-2xl p-6 space-y-5 shadow-sm text-gray-800">
             <div>
-              <h4 className="font-serif text-base font-bold text-[#072E27] tracking-wider uppercase">
+              <h4 className="font-serif text-base font-bold text-[#111827] tracking-wider uppercase">
                 VÉRIFIER LA DISPONIBILITÉ
               </h4>
             </div>
@@ -194,7 +194,7 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
 
             <button
               onClick={() => onOpenRoomBooking(room.id)}
-              className="w-full bg-[#004D40] hover:bg-[#00382E] text-white font-bold text-xs py-3.5 rounded-xl uppercase tracking-wider shadow-md transition-all text-center block"
+              className="w-full bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs py-3.5 rounded-xl uppercase tracking-wider shadow-md transition-all text-center block"
             >
               RÉSERVER CETTE SUITE
             </button>
@@ -207,3 +207,4 @@ export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
     </div>
   );
 };
+

@@ -17,10 +17,10 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
   });
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-10">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-10">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={LEMUR_IMAGE}
@@ -71,7 +71,7 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
               onClick={() => setFilter(tab.id as any)}
               className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                 filter === tab.id
-                  ? 'bg-[#004D40] text-white shadow-sm'
+                  ? 'bg-[#1E293B] text-white shadow-sm'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border border-[#EAE6DE]'
               }`}
             >
@@ -103,7 +103,7 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
               </div>
 
               <div className="p-6 space-y-3">
-                <h3 className="font-serif text-lg font-bold text-[#072E27]">
+                <h3 className="font-serif text-lg font-bold text-[#111827]">
                   {exp.title}
                 </h3>
 
@@ -114,10 +114,10 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
                 <div className="pt-2 border-t border-[#EAE6DE] flex items-center justify-between">
                   <div>
                     <span className="text-[10px] uppercase tracking-widest text-gray-400 font-medium block">Tarif indicatif</span>
-                    <span className="font-serif font-bold text-lg text-[#072E27]">{exp.price}€<span className="text-xs font-normal text-gray-500"> / pers</span></span>
+                    <span className="font-serif font-bold text-lg text-[#111827]">{exp.price.toLocaleString('fr-MG')} Ar<span className="text-xs font-normal text-gray-500"> / pers</span></span>
                   </div>
 
-                  <span className="text-xs font-bold text-[#004D40] group-hover:translate-x-1 transition-transform uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#1E293B] group-hover:translate-x-1 transition-transform uppercase tracking-wider">
                     VOIR DÉTAILS →
                   </span>
                 </div>
@@ -131,7 +131,7 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
       <div className="text-center pt-4">
         <button
           onClick={() => setFilter('all')}
-          className="bg-[#004D40] hover:bg-[#00382E] text-white font-bold text-xs px-8 py-3 rounded-xl uppercase tracking-wider shadow-sm transition-all"
+          className="bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs px-8 py-3 rounded-xl uppercase tracking-wider shadow-sm transition-all"
         >
           VOIR TOUTES LES EXPÉRIENCES
         </button>
@@ -141,7 +141,7 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
       {selectedExp && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
           <div className="bg-white border border-[#EAE6DE] rounded-2xl max-w-lg w-full text-gray-800 p-6 space-y-4 shadow-xl relative">
-            <h3 className="font-serif text-xl font-bold text-[#072E27]">
+            <h3 className="font-serif text-xl font-bold text-[#111827]">
               {selectedExp.title}
             </h3>
 
@@ -150,10 +150,10 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
             </p>
 
             <div className="space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-100 text-xs">
-              <span className="font-semibold text-[#072E27] block uppercase">Inclus dans l'activité:</span>
+              <span className="font-semibold text-[#111827] block uppercase">Inclus dans l'activité:</span>
               {selectedExp.included.map((inc, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-gray-600">
-                  <Check className="w-3.5 h-3.5 text-[#004D40]" />
+                  <Check className="w-3.5 h-3.5 text-[#1E293B]" />
                   <span>{inc}</span>
                 </div>
               ))}
@@ -162,7 +162,7 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
             <div className="flex justify-between items-center pt-2">
               <div>
                 <span className="text-[10px] text-gray-400 block uppercase">Prix par personne:</span>
-                <span className="font-serif text-2xl font-bold text-[#072E27]">{selectedExp.price}€</span>
+                <span className="font-serif text-2xl font-bold text-[#111827]">{selectedExp.price.toLocaleString('fr-MG')} Ar</span>
               </div>
               <div className="flex gap-2">
                 <button
@@ -176,7 +176,7 @@ export const ExperiencesView: React.FC<ExperiencesViewProps> = ({ onOpenRoomBook
                     setSelectedExp(null);
                     onOpenRoomBooking();
                   }}
-                  className="px-5 py-2 bg-[#004D40] text-white font-semibold text-xs rounded-lg uppercase tracking-wider"
+                  className="px-5 py-2 bg-[#1E293B] text-white font-semibold text-xs rounded-lg uppercase tracking-wider"
                 >
                   Réserver
                 </button>

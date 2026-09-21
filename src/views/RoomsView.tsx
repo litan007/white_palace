@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ROOMS, HERO_LODGE_IMAGE } from '../data/hotelData';
+import { ROOMS, ROOMS_HERO_IMAGE } from '../data/hotelData';
 import { TrustBadges } from '../components/TrustBadges';
 import { Users, Maximize2, Eye, Sparkles, ChevronRight, ChevronDown } from 'lucide-react';
 
@@ -21,13 +21,13 @@ export const RoomsView: React.FC<RoomsViewProps> = ({ onOpenRoomDetail, onOpenRo
   });
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-10">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-10">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src={HERO_LODGE_IMAGE}
+            src={ROOMS_HERO_IMAGE}
             alt="Nos Chambres & Suites"
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
@@ -75,7 +75,7 @@ export const RoomsView: React.FC<RoomsViewProps> = ({ onOpenRoomDetail, onOpenRo
               onClick={() => setFilter(tab.id as any)}
               className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                 filter === tab.id
-                  ? 'bg-[#004D40] text-white shadow-sm'
+                  ? 'bg-[#1E293B] text-white shadow-sm'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border border-[#EAE6DE]'
               }`}
             >
@@ -108,14 +108,14 @@ export const RoomsView: React.FC<RoomsViewProps> = ({ onOpenRoomDetail, onOpenRo
             {/* Content */}
             <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
-                <h3 className="font-serif text-2xl font-bold text-[#072E27] tracking-wide">
+                <h3 className="font-serif text-2xl font-bold text-[#111827] tracking-wide">
                   {room.title}
                 </h3>
 
                 <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 font-medium">
-                  <span className="flex items-center gap-1.5 bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#EAE6DE] text-[#004D40]"><Users className="w-3.5 h-3.5 text-amber-600" /> {room.capacity} personnes</span>
-                  <span className="flex items-center gap-1.5 bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#EAE6DE] text-[#004D40]"><Maximize2 className="w-3.5 h-3.5 text-amber-600" /> {room.surface} m²</span>
-                  <span className="flex items-center gap-1.5 bg-[#FAF7F2] px-3 py-1 rounded-full border border-[#EAE6DE] text-[#004D40]"><Eye className="w-3.5 h-3.5 text-amber-600" /> {room.view}</span>
+                  <span className="flex items-center gap-1.5 bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#EAE6DE] text-[#1E293B]"><Users className="w-3.5 h-3.5 text-amber-600" /> {room.capacity} personnes</span>
+                  <span className="flex items-center gap-1.5 bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#EAE6DE] text-[#1E293B]"><Maximize2 className="w-3.5 h-3.5 text-amber-600" /> {room.surface} m²</span>
+                  <span className="flex items-center gap-1.5 bg-[#F8FAFC] px-3 py-1 rounded-full border border-[#EAE6DE] text-[#1E293B]"><Eye className="w-3.5 h-3.5 text-amber-600" /> {room.view}</span>
                 </div>
 
                 <p className="text-xs text-gray-600 font-light leading-relaxed pt-1">
@@ -127,12 +127,12 @@ export const RoomsView: React.FC<RoomsViewProps> = ({ onOpenRoomDetail, onOpenRo
               <div className="flex items-center justify-between pt-4 border-t border-[#EAE6DE]">
                 <div>
                   <span className="text-[10px] uppercase tracking-widest text-gray-400 font-medium block">Tarif indicatif</span>
-                  <span className="font-serif font-bold text-lg text-[#072E27]">{room.price}€<span className="text-xs font-normal text-gray-500"> / nuit</span></span>
+                  <span className="font-serif font-bold text-lg text-[#111827]">{room.price.toLocaleString('fr-MG')} Ar<span className="text-xs font-normal text-gray-500"> / nuit</span></span>
                 </div>
 
                 <button
                   onClick={() => onOpenRoomDetail(room.id)}
-                  className="bg-[#004D40] hover:bg-[#00382E] text-white font-bold text-xs px-6 py-3 rounded-full tracking-widest uppercase transition-all shadow-md hover:scale-105 flex items-center gap-2"
+                  className="bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs px-6 py-3 rounded-full tracking-widest uppercase transition-all shadow-md hover:scale-105 flex items-center gap-2"
                 >
                   <span>DÉCOUVRIR</span>
                   <ChevronRight className="w-4 h-4 text-amber-300" />

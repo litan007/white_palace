@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { X, Play, Volume2, VolumeX, Sparkles, Trees, Eye, Film } from 'lucide-react';
 import { HERO_LODGE_IMAGE, LEMUR_IMAGE, SUITE_LAGON_IMAGE, GOURMET_DINING_IMAGE } from '../data/hotelData';
 
@@ -23,20 +23,20 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in">
-      <div className="bg-[#081e1a] border border-amber-400/40 rounded-xl max-w-4xl w-full text-amber-50 shadow-2xl overflow-hidden relative">
+      <div className="bg-[#0A0F1C] border border-amber-400/40 rounded-xl max-w-4xl w-full text-amber-50 shadow-2xl overflow-hidden relative">
         
         {/* Header */}
-        <div className="bg-[#051411] px-6 py-3 border-b border-emerald-800/80 flex items-center justify-between">
+        <div className="bg-[#051411] px-6 py-3 border-b border-slate-800/80 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Film className="w-4 h-4 text-amber-400" />
             <span className="font-serif text-sm font-bold tracking-widest uppercase text-amber-100">
-              IMMERSION VIDÉO — WHITE PALACE LUXURY RESORT
+              IMMERSION VIDÉO â Ar” WHITE PALACE LUXURY RESORT
             </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1 rounded-full bg-emerald-950 hover:bg-emerald-800 text-emerald-300 hover:text-white transition-colors"
+            className="p-1 rounded-full bg-slate-950 hover:bg-slate-800 text-emerald-300 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -83,7 +83,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
                 <span className="font-semibold">{chapters[activeChapter].title}</span>
                 <span className="text-[10px] text-emerald-300">{chapters[activeChapter].duration}</span>
               </div>
-              <div className="w-full bg-emerald-950/80 rounded-full h-1 overflow-hidden border border-emerald-800/40">
+              <div className="w-full bg-slate-950/80 rounded-full h-1 overflow-hidden border border-slate-800/40">
                 <div className={`h-full bg-gradient-to-r from-amber-500 to-amber-300 ${isPlaying ? 'w-2/3 animate-pulse' : 'w-1/3'}`} />
               </div>
             </div>
@@ -91,7 +91,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Chapters selection */}
-        <div className="p-4 bg-[#071916] border-t border-emerald-800/80 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="p-4 bg-[#0A0F1C] border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-3">
           {chapters.map((chap, idx) => (
             <button
               key={idx}
@@ -102,13 +102,13 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
               className={`p-2 rounded-lg border text-left text-xs transition-all flex items-center gap-2 ${
                 activeChapter === idx
                   ? 'bg-amber-950/50 border-amber-400 text-amber-200 ring-1 ring-amber-400/30'
-                  : 'bg-emerald-950/40 border-emerald-800/60 text-emerald-300 hover:bg-emerald-900/40'
+                  : 'bg-slate-950/40 border-slate-800/60 text-emerald-300 hover:bg-slate-900/40'
               }`}
             >
               <img
                 src={chap.image}
                 alt={chap.title}
-                className="w-10 h-8 object-cover rounded border border-emerald-700"
+                className="w-10 h-8 object-cover rounded border border-slate-700"
                 referrerPolicy="no-referrer"
               />
               <div className="truncate">
@@ -122,3 +122,4 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
     </div>
   );
 };
+

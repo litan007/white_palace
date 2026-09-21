@@ -1,425 +1,574 @@
 import { Room, MenuItem, Experience, Offer, GalleryItem, BlogPost } from '../types';
 
-const heroLodgeImg = '/images/hero_lodge.jpeg';
-const suiteLagonImg = '/images/suite_lagon.jpeg';
-const lemurImg = '/images/lemur_nature.jpeg';
-const gourmetDiningImg = '/images/gourmet_dining.jpeg';
-const spaRelaxImg = '/images/spa_relax.jpeg';
-const villaNatureImg = '/images/villa_nature.jpeg';
-const suitePrestigeImg = '/images/suite_prestige.jpeg';
-const familyLodgeImg = '/images/family_lodge.jpeg';
-const gourmetDishImg = '/images/gourmet_dish.jpeg';
-const gourmetPlateImg = '/images/gourmet_plate.jpeg';
-const hotelExteriorImg = '/images/hotel_exterior.jpeg';
-const lemurCloseImg = '/images/lemur_close.jpeg';
-const lodgeBedroomImg = '/images/lodge_bedroom.jpeg';
-const prestigeLivingImg = '/images/prestige_living.jpeg';
-const restaurantInteriorImg = '/images/restaurant_interior.jpeg';
-const spaMassageImg = '/images/spa_massage.jpeg';
-const suiteLagonViewImg = '/images/suite_lagon_view.jpeg';
-const villaPoolImg = '/images/villa_pool.jpeg';
+const accueil1Img = '/nouvelles_photos/accueil_1.jpg';
+const accueil2Img = '/nouvelles_photos/accueil_2.jpg';
+const chambreFondImg = '/nouvelles_photos/chambre_de_fond.jpg';
+const chambreLit1Img = '/nouvelles_photos/chambre_lit_1.jpg';
+const chambreLit2Img = '/nouvelles_photos/chambre_lit_2.jpg';
+const chambreLit3Img = '/nouvelles_photos/chambre_lit_3.jpg';
+const chambreLit4Img = '/nouvelles_photos/chambre_lit_4.jpg';
+const chambreLit5Img = '/nouvelles_photos/chambre_lit_5.jpg';
+const chambreSalon1Img = '/nouvelles_photos/chambre_sallon_1.jpg';
+const chambreSalon2Img = '/nouvelles_photos/chambre_sallon_2.jpg';
+const chambreSalon3Img = '/nouvelles_photos/chambre_sallon_3.jpg';
+const chambreSalon4Img = '/nouvelles_photos/chambre_sallon_4.jpg';
+const coinDetente1Img = '/nouvelles_photos/coin_détente_1.jpg';
+const coinDetente2Img = '/nouvelles_photos/coin_détente_2.jpg';
+const equipeEmployeImg = '/nouvelles_photos/equipe_employé.jpg';
+const facade1Img = '/nouvelles_photos/fascade_1.jpg';
+const gateau1Img = '/nouvelles_photos/gateau_1.jpg';
+const gateau2Img = '/nouvelles_photos/gateau_2.jpg';
+const gateau3Img = '/nouvelles_photos/gateau_3.jpg';
+const gateau4Img = '/nouvelles_photos/gateau_4.jpg';
+const offre1Img = '/nouvelles_photos/offre_1.jpg';
+const photoNature1Img = '/nouvelles_photos/photo_nature_1.jpg';
+const photoNature2Img = '/nouvelles_photos/photo_nature_2.jpg';
+const photoProprioImg = '/nouvelles_photos/photo_propiro_et_associé_1.jpg';
+const photoProprio2Img = '/nouvelles_photos/photo_propiro_et_associé_2.jpg';
+const remiseAttestationImg = '/nouvelles_photos/remise_attestation.jpg';
+const salleRestaurant1Img = '/nouvelles_photos/salle-restaurant_1.jpg';
+const salleRestaurant2Img = '/nouvelles_photos/salle-restaurant_2.jpg';
+const salleRestaurant3Img = '/nouvelles_photos/salle-restaurant_3.jpg';
+const salleMassageImg = '/nouvelles_photos/salle_massage.jpg';
+const salleRecuperationSportImg = '/nouvelles_photos/salle_recuperation_sport.jpg';
+const salleSportImg = '/nouvelles_photos/salle_sport.jpg';
+const terrasse1Img = '/nouvelles_photos/terrasse_1.jpg';
+const terrasse2Img = '/nouvelles_photos/terrasse_2.jpg';
+const vueTanaImg = '/nouvelles_photos/vue_sur_tana.jpg';
+const aPropos1Img = '/nouvelles_photos/à_propos_1.jpg';
+const aPropos2Img = '/nouvelles_photos/à_propos_2.jpg';
+const aPropos3Img = '/nouvelles_photos/à_propos_3.jpg';
+const entreeSaladeImg = '/nouvelles_photos/entree_salade.jpg';
+const platCarpaccioImg = '/nouvelles_photos/plat_carpaccio.jpg';
+const platPoissonImg = '/nouvelles_photos/plat_poisson.jpg';
+const boissonCocktailImg = '/nouvelles_photos/boisson_cocktail.jpg';
 
-export const HERO_LODGE_IMAGE = heroLodgeImg;
-export const LEMUR_IMAGE = lemurImg;
-export const SUITE_LAGON_IMAGE = suiteLagonImg;
-export const GOURMET_DINING_IMAGE = gourmetDiningImg;
-export const SPA_RELAX_IMAGE = spaRelaxImg;
-export const VILLA_NATURE_IMAGE = villaNatureImg;
-export const SUITE_PRESTIGE_IMAGE = suitePrestigeImg;
-export const HOTEL_EXTERIOR_IMAGE = hotelExteriorImg;
-export const RESTAURANT_INTERIOR_IMAGE = restaurantInteriorImg;
-export const PRESTIGE_LIVING_IMAGE = prestigeLivingImg;
-export const LEMUR_CLOSE_IMAGE = lemurCloseImg;
+const vitrineVetiverImg = '/nouvelles_photos/vitrine_vetiver.jpg';
+
+export const HERO_LODGE_IMAGE = accueil1Img;
+export const LEMUR_IMAGE = equipeEmployeImg;
+export const SUITE_LAGON_IMAGE = chambreLit1Img;
+export const GOURMET_DINING_IMAGE = salleRestaurant1Img;
+export const SPA_RELAX_IMAGE = salleMassageImg;
+export const VILLA_NATURE_IMAGE = chambreSalon1Img;
+export const SUITE_PRESTIGE_IMAGE = chambreSalon4Img;
+export const HOTEL_EXTERIOR_IMAGE = vueTanaImg;
+export const RESTAURANT_INTERIOR_IMAGE = salleRestaurant2Img;
+export const PRESTIGE_LIVING_IMAGE = coinDetente1Img;
+export const LEMUR_CLOSE_IMAGE = aPropos1Img;
+export const BLOG_HERO_IMAGE = terrasse1Img;
+export const ROOMS_HERO_IMAGE = chambreFondImg;
 
 export const ROOMS: Room[] = [
   {
-    id: 'suite-lagon',
-    title: 'SUITE LAGON',
-    subtitle: 'Élégance avec terrasse sur le lac',
+    id: 'chambre-luxe',
+    title: 'CHAMBRE LUXE',
+    subtitle: 'Confort absolu et élégance',
     category: 'suite',
-    price: 420,
+    price: 250000,
     surface: 45,
     capacity: 2,
-    view: 'Vue lac',
-    shortDescription: 'Suite avec balcon privé et vue imprenable sur le lac et la forêt tropicale.',
-    fullDescription: 'Profitez d\'une suite élégante avec balcon privé surplombant le lac et la forêt tropicale d\'Andasibe. Un cadre idéal pour se ressourcer et se reconnecter à l\'essentiel. Conçue en bois précieux de palissandre et décorée avec des objets d\'artisanat malgache raffiné, la Suite Lagon allie authenticité et haut standing.',
+    view: 'Vue ville',
+    shortDescription: 'Chambre de luxe spacieuse, idéale pour un séjour tout en élégance et sérénité.',
+    fullDescription: 'Profitez d\'une chambre de luxe alliant raffinement et modernité, offrant une literie d\'exception et un espace salon. Conçue pour répondre aux attentes des voyageurs les plus exigeants avec des matériaux nobles.',
     images: [
-      suiteLagonImg,
-      suiteLagonViewImg,
-      prestigeLivingImg,
-      hotelExteriorImg
+      chambreLit1Img,
+      chambreSalon1Img,
+      chambreFondImg
     ],
     amenities: [
-      'Lit King size',
-      'Mini-bar réassorti',
-      'Produits d\'accueil bio locaux',
-      'Douche à l\'italienne en pierre',
-      'Coffre-fort électronique',
-      'Service en chambre 24h/24',
-      'Climatisation & ventilateur silencieux',
-      'Peignoirs & chaussons en coton bio',
-      'Machine à café Nespresso',
-      'Télescope d\'observation ornithologique',
-      'Wi-Fi haut débit par satellite'
+      'Petit déjeuner inclus',
+      'WiFi par chambre gratuit',
+      'Box TV',
+      'Réception ouverte 24h/24',
+      'Service de concierge gratuit',
+      'Sécurité 24h/24'
     ],
     rating: 5,
     featured: true
   },
   {
-    id: 'villa-nature',
-    title: 'VILLA NATURE',
-    subtitle: 'Cocon privé avec piscine naturelle',
+    id: 'appartement',
+    title: 'APPARTEMENT',
+    subtitle: 'Votre espace privé en plein centre-ville',
     category: 'villa',
-    price: 560,
+    price: 200000,
     surface: 60,
-    capacity: 2,
-    view: 'Vue forêt',
-    shortDescription: 'Villa privée au cœur de la nature avec piscine privative et grande baignoire extérieure.',
-    fullDescription: 'Nichée au cœur d\'une végétation exubérante, la Villa Nature propose une expérience d\'immersion absolue. Elle dispose d\'un bassin privé filtré naturellement, d\'une vaste terrasse en bois et d\'un salon extérieur ombragé.',
-    images: [
-      villaNatureImg,
-      villaPoolImg,
-      suiteLagonImg
-    ],
-    amenities: [
-      'Lit King size',
-      'Piscine privée naturelle',
-      'Baignoire extérieure en pierre',
-      'Service de majordome dédié',
-      'Terrasse privée panoramique',
-      'Système audio Bluetooth Bang & Olufsen',
-      'Produits de soin bio à la vanille de Madagascar',
-      'Wi-Fi haut débit'
-    ],
-    rating: 5,
-    featured: true
-  },
-  {
-    id: 'suite-prestige',
-    title: 'SUITE PRESTIGE',
-    subtitle: 'Luxe absolu et panorama à 180°',
-    category: 'suite',
-    price: 760,
-    surface: 70,
-    capacity: 2,
+    capacity: 4,
     view: 'Vue panoramique',
-    shortDescription: 'Le summum du luxe avec terrasse privée, salon indépendant et services sur-mesure.',
-    fullDescription: 'Offrant un panorama époustouflant sur la canopée d\'Andasibe, la Suite Prestige est une démonstration de design d\'exception. Elle se compose d\'une vaste chambre, d\'un salon séparé avec cheminée en pierre et d\'un jacuzzi privatif chauffé sur la terrasse.',
+    shortDescription: 'Appartement spacieux offrant toute l\'indépendance nécessaire pour vos séjours prolongés.',
+    fullDescription: 'Un appartement élégant et entièrement aménagé, parfait pour les séjours en famille ou d\'affaires prolongés. Espace généreux avec salon indépendant, alliant le confort de l\'hôtel à l\'intimité d\'un chez-soi.',
     images: [
-      suitePrestigeImg,
-      prestigeLivingImg,
-      heroLodgeImg
+      chambreSalon4Img,
+      chambreLit2Img,
+      coinDetente2Img
     ],
     amenities: [
-      'Lit King size sur-mesure',
-      'Jacuzzi extérieur chauffé',
-      'Cheminée au feu de bois dans le salon',
-      'Service de petit-déjeuner au lit sans supplément',
-      'Accès illimité au Spa thermal',
-      'Dégustation privée de rhums arrangés'
+      'Petit déjeuner inclus',
+      'WiFi par chambre gratuit',
+      'Box TV',
+      'Espace salon',
+      'Réception ouverte 24h/24',
+      'Sécurité 24h/24'
     ],
     rating: 5,
     featured: true
   },
   {
-    id: 'family-lodge',
-    title: 'FAMILY LODGE',
+    id: 'chambre-cuisine',
+    title: 'CHAMBRE AVEC CUISINE',
+    subtitle: 'Autonomie et confort',
+    category: 'suite',
+    price: 200000,
+    surface: 50,
+    capacity: 2,
+    view: 'Vue ville',
+    shortDescription: 'Chambre double équipée d\'une kitchenette pour plus d\'indépendance.',
+    fullDescription: 'La chambre idéale pour ceux qui aiment leur indépendance tout en bénéficiant des services de l\'hôtel. Elle comprend une cuisine fonctionnelle et un espace repas intimiste.',
+    images: [
+      chambreSalon2Img,
+      chambreLit3Img,
+      chambreFondImg
+    ],
+    amenities: [
+      'Petit déjeuner inclus',
+      'WiFi par chambre gratuit',
+      'Kitchenette équipée',
+      'Box TV',
+      'Réception 24h/24',
+      'Service de concierge gratuit'
+    ],
+    rating: 5,
+    featured: true
+  },
+  {
+    id: 'chambre-familiale',
+    title: 'CHAMBRE FAMILIALE',
     subtitle: 'Espace et sérénité pour toute la famille',
     category: 'lodge',
-    price: 950,
-    surface: 90,
+    price: 175000,
+    surface: 70,
     capacity: 4,
-    view: 'Vue forêt',
-    shortDescription: 'Idéal pour les familles, espace confortable avec 2 chambres séparées et activités incluses.',
-    fullDescription: 'Passez des moments inoubliables en famille dans ce lodge spacieux de 90 m². Il comprend deux chambres doubles ensuite, un salon central chaleureux, une grande varangue donnant sur la forêt et un kit d\'observation des lémuriens pour enfants.',
+    view: 'Vue cour',
+    shortDescription: 'Idéal pour les familles, un espace confortable et chaleureux au calme.',
+    fullDescription: 'Passez des moments inoubliables en famille dans cette chambre spacieuse. Elle offre un grand espace de vie avec des lits confortables pour parents et enfants, dans un cadre sécurisé et très calme.',
     images: [
-      familyLodgeImg,
-      lodgeBedroomImg
+      chambreLit4Img,
+      chambreSalon3Img
     ],
     amenities: [
-      '2 Lits King size (ou 4 lits simples)',
-      '2 Salles de bain indépendantes',
-      'Varangue couverte de 30 m²',
-      'Jeux de société et kits naturalistes enfants',
-      'Petit-déjeuner buffet complet inclus',
-      'Wi-Fi haut débit'
+      'Petit déjeuner inclus',
+      'WiFi par chambre gratuit',
+      'Box TV',
+      'Réception ouverte 24h/24',
+      'Sécurité 24h/24'
     ],
-    rating: 5,
-    featured: true
+    rating: 4,
+    featured: false
   },
   {
-    id: 'villa-royale-forest',
-    title: 'VILLA ROYALE FOREST',
-    subtitle: 'Résidence d\'exception en palissandre',
-    category: 'villa',
-    price: 1250,
-    surface: 140,
-    capacity: 6,
-    view: 'Vue forêt & lac',
-    shortDescription: 'Immense villa d\'architecte entourée par la canopée, avec chef privé sur demande.',
-    fullDescription: 'La Villa Royale Forest offre un sanctuaire exclusif pour les voyageurs exigeants. Nichée au point le plus élevé du domaine, elle offre une intimité totale, un sauna finlandais en bois, une piscine chauffée et un chef privé dédié.',
+    id: 'chambre-handicape',
+    title: 'CHAMBRE PMR',
+    subtitle: 'Accessibilité et confort',
+    category: 'lodge',
+    price: 180000,
+    surface: 40,
+    capacity: 2,
+    view: 'Vue ville',
+    shortDescription: 'Chambre spécialement aménagée pour les personnes à mobilité réduite.',
+    fullDescription: 'Cette chambre spacieuse est spécialement conçue et aménagée pour offrir un confort maximal et une accessibilité totale aux personnes à mobilité réduite. Salle d\'eau adaptée et aménagements spécifiques.',
     images: [
-      villaNatureImg,
-      heroLodgeImg
+      chambreLit5Img
     ],
     amenities: [
-      '3 Suites privées avec dressing',
-      'Piscine à débordement chauffée',
-      'Chef cuisinier privé & Majordome',
-      'Sauna privé en cèdre',
-      'Transfert héliport inclus'
+      'Petit déjeuner inclus',
+      'WiFi gratuit',
+      'Aménagements PMR',
+      'Box TV',
+      'Réception 24h/24',
+      'Sécurité 24h/24'
     ],
     rating: 5,
+    featured: false
+  },
+  {
+    id: 'chambre-double',
+    title: 'CHAMBRE DOUBLE',
+    subtitle: 'Idéal pour les couples',
+    category: 'villa',
+    price: 145000,
+    surface: 35,
+    capacity: 2,
+    view: 'Vue cour',
+    shortDescription: 'Chambre chaleureuse et lumineuse, idéale pour un séjour à deux.',
+    fullDescription: 'Une chambre très confortable avec un grand lit double, offrant une décoration soignée et tout l\'équipement nécessaire pour un séjour agréable au cœur d\'Antananarivo.',
+    images: [
+      chambreLit2Img
+    ],
+    amenities: [
+      'Petit déjeuner inclus',
+      'WiFi gratuit',
+      'Box TV',
+      'Réception 24h/24',
+      'Service de concierge gratuit',
+      'Sécurité 24h/24'
+    ],
+    rating: 4,
+    featured: false
+  },
+  {
+    id: 'chambre-twin',
+    title: 'CHAMBRE TWIN',
+    subtitle: 'Pratique et confortable',
+    category: 'lodge',
+    price: 135000,
+    surface: 30,
+    capacity: 2,
+    view: 'Vue ville',
+    shortDescription: 'Chambre avec deux lits séparés, parfaite pour amis ou collègues.',
+    fullDescription: 'Chambre lumineuse équipée de deux lits simples. Idéale pour les voyageurs d\'affaires ou les amis souhaitant partager une chambre tout en gardant leur propre espace.',
+    images: [
+      chambreLit3Img
+    ],
+    amenities: [
+      'Petit déjeuner inclus',
+      'WiFi gratuit',
+      'Box TV',
+      'Réception 24h/24',
+      'Sécurité 24h/24'
+    ],
+    rating: 4,
+    featured: false
+  },
+  {
+    id: 'chambre-single',
+    title: 'CHAMBRE SINGLE',
+    subtitle: 'Le confort au meilleur prix',
+    category: 'lodge',
+    price: 135000,
+    surface: 25,
+    capacity: 1,
+    view: 'Vue cour',
+    shortDescription: 'Chambre cosy et fonctionnelle pour voyageur solo.',
+    fullDescription: 'Une chambre douillette conçue pour les voyageurs en solo. Profitez d\'un confort optimal, du petit-déjeuner inclus et de notre service de conciergerie à un prix très attractif.',
+    images: [
+      chambreLit5Img
+    ],
+    amenities: [
+      'Petit déjeuner inclus',
+      'WiFi gratuit',
+      'Box TV',
+      'Réception 24h/24',
+      'Sécurité 24h/24'
+    ],
+    rating: 4,
     featured: false
   }
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
   {
+    id: 'salade-chou',
+    title: 'Salade de chou à l\'indienne',
+    category: 'entrees',
+    price: 5000,
+    description: 'Salade fraîche et croquante de chou avec ses épices douces à l\'indienne.',
+    image: entreeSaladeImg,
+    tags: ['Frais', 'Végétarien'],
+    recommended: false
+  },
+  {
+    id: 'salade-tomate',
+    title: 'Salade de Tomate mauricienne',
+    category: 'entrees',
+    price: 8000,
+    description: 'Tomates fraîches marinées à la façon mauricienne, pleine de saveurs.',
+    image: platPoissonImg,
+    tags: ['Spécialité'],
+    recommended: true
+  },
+  {
     id: 'carpaccio-zebu',
     title: 'Carpaccio de zébu',
-    category: 'entrees',
-    price: 18,
-    description: 'Carpaccio de zébu fumé au bois de girofle, roquette sauvage de la forêt, copeaux de parmesan raffiné et huile de citron vert de Brickaville.',
-    image: gourmetDishImg,
-    tags: ['Spécialité locale', 'Fumé maison'],
+    category: 'plats',
+    price: 20000,
+    description: 'Tranches fines de zébu sélectionné, marinées avec soin et accompagnées de crudités.',
+    image: platCarpaccioImg,
+    tags: ['Suggestion du Chef'],
     recommended: true
   },
   {
-    id: 'raviole-bredes',
-    title: 'Raviole de brèdes locales',
-    category: 'entrees',
-    price: 16,
-    description: 'Raviole maison aux brèdes mafana et paysannes, bouillon clair parfumé au gingembre sauvage et poivre sauvage Voatsiperifery.',
-    image: gourmetPlateImg,
-    tags: ['Végétarien', 'Bio'],
+    id: 'mille-feuille-tomate',
+    title: 'Mille feuille de Tomate au fromage',
+    category: 'plats',
+    price: 20000,
+    description: 'Un délicieux mille feuille végétarien, couches de tomates fondantes et fromage affiné.',
+    image: entreeSaladeImg,
+    tags: ['Végétarien'],
     recommended: false
   },
   {
-    id: 'filet-poisson-lac',
-    title: 'Filet de poisson du lac',
+    id: 'poulet-carry',
+    title: 'Cuisse de poulet sauce carry',
     category: 'plats',
-    price: 26,
-    description: 'Filet de poisson du lac poêlé à l\'unilatérale, sauce onctueuse vanille de Sambava et combava, poêlée de légumes bio de saison.',
-    image: gourmetDiningImg,
-    tags: ['Incontournable Chef', 'Sans Gluten'],
+    price: 25000,
+    description: 'Cuisse de poulet mijotée dans une sauce carry onctueuse, accompagnée de son riz frit aux légumes croquants.',
+    image: platCarpaccioImg,
+    tags: ['Copieux', 'Épicé'],
     recommended: true
   },
   {
-    id: 'magret-canard',
-    title: 'Magret de canard rôti',
+    id: 'merlan-poivres',
+    title: 'Merlan sauce aux poivres',
     category: 'plats',
-    price: 28,
-    description: 'Magret de canard rôti rosé, sauce au miel de forêt d\'Andasibe et épices locales, purée veloutée de patate douce violette.',
-    image: gourmetDishImg,
-    tags: ['Miel de la forêt'],
+    price: 20000,
+    description: 'Filet de merlan poêlé nappé d\'une sauce aux poivres de Madagascar, servi avec du riz blanc parfumé.',
+    image: platPoissonImg,
+    tags: ['Poisson'],
     recommended: true
   },
   {
-    id: 'langouste-grillee',
-    title: 'Langouste grillée au combava',
+    id: 'chou-farci',
+    title: 'Chou farci sauce carry',
     category: 'plats',
-    price: 34,
-    description: 'Langouste royale fraîche de la côte Est, émulsion au beurre de combava, riz rouge aromatique de Sainte-Marie.',
-    image: restaurantInteriorImg,
-    tags: ['Pêche durable', 'Signature'],
-    recommended: true
-  },
-  {
-    id: 'fondant-chocolat',
-    title: 'Fondant au chocolat Grand Cru',
-    category: 'desserts',
-    price: 12,
-    description: 'Fondant au chocolat 70% pure origine Sambirano, cœur coulant, glace artisanale vanille bourbon de Madagascar.',
-    image: gourmetPlateImg,
-    tags: ['Chocolat d\'Exception'],
-    recommended: true
-  },
-  {
-    id: 'mousse-fruits-passion',
-    title: 'Symphonie aux fruits exotiques',
-    category: 'desserts',
-    price: 11,
-    description: 'Mousse légère au fruit de la passion, sorbet lychee givré et sablé au gingembre confit.',
-    image: gourmetDishImg,
-    tags: ['Frais & Léger'],
+    price: 10000,
+    description: 'Chou savoureusement farci et accompagné de sa sauce carry parfumée.',
+    image: entreeSaladeImg,
+    tags: ['Tradition'],
     recommended: false
   },
   {
-    id: 'cocktail-andasibe-breeze',
-    title: 'Cocktail "Andasibe Breeze"',
+    id: 'legumes-poisson',
+    title: 'Légumes sautés au poisson',
+    category: 'plats',
+    price: 15000,
+    description: 'Sauté de légumes de saison et tendres morceaux de poisson, servi avec du riz jaune.',
+    image: platCarpaccioImg,
+    tags: ['Équilibré'],
+    recommended: false
+  },
+  {
+    id: 'carotte-halwa',
+    title: 'Carotte Halwa indienne',
+    category: 'desserts',
+    price: 5000,
+    description: 'Dessert traditionnel indien à base de carottes râpées, lait et épices douces.',
+    image: gateau1Img,
+    tags: ['Gourmand'],
+    recommended: false
+  },
+  {
+    id: 'gateau-opera',
+    title: 'Gâteau opéra avec sauce choco',
+    category: 'desserts',
+    price: 10000,
+    description: 'Grand classique de la pâtisserie, notre Gâteau Opéra est sublimé par une sauce chocolat intense.',
+    image: gateau2Img,
+    tags: ['Chef Pâtissier'],
+    recommended: true
+  },
+  {
+    id: 'chocolat-fondant',
+    title: 'Chocolat au coeur fondant',
+    category: 'desserts',
+    price: 15000,
+    description: 'Moelleux au chocolat et son coeur coulant, accompagné d\'une généreuse boule de glace au coco.',
+    image: gateau3Img,
+    tags: ['Chocolat', 'Signature'],
+    recommended: true
+  },
+  {
+    id: 'ananas-caramelise',
+    title: 'Ananas caramélisé',
+    category: 'desserts',
+    price: 10000,
+    description: 'Tranches d\'ananas rôties au caramel, servies avec une boule de glace à la vanille de Madagascar.',
+    image: gateau4Img,
+    tags: ['Frais'],
+    recommended: true
+  },
+  {
+    id: 'cocktail-maison',
+    title: 'Cocktail Maison Tropical',
     category: 'boissons',
-    price: 14,
-    description: 'Rhum arrangé artisanal infusé vanille-cannelle, jus de litchi fraîchement pressé, purée de fruit de la passion et brin de menthe sauvage.',
-    image: restaurantInteriorImg,
-    tags: ['Cocktail Création'],
+    price: 15000,
+    description: 'Mélange rafraîchissant de fruits tropicaux de saison.',
+    image: boissonCocktailImg,
+    tags: ['Frais'],
     recommended: true
   },
   {
-    id: 'menu-degustation-5-temps',
-    title: 'Menu Dégustation "Saveurs de l\'Île Rouge"',
-    category: 'degustation',
-    price: 75,
-    description: 'Voyage culinaire en 5 temps orchestré par notre Chef, mariant ingrédients rares de Madagascar et techniques de haute gastronomie internationale. Accords mets & vins disponibles.',
-    image: gourmetDiningImg,
-    tags: ['5 Services', 'Expérience Culinaire'],
+    id: 'thb',
+    title: 'Bière THB',
+    category: 'boissons',
+    price: 6000,
+    description: 'La célèbre bière blonde malgache, servie très fraîche.',
+    image: boissonCocktailImg,
+    tags: ['Locale'],
+    recommended: false
+  },
+  {
+    id: 'jus-naturel',
+    title: 'Jus Naturel (Ananas, Corossol)',
+    category: 'boissons',
+    price: 8000,
+    description: 'Jus de fruits frais pressés à la demande.',
+    image: boissonCocktailImg,
+    tags: ['Frais', 'Bio'],
     recommended: true
   }
 ];
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: 'observation-lemuriens',
-    title: 'Observation des lémuriens Indri Indri',
-    category: 'nature',
-    price: 25,
-    duration: '3 heures',
-    difficulty: 'Facile à Modéré',
-    shortDescription: 'Partez à la rencontre du plus grand lémurien vivant au monde et écoutez son chant envoûtant.',
-    fullDescription: 'Accompagné de nos guides écologistes certifiés, vous vous enfoncerez au petit matin dans la forêt humide d\'Andasibe pour observer les fameux Indri Indri dans leur habitat naturel. Écoutez leur chant territorial retentir à des kilomètres et découvrez également d\'autres espèces comme le Lémur couronné et le Sifaka de Diadème.',
-    image: lemurImg,
-    included: [
-      'Guide naturaliste privé diplômé',
-      'Jumelles professionnelles de prêt',
-      'Collation chaude & viennoiseries en forêt',
-      'Droit d\'entrée dans la réserve'
-    ]
-  },
-  {
-    id: 'randonnees-guidees-nocturnes',
-    title: 'Randonnée nocturne féérique',
-    category: 'nature',
-    price: 20,
-    duration: '2 heures',
-    difficulty: 'Facile',
-    shortDescription: 'Explorez la forêt tropicale à la nuit tombée et découvrez les caméléons et lémuriens microcèbes.',
-    fullDescription: 'À la tombée du jour, la forêt d\'Andasibe se métamorphose. Équipé de lampes frontales puissantes, suivez votre guide pour débusquer les plus petits lémuriens nocturnes du monde (Microcebus), des caméléons multicolores endormis et une grenouille arboricole fluorescente.',
-    image: lemurCloseImg,
-    included: [
-      'Guide francophone spécialisé fauna nocturne',
-      'Éclairage LED haute précision fourni',
-      'Poncho étanche si nécessaire'
-    ]
-  },
-  {
-    id: 'canoe-sur-le-canal',
-    title: 'Canoë silencieux sur le lac & canal',
-    category: 'aventure',
-    price: 15,
-    duration: '1h30',
-    difficulty: 'Facile',
-    shortDescription: 'Une balade aquatique paisible au fil de l\'eau pour observer les oiseaux tropicaux et la flore.',
-    fullDescription: 'Montez à bord de nos canoës en bois sculpté et glissez doucement sur les eaux calmes bordant le domaine. Observez le martin-pêcheur malgache, les nénuphars géants et profitez d\'un moment de pure quiétude.',
-    image: suiteLagonViewImg,
-    included: [
-      'Canoë traditionnel et pagaies',
-      'Gilets de sauvetage certifiés',
-      'Conseils de navigation par un moniteur'
-    ]
-  },
-  {
-    id: 'spa-bien-etre',
-    title: 'Rituel Spa & Massage aux huiles essentielles',
+    id: 'massage-californien',
+    title: 'Massage Californien',
     category: 'bien-etre',
-    price: 40,
-    duration: '1h30',
+    price: 80000,
+    duration: '60 minutes',
     difficulty: 'Relaxant',
-    shortDescription: 'Massages, soins corporels bio et séances de yoga face à la forêt primaire.',
-    fullDescription: 'Laissez-vous choyer dans notre pavillon Spa suspendu au-dessus du ruisseau. Nos thérapeutes expérimentées utilisent des huiles essentielles bio distillées localement (Ravintsara, Niaouli, Ylang-Ylang) pour dissoudre toutes vos tensions.',
-    image: spaRelaxImg,
+    shortDescription: 'Massage de relaxation profonde aux huiles essentielles, idéal pour évacuer le stress.',
+    fullDescription: 'Le massage Californien est une approche globale qui vise autant la détente que l\'éveil d\'une conscience psychocorporelle. Tina, notre experte au Paradis du Bien-Être, utilise de longs mouvements lents et fluides pour une relaxation physique et psychique profonde.',
+    image: salleMassageImg,
     included: [
-      'Massage personnalisé de 60 minutes',
-      'Bain aromatique aux fleurs d\'orchidées',
-      'Inclusion de thé au gingembre frais'
+      'Huiles végétales biologiques',
+      'Ambiance musicale zen',
+      'Boisson chaude détox'
     ]
   },
   {
-    id: 'soirees-coin-du-feu',
-    title: 'Soirée contes & musiques au coin du feu',
-    category: 'culture',
-    price: 10,
-    duration: '2 heures',
-    difficulty: 'Très facile',
-    shortDescription: 'Ambiance conviviale sous les étoiles avec contes traditionnels malgaches et guitare acoustique.',
-    fullDescription: 'Autour du grand braséro du lodge, rassemblez-vous à la belle étoile. Un conteur du village vous transmettra les légendes ancestrales de l\'île, accompagnées du son envoûtant de la Valiha (instrument traditionnel en bambou).',
-    image: heroLodgeImg,
+    id: 'massage-hawaien',
+    title: 'Massage Hawaïen (Lomi-Lomi)',
+    category: 'bien-etre',
+    price: 80000,
+    duration: '60 minutes',
+    difficulty: 'Tonique et Relaxant',
+    shortDescription: 'Un massage enveloppant imitant le mouvement des vagues pour une harmonie totale.',
+    fullDescription: 'Profitez de la technique Lomi-Lomi pratiquée au Paradis du Bien-Être. Utilisant principalement les avant-bras, ce massage profond dissipe les tensions musculaires et rééquilibre l\'énergie vitale dans une atmosphère tropicale apaisante.',
+    image: salleRecuperationSportImg,
     included: [
-      'Dégustation de rhums arrangés maison',
-      'Marshmallows à griller au feu',
-      'Animation musicale live'
+      'Huile de massage tiède à la noix de coco',
+      'Soin profond',
+      'Espace dédié relaxant'
     ]
   },
   {
-    id: 'visite-reserve-analamazaotra',
-    title: 'Grand Circuit Réserve d\'Analamazaotra',
-    category: 'nature',
-    price: 30,
-    duration: '4 heures',
-    difficulty: 'Modéré',
-    shortDescription: 'Découvrez la biodiversité exceptionnelle de la réserve nationale protégée d\'Andasibe.',
-    fullDescription: 'Une expédition approfondie à travers la forêt primaire d\'Analamazaotra. Marchez au milieu des arbres centenaires, des fougères arborescentes et des orchidées sauvages uniques à Madagascar.',
-    image: lemurImg,
+    id: 'pierres-chaudes',
+    title: 'Massage aux pierres chaudes',
+    category: 'bien-etre',
+    price: 100000,
+    duration: '90 minutes',
+    difficulty: 'Apaisant',
+    shortDescription: 'La chaleur des pierres volcaniques diffuse une détente absolue dans tout le corps.',
+    fullDescription: 'Une expérience sensorielle unique où des galets de basalte chauffés glissent sur votre peau et sont apposés sur des points énergétiques précis. La chaleur pénètre en profondeur pour un relâchement musculaire total.',
+    image: salleMassageImg,
     included: [
-      'Transport Aller/Retour depuis l\'hôtel',
-      'Ticket officiel de la réserve nationale',
-      'Panier pique-nique gourmand du Chef'
+      'Pierres volcaniques lisses et chauffées',
+      'Huiles aromatiques',
+      'Détente musculaire ciblée'
+    ]
+  },
+  {
+    id: 'drainage-lymphatique',
+    title: 'Drainage Lymphatique',
+    category: 'bien-etre',
+    price: 90000,
+    duration: '60 minutes',
+    difficulty: 'Thérapeutique',
+    shortDescription: 'Massage doux et rythmé pour stimuler la circulation et détoxifier l\'organisme.',
+    fullDescription: 'Le drainage lymphatique manuel est un massage thérapeutique qui aide à réduire la rétention d\'eau et à éliminer les toxines. Une sensation de légèreté immédiate et un bienfait durable pour votre corps.',
+    image: salleRecuperationSportImg,
+    included: [
+      'Technique manuelle spécifique',
+      'Consultation préalable',
+      'Conseils bien-être'
+    ]
+  },
+  {
+    id: 'soin-visage-kobido',
+    title: 'Soin Anti-Âge + Kobido',
+    category: 'bien-etre',
+    price: 70000,
+    duration: '45 minutes',
+    difficulty: 'Régénérant',
+    shortDescription: 'Le lifting naturel japonais allié à un soin anti-âge complet.',
+    fullDescription: 'Le massage facial Kobido est un art traditionnel japonais qui stimule la microcirculation, repulpe la peau et lisse les traits du visage. Associé à nos produits anti-âge de haute qualité, votre peau retrouve éclat et jeunesse.',
+    image: aPropos1Img,
+    included: [
+      'Nettoyage et gommage doux',
+      'Sérum liftant',
+      'Massage facial tonique Kobido'
+    ]
+  },
+  {
+    id: 'foot-spa',
+    title: 'Foot Spa & Massage',
+    category: 'bien-etre',
+    price: 60000,
+    duration: '45 minutes',
+    difficulty: 'Réparateur',
+    shortDescription: 'Un bain relaxant suivi d\'un massage complet des pieds pour soulager les jambes lourdes.',
+    fullDescription: 'Après une journée de marche en centre-ville, offrez à vos pieds le repos qu\'ils méritent. Bain moussant aux sels minéraux suivi d\'une réflexologie plantaire apaisante pour une détente qui se propage dans tout le corps.',
+    image: coinDetente2Img,
+    included: [
+      'Bain de pieds aromatique',
+      'Gommage exfoliant',
+      'Massage plantaire (50 000 Ar seul)'
     ]
   }
 ];
 
 export const OFFERS: Offer[] = [
   {
-    id: 'escapade-romantique',
-    title: 'Escapade Romantique',
-    subtitle: 'Nuit magique & attentions privilégiées pour deux',
-    price: 650,
-    originalPrice: 820,
-    duration: '2 Nuits',
-    description: '2 nuits en Suite Lagon, dîner aux chandelles au bord du lac, massage duo de 60 min au Spa et petit-déjeuner floating servi directement dans votre bassin privatif.',
+    id: 'carte-fidelite',
+    title: 'Offre Long Séjour',
+    subtitle: 'Carte de fidélité avantageuse',
+    price: 150000,
+    originalPrice: 200000,
+    duration: 'À partir de 7 Nuits',
+    description: 'Pour les longs séjours, nous avons élaboré une carte de fidélité. Bénéficiez d\'une remise exceptionnelle de 15% à 30% selon la durée de votre séjour au White Palace.',
     inclusions: [
-      '2 Nuits en Suite Lagon avec vue lac',
-      'Dîner gastronomique aux chandelles (hors boissons)',
-      'Petit-déjeuner flottant ou en chambre',
-      'Massage Duo aux huiles de Ravintsara (60 min)',
-      'Accueil champagne & corbeille de fruits exotiques'
+      'Remise de 15% à 30%',
+      'Valable sur l\'hébergement et la restauration',
+      'Petit-déjeuner toujours inclus',
+      'Surclassement selon disponibilité',
+      'Accès prioritaire à l\'espace fitness'
     ],
-    image: suiteLagonImg,
-    badge: 'Offre Couple'
+    image: offre1Img,
+    badge: 'Fidélité'
   },
   {
-    id: 'sejour-famille',
-    title: 'Séjour en Famille',
-    subtitle: 'Aventure naturaliste & confort partagé',
-    price: 950,
-    originalPrice: 1180,
-    duration: '3 Nuits',
-    description: '3 nuits en Family Lodge pour 4 personnes. Activités guidées adaptées aux enfants, visite du parc des lémuriens, feu de camp et repas en demi-pension inclus.',
+    id: 'sejour-affaires',
+    title: 'Séjour Affaires',
+    subtitle: 'Confort et connectivité en plein centre',
+    price: 135000,
+    originalPrice: 150000,
+    duration: '1 Nuit',
+    description: 'Profitez de notre localisation idéale en plein centre-ville d\'Antananarivo. Chambre Single ou Twin avec Wi-Fi très haut débit, calme absolu pour travailler et dîner en Rooftop.',
     inclusions: [
-      '3 Nuits en Family Lodge (4 personnes)',
-      'Formule Demi-Pension (Petit-déjeuner & Dîner)',
-      'Expérience "Aventure Lémuriens" guidée',
-      'Initiation au canoë pour toute la famille',
-      'Cadeau souvenirs naturalistes pour les enfants'
+      'Nuitée en Chambre Single/Twin',
+      'Petit-déjeuner inclus',
+      'Connexion Wi-Fi par chambre gratuite',
+      'Service pressing express disponible'
     ],
-    image: familyLodgeImg,
-    badge: 'Spécial Famille'
+    image: chambreLit3Img,
+    badge: 'Business'
   },
   {
-    id: 'retraite-bien-etre',
-    title: 'Retraite Bien-être & Sérénité',
-    subtitle: 'Ressourcement holistique au cœur de la canopée',
-    price: 880,
-    originalPrice: 1050,
-    duration: '3 Nuits',
-    description: '3 nuits de relaxation totale en Villa Nature : soins spa quotidiens, sessions de yoga matinal face au lac, tisanes détox bio et cuisine saine sur-mesure.',
+    id: 'pack-detente',
+    title: 'Pack Détente & Spa',
+    subtitle: 'Ressourcement holistique au Paradis du Bien-Être',
+    price: 250000,
+    originalPrice: 300000,
+    duration: '1 Nuit',
+    description: 'Séjournez dans l\'une de nos superbes chambres doubles et profitez d\'un soin exclusif au salon "Paradis du Bien-Être" avec Tina. Le combo parfait pour effacer le stress de la capitale.',
     inclusions: [
-      '3 Nuits en Villa Nature avec piscine privative',
-      'Consultation bien-être et 3 massages de 60 min',
-      'Séances de Yoga au lever du soleil',
-      'Pension complète cuisine saine & jus détox',
-      'Accès illimité au sauna et espace détente'
+      'Nuit en Chambre Double',
+      'Petit-déjeuner complet',
+      'Massage au choix (60 min) au Paradis du Bien-Être',
+      'Accès à l\'espace détente et Rooftop'
     ],
-    image: spaRelaxImg,
+    image: salleMassageImg,
     badge: 'Cure Wellness'
   }
 ];
@@ -427,240 +576,220 @@ export const OFFERS: Offer[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g1',
-    title: 'Vue panoramique du domaine White Palace',
+    title: 'Façade du White Palace',
     category: 'hotel',
-    image: heroLodgeImg,
-    caption: 'Les lodges en bois s\'intègrent harmonieusement dans la forêt tropicale d\'Andasibe.'
+    image: facade1Img,
+    caption: 'Le bâtiment élégant de l\'hôtel situé en plein centre-ville.'
   },
   {
     id: 'g2',
-    title: 'Intérieur Suite Lagon',
+    title: 'Réception et salon',
     category: 'hotel',
-    image: suiteLagonImg,
-    caption: 'Charme authentique du bois précieux, baie vitrée panoramique et confort absolu.'
+    image: accueil1Img,
+    caption: 'Un accueil chaleureux dans un cadre raffiné et moderne.'
   },
   {
     id: 'g3',
-    title: 'Balcon & vue sur le lac - Suite Lagon',
+    title: 'Vue panoramique depuis le Rooftop',
     category: 'hotel',
-    image: suiteLagonViewImg,
-    caption: 'Terrasse privée suspendue offrant une vue imprenable sur le lac d\'Andasibe.'
+    image: vueTanaImg,
+    caption: 'Une vue imprenable sur la ville depuis notre restaurant au 4ème étage.'
   },
   {
     id: 'g4',
-    title: 'Suite Prestige avec jacuzzi',
+    title: 'Chambre de luxe',
     category: 'hotel',
-    image: suitePrestigeImg,
-    caption: 'Le comble du luxe avec espace extérieur privé et vue sur la canopée.'
+    image: chambreLit1Img,
+    caption: 'Confort absolu, literie haut de gamme et espace soigné.'
   },
   {
     id: 'g5',
-    title: 'Salon privé de la Suite Prestige',
+    title: 'Espace salon privatif',
     category: 'hotel',
-    image: prestigeLivingImg,
-    caption: 'Design chaleureux associant mobilier haut de gamme et artisanat malgache.'
+    image: chambreSalon4Img,
+    caption: 'Des appartements équipés de salons spacieux pour votre confort.'
   },
   {
     id: 'g6',
-    title: 'Family Lodge en lisière de forêt',
+    title: 'Coin détente sur le Rooftop',
     category: 'hotel',
-    image: familyLodgeImg,
-    caption: 'Architecture traditionnelle en bois précieux idéale pour les séjours en famille.'
+    image: terrasse1Img,
+    caption: 'Profitez de la brise sur notre terrasse ensoleillée.'
   },
   {
     id: 'g7',
-    title: 'Chambre avec lit King-Size',
-    category: 'hotel',
-    image: lodgeBedroomImg,
-    caption: 'Espace nuit feutré avec literie d\'exception et boiseries sculptées.'
+    title: 'Salle de restaurant élégante',
+    category: 'restaurant',
+    image: platCarpaccioImg,
+    caption: 'Notre salle intérieure, lumineuse et accueillante.'
   },
   {
     id: 'g8',
-    title: 'Allées végétalisées du domaine',
-    category: 'hotel',
-    image: hotelExteriorImg,
-    caption: 'Parcours botanique traversant les jardins d\'orchidées du domaine.'
+    title: 'Gâteau Opéra par notre Pâtissier',
+    category: 'restaurant',
+    image: gateau2Img,
+    caption: 'Pâtisserie fine confectionnée sur place par notre chef.'
   },
   {
     id: 'g9',
-    title: 'Piscine naturelle privée',
-    category: 'hotel',
-    image: villaPoolImg,
-    caption: 'Eau de source pure filtrée naturellement sans aucun produit chimique.'
+    title: 'Desserts personnalisés',
+    category: 'restaurant',
+    image: gateau3Img,
+    caption: 'Pour vos anniversaires et événements familiaux, passez commande !'
   },
   {
     id: 'g10',
-    title: 'Table gastronomique au restaurant',
+    title: 'Menu et suggestions du jour',
     category: 'restaurant',
-    image: gourmetDiningImg,
-    caption: 'Créations gourmandes associant épices rares et vanille Bourbon de Madagascar.'
+    image: platPoissonImg,
+    caption: 'Une carte variée pour satisfaire toutes vos envies gourmandes.'
   },
   {
     id: 'g11',
-    title: 'Plat signature du Chef',
-    category: 'restaurant',
-    image: gourmetDishImg,
-    caption: 'Filet de zébu fumé au bois de girofle et déclinaison de légumes bio.'
+    title: 'Salon Paradis du Bien-Être',
+    category: 'experiences',
+    image: salleMassageImg,
+    caption: 'L\'espace Spa dédié à votre relaxation.'
   },
   {
     id: 'g12',
-    title: 'Assiette raffinée & saveurs malgaches',
-    category: 'restaurant',
-    image: gourmetPlateImg,
-    caption: 'Haute gastronomie célébrant les produits du terroir d\'Andasibe.'
+    title: 'Salle de sport et remise en forme',
+    category: 'experiences',
+    image: salleSportImg,
+    caption: 'Un espace fitness équipé à la disposition de notre clientèle.'
   },
   {
     id: 'g13',
-    title: 'Atmosphère du restaurant',
-    category: 'restaurant',
-    image: restaurantInteriorImg,
-    caption: 'Cadre chaleureux illuminé par des suspensions artisanales en fibres naturelles.'
+    title: 'Récupération et soins',
+    category: 'experiences',
+    image: salleRecuperationSportImg,
+    caption: 'Combinez activité sportive et massages thérapeutiques.'
   },
   {
     id: 'g14',
-    title: 'Lémurien Indri Indri dans les arbres',
-    category: 'nature',
-    image: lemurImg,
-    caption: 'L\'Indri Indri, plus grand lémurien vivant, photographié dans la réserve.'
+    title: 'La vitrine d\'artisanat local',
+    category: 'hotel',
+    image: vitrineVetiverImg,
+    caption: 'Découvrez la vitrine VETIVER de Ts\'Art Fibre dans le hall.'
   },
   {
     id: 'g15',
-    title: 'Gros plan sur un Indri Indri',
-    category: 'nature',
-    image: lemurCloseImg,
-    caption: 'Observation privilégiée avec nos guides naturalistes locaux.'
-  },
-  {
-    id: 'g16',
-    title: 'Villa Nature immergée dans la canopée',
-    category: 'nature',
-    image: villaNatureImg,
-    caption: 'Immersion totale au milieu des fougères arborescentes et palmiers endémiques.'
-  },
-  {
-    id: 'g17',
-    title: 'Pavillon de soin & détente au Spa',
-    category: 'experiences',
-    image: spaRelaxImg,
-    caption: 'Espace de relaxation baigné de lumière naturelle au son des oiseaux.'
-  },
-  {
-    id: 'g18',
-    title: 'Massage aux huiles essentielles bio',
-    category: 'experiences',
-    image: spaMassageImg,
-    caption: 'Rituel de soin traditionnel utilisant l\'huile d\'ylang-ylang et de ravintsara.'
+    title: 'Notre Équipe dévouée',
+    category: 'hotel',
+    image: equipeEmployeImg,
+    caption: 'Le staff du White Palace, toujours souriant et à votre service.'
   }
 ];
 
 export const KEY_STATS = [
-  { value: '120+', label: 'ESPÈCES OBSERVÉES' },
-  { value: '11', label: 'HECTARES PRÉSERVÉS' },
-  { value: '40+', label: 'ESPÈCES D\'ORCHIDÉES' },
-  { value: '98%', label: 'CLIENTS SATISFAITS' }
+  { value: '64', label: 'CHAMBRES & SUITES' },
+  { value: '4e', label: 'ÉTAGE ROOFTOP' },
+  { value: '24/7', label: 'RÉCEPTION & SÉCURITÉ' },
+  { value: '100%', label: 'CENTRE VILLE' }
 ];
 
 export const HOTEL_INFO = {
   name: 'WHITE PALACE',
-  tagline: 'LUXURY HOTEL & RESTAURANT',
-  motto: 'Luxe, Nature & Évasion',
-  submotto: 'Un refuge d\'exception au cœur d\'une nature préservée.',
-  address: 'Route Nationale 2, km 138, Andasibe 509, Madagascar',
-  phone: '+261 34 12 345 67',
-  email: 'contact@whitepalace-luxury.com',
-  receptionHours: 'Tous les jours : 07h00 - 22h00',
-  coordinates: { lat: -18.9322, lng: 48.4178 }
+  tagline: 'HÔTEL & RESTAURANT TSARALALÀNA',
+  motto: 'L\'élégance en plein centre-ville',
+  submotto: 'Un lieu chaleureux, très calme avec un Restaurant en Rooftop et un espace fitness pour tous.',
+  address: 'Rue de Liège Tsaralalàna, Antananarivo 101, Madagascar',
+  phone: '+261 32 07 669 98',
+  email: 'whitepalacetana@gmail.com',
+  receptionHours: 'Réception ouverte 24h/24',
+  coordinates: { lat: -18.9100, lng: 47.5256 }
 };
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b1',
-    title: 'À la rencontre de l\'Indri Indri : Le chant sacré de la forêt d\'Andasibe',
-    slug: 'rencontre-indri-indri-andasibe',
-    category: 'faune-flore',
-    excerpt: 'Découvrez les secrets du plus grand lémurien de Madagascar, véritable symbole vivant de la réserve d\'Andasibe et trésor de biodiversité.',
+    title: 'Ouverture du salon "Paradis du Bien-Être"',
+    slug: 'ouverture-salon-paradis-bien-etre',
+    category: 'bien-etre',
+    excerpt: 'Tina vous accueille dans notre tout nouvel espace dédié à la relaxation profonde et aux soins du corps.',
     content: [
-      'Au lever du jour, alors que la brume matinale enveloppe délicatement la canopée de la forêt primaire d’Andasibe, un chant mystique resurgit des profondeurs de la canopée. Il s’agit de l’appel de l’Indri Indri (Babakoto), le plus grand lémurien encore en vie sur notre planète.',
-      'Mesurant près de 70 cm et pesant jusqu’à 10 kg, cet énigmatique primate sans queue captive tous les passionnés de nature sauvage. Son chant, audible à plus de 3 kilomètres à la ronde, constitue un puissant moyen de communication territorial et d’affirmation familiale.',
-      'À White Palace Hotel & Restaurant, nos guides naturalistes locaux issus de la communauté vous accompagnent à l’aube sur des sentiers réservés afin de vous offrir une observation respectueuse, sans troubler la quiétude de ces animaux protégés.'
+      'C\'est avec une immense joie que nous vous annonçons l\'ouverture officielle de notre salon "Paradis du Bien-Être" au sein du White Palace.',
+      'Sous la direction experte de Tina, cet espace a été conçu comme un véritable cocon de douceur loin de l\'agitation de la capitale. Venez découvrir une carte variée de soins allant du massage Californien relaxant au massage Hawaïen (Lomi-Lomi), en passant par des soins du visage Kobido anti-âge.',
+      'Parce que votre bien-être est notre priorité, nous utilisons des huiles et des produits naturels. N\'hésitez pas à réserver votre séance lors de votre séjour !'
     ],
-    author: 'Jean-Luc Ravoavy, Guide Naturaliste Senior',
-    date: '14 Mai 2025',
-    readTime: '4 min de lecture',
-    image: lemurCloseImg,
+    author: 'Direction White Palace',
+    date: '10 Août 2026',
+    readTime: '2 min de lecture',
+    image: salleMassageImg,
     featured: true,
-    tags: ['Faune', 'Indri Indri', 'Safari', 'Andasibe']
+    tags: ['Spa', 'Massage', 'Bien-être', 'Nouveauté']
   },
   {
     id: 'b2',
-    title: 'Les secrets de la vanille Bourbon & des épices de Madagascar',
-    slug: 'secrets-vanille-bourbon-epices-gastronomie',
+    title: 'Notre nouveau grand Chef Pâtissier au Rooftop',
+    slug: 'nouveau-chef-patissier-rooftop',
     category: 'gastronomie',
-    excerpt: 'Plongée au cœur des saveurs malagasy : comment notre Chef sublimera la Reine des Épices dans la carte gastronomique du restaurant.',
+    excerpt: 'Un artiste du goût rejoint nos cuisines. Découvrez des desserts aux mille saveurs à déguster au 4ème étage.',
     content: [
-      'Incontestablement réputée comme la meilleure vanille au monde, la Vanille Bourbon de Madagascar est bien plus qu’une simple épice : c’est l’or noir de notre île, cultivé avec patience et passion dans le respect de traditions séculaires.',
-      'Au restaurant de White Palace, notre Chef met un point d’honneur à marier cette vanille d’exception tant dans des créations sucrées – comme nos mille-feuilles croustillants à la vanille d’Analanjirofo – que dans des sauces salées raffinées accompagnant nos médaillons de zébu fumé.',
-      'Au cours de votre séjour, découvrez également nos ateliers de dégustation d’épices rares : baie rose de Majunga, poivre sauvage Voatsiperifery et cannelle fraîche cueille le matin même dans notre jardin d’herbes aromatiques.'
+      'Le restaurant du White Palace Tsaralalàna fait peau neuve pour sa carte des desserts avec l\'arrivée de notre nouveau cuisinier et grand pâtissier.',
+      'Des créations uniques, comme le gâteau Opéra revisité ou les mignardises aux mille saveurs, vous attendent désormais au Rooftop.',
+      'Vous organisez un anniversaire ou une fête de famille ? Vous pouvez commander vos gâteaux sur mesure (à partir de 60 000 Ar) pour vos célébrations. À déguster sur place avec une vue magnifique sur Antananarivo ou à emporter chez vous.',
+      'Contactez la pâtisserie au : 038 74 771 84 ou au 034 98 672 03.'
     ],
-    author: 'Chef Hery Rakotoarisoa',
-    date: '02 Avril 2025',
-    readTime: '5 min de lecture',
-    image: gourmetDishImg,
-    featured: false,
-    tags: ['Gastronomie', 'Vanille', 'Cuisine Malagasy', 'Chef']
+    author: 'Équipe Restauration',
+    date: '31 Juillet 2026',
+    readTime: '3 min de lecture',
+    image: gateau3Img,
+    featured: true,
+    tags: ['Pâtisserie', 'Gâteaux', 'Événements', 'Rooftop']
   },
   {
     id: 'b3',
-    title: 'Comment bien préparer son voyage et sa randonnée à Andasibe',
-    slug: 'guide-pratique-voyage-randonnee-andasibe',
-    category: 'conseils',
-    excerpt: 'Matériel conseillé, meilleures saisons d\'observation, climat et astuces de notre conciergerie pour vivre un séjour inoubliable.',
+    title: 'Le 3ème étage du White Palace adopte un nouveau design',
+    slug: 'nouveau-design-3eme-etage',
+    category: 'hotel',
+    excerpt: 'Toujours soucieux d\'améliorer votre confort, le White Palace rénove ses espaces. Découvrez le nouveau visage de notre 3ème étage.',
     content: [
-      'Préparer son expédition dans la forêt tropicale d’Andasibe exige une attention particulière au choix de son équipement. Situé à 1 000 mètres d’altitude, le domaine bénéficie d’un climat frais et pur, parfait pour se ressourcer.',
-      'Nos conseils essentiels : munissez-vous de chaussures de marche étanches et adhérentes, d’un coupe-vent imperméable léger et de vêtements aux teintes naturelles (vert, kaki, beige) pour vous fondre discrètement dans le décor.',
-      'Pensez également à emporter une lampe frontale avec option lumière rouge pour notre sortie nocturne guidée, au cours de laquelle vous pourrez apercevoir le fameux lémurien microcèbe, plus petit primate nocturne au monde !'
+      'Le design et le confort de nos clients sont au centre de nos préoccupations. C\'est pourquoi nous avons le plaisir de vous dévoiler le nouveau design du 3ème étage du White Palace.',
+      'Avec des lignes plus modernes, une luminosité repensée et des matériaux chaleureux, chaque détail a été conçu pour vous faire vous sentir comme à la maison, tout en bénéficiant du standing d\'un hôtel de luxe.',
+      'Qu\'en pensez-vous ? N\'hésitez pas à partager votre avis lors de votre prochain passage à la réception !'
     ],
-    author: 'Conciergerie White Palace',
-    date: '22 Mars 2025',
-    readTime: '3 min de lecture',
-    image: hotelExteriorImg,
+    author: 'Direction White Palace',
+    date: '15 Juin 2026',
+    readTime: '2 min de lecture',
+    image: chambreFondImg,
     featured: false,
-    tags: ['Conseils Voyage', 'Randonnée', 'Équipement', 'Astuces']
+    tags: ['Rénovation', 'Design', 'Confort']
   },
   {
     id: 'b4',
-    title: 'Reforestation & Écotourisme : Notre engagement pour Mantadia',
-    slug: 'reforestation-ecotourisme-engagement-mantadia',
-    category: 'conservation',
-    excerpt: 'Chaque nuit passée à White Palace contribue au financement de notre pépinière bio et au reboisement d\'espèces d\'arbres autochtones.',
+    title: 'Une réputation qui explose grâce à vous !',
+    slug: 'remerciements-clients-reputation',
+    category: 'hotel',
+    excerpt: 'Toute l\'équipe et la direction vous remercient pour votre confiance indéfectible qui fait le succès du White Palace.',
     content: [
-      'Parce que le luxe contemporain doit s’inscrire dans une démarche exemplaire de préservation, White Palace Hotel & Restaurant mène activement un programme vertueux de conservation de la biodiversité.',
-      'Notre pépinière privée produit plus de 2 000 jeunes plants par an (Palissandre, Ravinala, arbres à orchidées). En séjournant chez nous, chaque voyageur participe symboliquement à la plantation d’un arbre qui renforcera le corridor biologique reliant le parc de Mantadia à la réserve d’Analamazaotra.',
-      'Nous collaborons étroitement avec les associations locales afin de garantir un impact socio-économique positif et d’encourager la transmission des savoirs environnementaux auprès des jeunes générations.'
+      'Le White Palace Tsaralalàna n\'a de cesse de voir sa réputation exploser ces derniers mois. Ce succès retentissant, c\'est avant tout à vous que nous le devons.',
+      'Grâce à votre fidélité, à vos retours positifs et à votre confiance renouvelée lors de vos séjours professionnels ou personnels, nous continuons de grandir et d\'innover.',
+      'Au nom de tout le staff et de nos dirigeants, un immense et sincère MERCI. Nous continuerons à tout mettre en œuvre pour rendre chacun de vos passages mémorable.'
     ],
-    author: 'Marie de la Canopée, Responsable RSE',
-    date: '10 Février 2025',
-    readTime: '6 min de lecture',
-    image: villaNatureImg,
+    author: 'Le Staff & Les Dirigeants',
+    date: '02 Mai 2026',
+    readTime: '2 min de lecture',
+    image: equipeEmployeImg,
     featured: false,
-    tags: ['Écologie', 'Reforestation', 'RSE', 'Conservation']
+    tags: ['Merci', 'Succès', 'Clients']
   },
   {
     id: 'b5',
-    title: 'Les orchidées sauvages d’Andasibe : Un joyau botanique rare',
-    slug: 'orchidees-sauvages-andasibe-joyau-botanique',
-    category: 'faune-flore',
-    excerpt: 'Focus sur les plus de 40 espèces d’orchidées endémiques qui fleurissent dans les sous-bois du domaine.',
+    title: 'Mise en avant de l\'artisanat local : Vitrine VETIVER',
+    slug: 'vitrine-vetiver-tsart-fibre',
+    category: 'artisanat',
+    excerpt: 'Découvrez la nouvelle vitrine de fabrication artisanale "Ts\'Art Fibre" exposée au White Palace.',
     content: [
-      'La région d’Andasibe abrite une incroyable variété d’orchidées épiphytes sauvages dont la célèbre Angraecum sesquipedale, aussi appelée "Étoile de Madagascar", immortalisée par Charles Darwin pour son éperon exceptionnellement long.',
-      'Dans les jardins préservés de l’hôtel, nos botanistes ont aménagé un parcours thématique permettant d’admirer ces merveilles végétales dans leur habitat naturel.',
-      'Venez observer ces floraisons délicates qui parfument naturellement nos allées au crépuscule.'
+      'Parce que nous avons à cœur de soutenir l\'artisanat local malgache et de mettre en valeur les talents de notre île, le White Palace accueille fièrement une nouvelle vitrine dans ses murs.',
+      'La collection VETIVER, fruit du travail minutieux de la fabrique artisanale Ts\'Art Fibre, y est désormais exposée. Vous y découvrirez des objets uniques, tressés avec passion, parfaits pour offrir ou pour ramener un souvenir authentique de votre passage.',
+      'Rendez-vous dans le hall de l\'hôtel pour admirer cette vitrine pleine de charme.'
     ],
-    author: 'Botaniste Partenaire VOI',
-    date: '18 Janvier 2025',
-    readTime: '4 min de lecture',
-    image: spaRelaxImg,
+    author: 'Équipe Conciergerie',
+    date: '10 Avril 2026',
+    readTime: '2 min de lecture',
+    image: vitrineVetiverImg,
     featured: false,
-    tags: ['Botanique', 'Orchidées', 'Fleurs', 'Nature']
+    tags: ['Artisanat', 'Madagascar', 'Exposition', 'Vetiver']
   }
 ];

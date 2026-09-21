@@ -26,10 +26,10 @@ export const TrustBadges: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#041915] border-y border-emerald-900/60 py-10 px-4 sm:px-8 text-emerald-100 relative overflow-hidden">
+    <div className="bg-[#050A14] border-y border-slate-900/60 py-10 px-4 sm:px-8 text-slate-100 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
         {badges.map((b, idx) => (
-          <div key={idx} className="flex items-start gap-4 bg-emerald-950/40 p-5 rounded-2xl border border-emerald-800/40 backdrop-blur-sm hover:border-amber-400/40 transition-colors">
+          <div key={idx} className="flex items-start gap-4 bg-slate-950/40 p-5 rounded-2xl border border-slate-800/40 backdrop-blur-sm hover:border-amber-400/40 transition-colors">
             <div className="p-3 rounded-xl bg-amber-400/10 text-amber-300 border border-amber-400/20 shrink-0">
               <b.icon className="w-5 h-5" />
             </div>
@@ -37,7 +37,7 @@ export const TrustBadges: React.FC = () => {
               <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-200">
                 {b.title}
               </h4>
-              <p className="text-[11px] text-emerald-100/70 font-light leading-snug">
+              <p className="text-[11px] text-slate-100/70 font-light leading-snug">
                 {b.desc}
               </p>
             </div>

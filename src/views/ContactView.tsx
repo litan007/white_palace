@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { HOTEL_INFO, PRESTIGE_LIVING_IMAGE } from '../data/hotelData';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Sparkles, Navigation, ChevronDown } from 'lucide-react';
 
@@ -18,10 +18,10 @@ export const ContactView: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FAF7F2] text-[#072E27] min-h-screen pb-16 space-y-10">
+    <div className="bg-[#F8FAFC] text-[#111827] min-h-screen pb-16 space-y-10">
       
       {/* Full Screen Header Banner */}
-      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#072E27] text-white">
+      <section className="relative h-screen min-h-screen w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-[#111827] text-white">
         <div className="absolute inset-0 z-0">
           <img
             src={PRESTIGE_LIVING_IMAGE}
@@ -61,39 +61,39 @@ export const ContactView: React.FC = () => {
         
         {/* Contact Info Column */}
         <div className="md:col-span-5 space-y-6 bg-white p-6 sm:p-8 rounded-2xl border border-[#EAE6DE] shadow-sm">
-          <h3 className="font-serif text-lg font-bold text-[#072E27] border-b border-gray-100 pb-3">
+          <h3 className="font-serif text-lg font-bold text-[#111827] border-b border-gray-100 pb-3">
             Informations pratiques
           </h3>
 
           <div className="space-y-5 text-xs text-gray-600">
             <div className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#004D40] shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-[#1E293B] shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-[#072E27] block mb-0.5">Adresse</span>
+                <span className="font-semibold text-[#111827] block mb-0.5">Adresse</span>
                 <p className="text-gray-500 font-light leading-relaxed">{HOTEL_INFO.address}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <Phone className="w-4 h-4 text-[#004D40] shrink-0 mt-0.5" />
+              <Phone className="w-4 h-4 text-[#1E293B] shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-[#072E27] block mb-0.5">Téléphone</span>
+                <span className="font-semibold text-[#111827] block mb-0.5">Téléphone</span>
                 <p className="text-gray-500 font-light">{HOTEL_INFO.phone}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <Mail className="w-4 h-4 text-[#004D40] shrink-0 mt-0.5" />
+              <Mail className="w-4 h-4 text-[#1E293B] shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-[#072E27] block mb-0.5">Email</span>
+                <span className="font-semibold text-[#111827] block mb-0.5">Email</span>
                 <p className="text-gray-500 font-light">{HOTEL_INFO.email}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <Clock className="w-4 h-4 text-[#004D40] shrink-0 mt-0.5" />
+              <Clock className="w-4 h-4 text-[#1E293B] shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-[#072E27] block mb-0.5">Horaires Réception</span>
+                <span className="font-semibold text-[#111827] block mb-0.5">Horaires Réception</span>
                 <p className="text-gray-500 font-light">{HOTEL_INFO.receptionHours}</p>
               </div>
             </div>
@@ -104,7 +104,7 @@ export const ContactView: React.FC = () => {
         <div className="md:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-[#EAE6DE] shadow-sm space-y-6">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <h3 className="font-serif text-lg font-bold text-[#072E27] border-b border-gray-100 pb-3">
+              <h3 className="font-serif text-lg font-bold text-[#111827] border-b border-gray-100 pb-3">
                 Envoyez-nous un message
               </h3>
 
@@ -116,7 +116,7 @@ export const ContactView: React.FC = () => {
                   placeholder="Votre nom"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#004D40]"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#1E293B]"
                 />
               </div>
 
@@ -129,7 +129,7 @@ export const ContactView: React.FC = () => {
                     placeholder="votre.email@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#004D40]"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#1E293B]"
                   />
                 </div>
 
@@ -140,7 +140,7 @@ export const ContactView: React.FC = () => {
                     placeholder="+261 34 00 000 00"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#004D40]"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#1E293B]"
                   />
                 </div>
               </div>
@@ -153,7 +153,7 @@ export const ContactView: React.FC = () => {
                   placeholder="Demande de réservation, devis..."
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#004D40]"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#1E293B]"
                 />
               </div>
 
@@ -165,23 +165,23 @@ export const ContactView: React.FC = () => {
                   placeholder="Décrivez votre demande en détail..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#004D40]"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-gray-800 focus:outline-none focus:border-[#1E293B]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#004D40] hover:bg-[#00382E] text-white font-bold text-xs py-3.5 rounded-xl uppercase tracking-wider shadow-sm transition-all"
+                className="w-full bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs py-3.5 rounded-xl uppercase tracking-wider shadow-sm transition-all"
               >
                 ENVOYER LE MESSAGE
               </button>
             </form>
           ) : (
             <div className="text-center space-y-4 py-8 animate-fade-in">
-              <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-[#004D40]">
+              <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-[#1E293B]">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="font-serif text-xl font-bold text-[#072E27]">
+              <h4 className="font-serif text-xl font-bold text-[#111827]">
                 MESSAGE ENVOYÉ !
               </h4>
               <p className="text-xs text-gray-600 max-w-md mx-auto leading-relaxed">
@@ -205,3 +205,4 @@ export const ContactView: React.FC = () => {
     </div>
   );
 };
+
