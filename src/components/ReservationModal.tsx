@@ -289,7 +289,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               </div>
 
               {/* Price Calculation Summary */}
-              <div className="p-4 rounded-xl bg-[#eef6f3] border border-[#cfe2d9] flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-[#eef6f3] border border-[#cfe2d9] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-xs text-[#4b6a62]">
                     Total ({nights} nuit{nights > 1 ? 's' : ''})

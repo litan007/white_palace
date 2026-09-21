@@ -13,10 +13,15 @@
 }
 
 @layer base {
+  html {
+    overflow-x: clip;
+  }
+
   body {
     font-family: var(--font-sans);
     color: #1a2d29;
     background-color: #fbfdfc;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, .font-serif {
@@ -35,4 +40,24 @@
 
 .organic-blob {
   border-radius: 64% 36% 54% 46% / 44% 56% 44% 56%;
+}
+
+/* Fade-in animation used by modals, mobile drawer and FAQ reveal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-out both;
+}
+
+/* Hide scrollbar on horizontal scroll areas (hero feature circles, etc.) */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

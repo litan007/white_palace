@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { PageType, GalleryPhoto } from '../types';
 import { GALLERY_ITEMS } from '../data/hotelData';
 import { BotanicalLeaf } from '../components/BotanicalLeaf';
+import { HeroWaveMask } from '../components/HeroWaveMask';
+import { Reveal } from '../components/Reveal';
 import {
   Camera,
   Image as ImageIcon,
@@ -59,63 +61,76 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
 
   return (
     <div className="relative overflow-hidden">
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-8 pb-16 lg:pt-14 lg:pb-24 bg-[#f8faf9] overflow-hidden">
-        <BotanicalLeaf className="top-4 left-0 -translate-x-1/4" opacity={0.22} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
-                NOTRE GALERIE
-              </span>
-
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#16332c] leading-tight">
-                Découvrez en images l'univers White Palace
-              </h1>
-
-              <p className="text-sm sm:text-base text-[#526f67] leading-relaxed max-w-lg">
-                Plongez dans l'ambiance unique de notre hôtel à travers notre galerie photo.
-                Découvrez nos chambres élégantes, notre restaurant raffiné, nos espaces de détente et
-                bien plus encore.
-              </p>
-
-              {/* 3 Badges */}
-              <div className="flex flex-wrap gap-2.5 pt-1">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e9f2ee] text-[#1b3d36] text-xs font-medium border border-[#d2e3dc]">
-                  <Camera className="w-3.5 h-3.5" />
-                  <span>Photos haute qualité</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e9f2ee] text-[#1b3d36] text-xs font-medium border border-[#d2e3dc]">
-                  <ImageIcon className="w-3.5 h-3.5" />
-                  <span>Découverte de nos espaces</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e9f2ee] text-[#1b3d36] text-xs font-medium border border-[#d2e3dc]">
-                  <Building2 className="w-3.5 h-3.5" />
-                  <span>Un cadre unique à Antananarivo</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Visual Arch Image with script note */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-[16/11]">
-                <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
-                  alt="Galerie White Palace Hôtel"
-                  className="w-full h-full object-cover"
-                />
-
-                <div className="absolute top-6 right-6 transform rotate-2">
-                  <span className="font-script text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-2xl sm:text-3xl tracking-wide">
-                    Plus qu'un hôtel, une expérience !
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* 1. HERO SECTION - FULL BLEED */}
+      <section className="relative w-full h-auto md:h-[600px] lg:h-[700px] bg-white flex flex-col md:flex-row">
+        {/* Mobile-only Image */}
+        <div className="w-full h-64 md:hidden relative">
+          <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+            alt="Galerie White Palace Hôtel"
+            className="w-full h-full object-cover"
+          />
         </div>
+
+        {/* Desktop Full Bleed Background Image */}
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+            alt="Galerie White Palace Hôtel"
+            className="w-full h-full object-cover object-right"
+          />
+        </div>
+
+        {/* Left Overlay Content with Wavy Edge */}
+        <div className="relative w-full md:w-[50%] lg:w-[45%] h-full bg-[#f8faf9] flex flex-col justify-center px-6 sm:px-10 lg:pl-16 lg:pr-12 py-12 md:py-0 z-10">
+          <HeroWaveMask fill="#f8faf9" />
+          <BotanicalLeaf className="top-4 left-0 -translate-x-1/4 -z-10" opacity={0.22} />
+
+          <Reveal className="space-y-6 relative z-10" delay={200}>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
+              NOTRE GALERIE
+            </span>
+
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#16332c] leading-tight">
+              Découvrez en images l'univers White Palace
+            </h1>
+
+            <p className="text-sm sm:text-base text-[#526f67] leading-relaxed max-w-md">
+              Plongez dans l'ambiance unique de notre hôtel à travers notre galerie photo.
+              Découvrez nos chambres élégantes, notre restaurant raffiné, nos espaces de détente et
+              bien plus encore.
+            </p>
+
+            {/* 3 Badges */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <Camera className="w-4 h-4 text-[#1b3d36]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4d6a62] leading-tight">Photos<br/>haute qualité</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <ImageIcon className="w-4 h-4 text-[#1b3d36]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4d6a62] leading-tight">Découverte<br/>de nos espaces</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <Building2 className="w-4 h-4 text-[#1b3d36]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4d6a62] leading-tight">Un cadre unique<br/>à Antananarivo</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Cursive text positioned absolute over the image on Desktop */}
+        <Reveal direction="left" delay={500} className="hidden md:block absolute top-[20%] right-[10%] transform -rotate-6 z-20 pointer-events-none">
+          <span className="font-script text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-4xl tracking-wide">
+            Plus qu'un hôtel, une expérience !
+          </span>
+        </Reveal>
       </section>
 
       {/* 2. GALLERY FILTER & GRID */}
@@ -125,7 +140,7 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Tabs bar and cursive note */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-            <div className="flex flex-wrap items-center gap-2">
+            <Reveal className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => {
                 const isActive = activeCategory === cat;
                 return (
@@ -142,18 +157,22 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
                   </button>
                 );
               })}
-            </div>
+            </Reveal>
 
-            <div className="font-script text-2xl text-[#265348] shrink-0">
+            <Reveal delay={150} direction="left" className="font-script text-2xl text-[#265348] shrink-0">
               "Des souvenirs à chaque instant"
-            </div>
+            </Reveal>
           </div>
 
           {/* 9 Photos Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((photo) => (
-              <div
+            {filteredItems.map((photo, idx) => (
+              <Reveal
                 key={photo.id}
+                delay={150 + (idx % 3) * 120}
+                className="h-full"
+              >
+              <div
                 onClick={() => handleOpenLightbox(photo)}
                 className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl aspect-[4/3] bg-gray-100 cursor-pointer border border-[#dce8e2] transition-all duration-300"
               >
@@ -176,6 +195,7 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
                   <span>{photo.tag}</span>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -185,7 +205,7 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
       <section className="bg-[#142e28] text-white py-14 sm:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3">
+            <Reveal className="lg:col-span-8 space-y-3">
               <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
                 VOTRE SÉJOUR EN IMAGES
               </span>
@@ -208,13 +228,13 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-4 flex flex-col items-center lg:items-end text-center lg:text-right">
+            <Reveal delay={200} direction="right" className="lg:col-span-4 flex flex-col items-center lg:items-end text-center lg:text-right">
               <span className="font-script text-2xl sm:text-3xl text-emerald-200">
                 "Le luxe du confort, la beauté de Madagascar"
               </span>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -247,7 +267,7 @@ export const GaleriePage: React.FC<GaleriePageProps> = ({
             <img
               src={selectedPhoto.image}
               alt={selectedPhoto.title}
-              className="max-h-[75vh] w-auto rounded-2xl object-contain shadow-2xl"
+              className="max-h-[75vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
             />
             <div className="mt-4 text-center text-white">
               <h4 className="font-serif text-xl font-semibold">{selectedPhoto.title}</h4>

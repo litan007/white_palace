@@ -3,6 +3,8 @@ import { PageType } from '../types';
 import { HOTEL_INFO, FAQ_ITEMS } from '../data/hotelData';
 import { BotanicalLeaf } from '../components/BotanicalLeaf';
 import { Logo } from '../components/Logo';
+import { HeroWaveMask } from '../components/HeroWaveMask';
+import { Reveal } from '../components/Reveal';
 import {
   PhoneCall,
   Headphones,
@@ -48,69 +50,82 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   return (
     <div className="relative overflow-hidden">
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-8 pb-16 lg:pt-14 lg:pb-24 bg-[#f8faf9] overflow-hidden">
-        <BotanicalLeaf className="top-4 left-0 -translate-x-1/4" opacity={0.22} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
-                NOUS CONTACTER
-              </span>
-
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#16332c] leading-tight">
-                Une question ? Notre équipe est là pour vous répondre
-              </h1>
-
-              <p className="text-sm sm:text-base text-[#526f67] leading-relaxed max-w-lg">
-                Que ce soit pour une réservation, une demande d'information ou une suggestion, n'hésitez
-                pas à nous contacter. Nous serons ravis de vous accompagner et de rendre votre séjour
-                inoubliable.
-              </p>
-
-              {/* 3 Badges */}
-              <div className="flex flex-wrap gap-2.5 pt-1">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e9f2ee] text-[#1b3d36] text-xs font-medium border border-[#d2e3dc]">
-                  <PhoneCall className="w-3.5 h-3.5" />
-                  <span>Réponse rapide sous 24h</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e9f2ee] text-[#1b3d36] text-xs font-medium border border-[#d2e3dc]">
-                  <Headphones className="w-3.5 h-3.5" />
-                  <span>Une équipe disponible et à l'écoute</span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e9f2ee] text-[#1b3d36] text-xs font-medium border border-[#d2e3dc]">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Votre satisfaction est notre priorité</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Visual Arch Image with script note */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-[16/11]">
-                <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
-                  alt="Contact White Palace Hôtel"
-                  className="w-full h-full object-cover"
-                />
-
-                <div className="absolute top-6 right-6 transform rotate-2">
-                  <span className="font-script text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-2xl sm:text-3xl tracking-wide">
-                    Nous serons ravis de vous accueillir !
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* 1. HERO SECTION - FULL BLEED */}
+      <section className="relative w-full h-auto md:h-[600px] lg:h-[700px] bg-white flex flex-col md:flex-row">
+        {/* Mobile-only Image */}
+        <div className="w-full h-64 md:hidden relative">
+          <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+            alt="Contact White Palace Hôtel"
+            className="w-full h-full object-cover"
+          />
         </div>
+
+        {/* Desktop Full Bleed Background Image */}
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+            alt="Contact White Palace Hôtel"
+            className="w-full h-full object-cover object-right"
+          />
+        </div>
+
+        {/* Left Overlay Content with Wavy Edge */}
+        <div className="relative w-full md:w-[50%] lg:w-[45%] h-full bg-[#f8faf9] flex flex-col justify-center px-6 sm:px-10 lg:pl-16 lg:pr-12 py-12 md:py-0 z-10">
+          <HeroWaveMask fill="#f8faf9" />
+          <BotanicalLeaf className="top-4 left-0 -translate-x-1/4 -z-10" opacity={0.22} />
+
+          <Reveal className="space-y-6 relative z-10" delay={200}>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
+              NOUS CONTACTER
+            </span>
+
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#16332c] leading-tight">
+              Une question ? Notre équipe est là pour vous répondre
+            </h1>
+
+            <p className="text-sm sm:text-base text-[#526f67] leading-relaxed max-w-md">
+              Que ce soit pour une réservation, une demande d'information ou une suggestion, n'hésitez
+              pas à nous contacter. Nous serons ravis de vous accompagner et de rendre votre séjour
+              inoubliable.
+            </p>
+
+            {/* 3 Badges */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <PhoneCall className="w-4 h-4 text-[#1b3d36]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4d6a62] leading-tight">Réponse rapide<br/>sous 24h</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <Headphones className="w-4 h-4 text-[#1b3d36]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4d6a62] leading-tight">Une équipe disponible<br/>et à l'écoute</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#1b3d36]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4d6a62] leading-tight">Votre satisfaction<br/>est notre priorité</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Cursive text positioned absolute over the image on Desktop */}
+        <Reveal direction="left" delay={500} className="hidden md:block absolute top-[20%] right-[10%] transform -rotate-6 z-20 pointer-events-none">
+          <span className="font-script text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-4xl tracking-wide">
+            Nous serons ravis de vous accueillir !
+          </span>
+        </Reveal>
       </section>
 
       {/* 2. NOS COORDONNÉES - OÙ NOUS TROUVER ? */}
       <section className="py-16 sm:py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
+          <Reveal className="max-w-2xl mb-12">
             <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
               NOS COORDONNÉES
             </span>
@@ -121,11 +136,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               Notre hôtel est idéalement situé au cœur d'Antananarivo, facilement accessible et proche
               des principaux centres d'intérêt de la ville.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {/* Left: Contact Info List */}
-            <div className="space-y-6">
+            <Reveal direction="left" className="space-y-6">
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-full bg-[#edf6f2] text-[#1b3d36] flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
@@ -176,10 +191,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <p className="text-xs text-[#526f67] mt-0.5">{HOTEL_INFO.receptionHours}</p>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Center: Map Graphic Card */}
-            <div className="rounded-2xl overflow-hidden border border-[#dce8e2] bg-[#edf4f0] p-6 flex flex-col items-center justify-between text-center relative aspect-[4/3] shadow-md">
+            <Reveal delay={150} className="rounded-2xl overflow-hidden border border-[#dce8e2] bg-[#edf4f0] p-6 flex flex-col items-center justify-between text-center relative aspect-[4/3] shadow-md">
               <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#204940_1px,transparent_1px)] [background-size:16px_16px]" />
 
               <div className="relative z-10 text-[11px] font-mono text-gray-500 uppercase tracking-wider">
@@ -207,10 +222,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <ArrowRight className="w-3 h-3" />
                 </a>
               </div>
-            </div>
+            </Reveal>
 
             {/* Right: Accès Facile */}
-            <div className="bg-[#f8faf9] rounded-2xl p-6 border border-[#dce8e2] space-y-4">
+            <Reveal delay={300} direction="right" className="bg-[#f8faf9] rounded-2xl p-6 border border-[#dce8e2] space-y-4">
               <h4 className="font-serif text-base font-bold text-[#142e27]">Accès facile</h4>
               <div className="space-y-3.5 text-xs text-[#4b6a62]">
                 <div className="flex items-center gap-3">
@@ -230,7 +245,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <span>Parking sécurisé sur place</span>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -242,7 +257,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left: Bell photo + script */}
-            <div className="lg:col-span-5 relative">
+            <Reveal direction="left" className="lg:col-span-5 relative">
               <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] relative">
                 <img
                   src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
@@ -255,10 +270,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   </span>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Right: Contact Form */}
-            <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[#dce8e2] shadow-xl">
+            <Reveal delay={150} className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[#dce8e2] shadow-xl">
               <div>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
                   ENVOYEZ-NOUS UN MESSAGE
@@ -363,7 +378,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   </button>
                 </form>
               )}
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -373,7 +388,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left: Accordion */}
-            <div className="lg:col-span-8">
+            <Reveal className="lg:col-span-8">
               <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4d6a62]">
                 QUESTIONS FRÉQUENTES
               </span>
@@ -409,10 +424,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   );
                 })}
               </div>
-            </div>
+            </Reveal>
 
             {/* Right: Dark Green Callout Card */}
-            <div className="lg:col-span-4 bg-[#142e27] text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between text-center relative overflow-hidden">
+            <Reveal delay={200} direction="right" className="lg:col-span-4 bg-[#142e27] text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between text-center relative overflow-hidden">
               <div className="space-y-4">
                 <Logo variant="light" className="justify-center" />
                 <div className="pt-4 font-script text-3xl text-emerald-200 leading-tight">
@@ -428,7 +443,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   Réserver maintenant
                 </button>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
