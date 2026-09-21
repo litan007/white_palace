@@ -84,6 +84,7 @@ export default function App() {
 
         {currentView === 'rooms' && (
           <RoomsView
+            onNavigate={handleNavigate}
             onOpenRoomDetail={handleOpenRoomDetail}
             onOpenRoomBooking={handleOpenRoomBooking}
           />
