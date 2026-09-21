@@ -1,17 +1,5 @@
-import React, { useState } from 'react';
-import { 
-  Phone, 
-  Mail, 
-  Globe, 
-  Menu, 
-  X, 
-  Trees, 
-  Calendar, 
-  UtensilsCrossed,
-  Sparkles,
-  ChevronDown
-} from 'lucide-react';
-import { HOTEL_INFO } from '../data/hotelData';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface HeaderProps {
   currentView: string;
@@ -24,21 +12,30 @@ export const Header: React.FC<HeaderProps> = ({
   currentView,
   onNavigate,
   onOpenRoomBooking,
-  onOpenTableBooking
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [lang, setLang] = useState('FR');
-  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
-    { id: 'home', label: 'ACCUEIL' },
-    { id: 'rooms', label: 'CHAMBRES' },
-    { id: 'restaurant', label: 'RESTAURANT' },
-    { id: 'experiences', label: 'EXPÉRIENCES' },
-    { id: 'offers', label: 'OFFRES' },
-    { id: 'blog', label: 'BLOG' },
-    { id: 'about', label: 'À PROPOS' },
-    { id: 'contact', label: 'CONTACT' },
+    { id: 'home', label: 'Accueil' },
+    { id: 'about', label: "L'Hôtel" },
+    { id: 'rooms', label: 'Chambres' },
+    { id: 'restaurant', label: 'Restaurant' },
+    { id: 'experiences', label: 'Fitness' },
+    { id: 'gallery', label: 'Galerie' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   const handleNavClick = (id: string) => {
@@ -48,65 +45,94 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 via-black/40 to-transparent text-white transition-all">
-      {/* Main Nav Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-5 flex items-center justify-between">
-        {/* Logo */}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#F7FAF8]/95 backdrop-blur-md shadow-xs py-3.5 border-b border-[#E5EDE8]'
+          : 'bg-[#F7FAF8]/90 backdrop-blur-xs py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
+        {/* Logo matching mockup */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-3 text-left group"
+          className="flex items-center gap-3 text-left group focus:outline-none"
         >
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-white border border-amber-400/40 flex items-center justify-center group-hover:scale-105 transition-transform shadow-inner shrink-0">
-            <img src="/nouvelles_photos/logo.jpg" alt="Logo White Palace" className="w-full h-full object-cover" />
+          {/* Crest / Architectural emblem SVG */}
+          <div className="w-10 h-10 flex items-center justify-center text-[#233D34] group-hover:scale-105 transition-transform shrink-0">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+              <path
+                d="M24 4L28 14H38L30 20L33 30L24 24L15 30L18 20L10 14H20L24 4Z"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12 36C12 36 17 32 24 32C31 32 36 36 36 36"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+              <path
+                d="M15 42C15 42 19 39 24 39C29 39 33 42 33 42"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
           </div>
           <div>
-            <div className="font-serif text-xl sm:text-2xl font-bold tracking-widest text-amber-100 uppercase leading-none">
+            <div className="font-serif text-lg sm:text-xl font-bold tracking-[0.15em] text-[#233D34] uppercase leading-tight">
               WHITE PALACE
             </div>
-            <div className="text-[9px] tracking-widest uppercase text-amber-300/80 font-sans font-light mt-0.5">
-              LUXURY HOTEL & RESTAURANT
+            <div className="font-serif italic text-[11px] text-[#4D6D63] leading-none tracking-wider pl-0.5">
+              Hôtel
             </div>
           </div>
         </button>
 
-        {/* Navigation Links & Reserve Button */}
-        <div className="hidden md:flex items-center gap-3 lg:gap-6 text-[11px] lg:text-[12px] font-medium tracking-wider">
-          <nav className="flex items-center gap-3 lg:gap-6">
-            {navItems.map((item) => {
-              const isActive = currentView === item.id || (currentView === 'room-detail' && item.id === 'rooms');
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`relative py-1 transition-all uppercase tracking-wider whitespace-nowrap ${
-                    isActive
-                      ? 'text-white font-bold'
-                      : 'text-white/80 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white rounded-full animate-fade-in" />
-                  )}
-                </button>
-              );
-            })}
-          </nav>
+        {/* Navigation Links in Center */}
+        <nav className="hidden lg:flex items-center gap-7 text-[13px] font-normal tracking-normal text-[#233D34]">
+          {navItems.map((item) => {
+            const isActive =
+              currentView === item.id ||
+              (currentView === 'room-detail' && item.id === 'rooms');
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`relative py-1.5 transition-colors duration-200 cursor-pointer ${
+                  isActive
+                    ? 'text-[#233D34] font-medium'
+                    : 'text-[#4A635B] hover:text-[#233D34]'
+                }`}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#233D34] rounded-full" />
+                )}
+              </button>
+            );
+          })}
+        </nav>
 
-          {/* Action Button - White Pill button right next to nav links */}
+        {/* Reserve Pill Button on Right */}
+        <div className="hidden lg:flex items-center">
           <button
             onClick={onOpenRoomBooking}
-            className="ml-2 bg-white text-[#050A14] hover:bg-amber-50 font-bold text-[11px] lg:text-xs px-5 py-2 lg:px-6 lg:py-2.5 rounded-full tracking-widest uppercase shadow-md transition-all whitespace-nowrap"
+            className="group inline-flex items-center gap-2 bg-[#233D34] hover:bg-[#1A2E27] text-white text-[13px] font-medium px-6 py-2.5 rounded-full shadow-xs hover:shadow-md transition-all duration-300"
           >
-            RÉSERVER
+            <span>Réserver</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile menu hamburger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-white hover:text-amber-300 focus:outline-none"
-          aria-label="Toggle Menu"
+          className="lg:hidden p-2 text-[#233D34] hover:text-[#1A2E27] focus:outline-none"
+          aria-label="Menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -114,16 +140,16 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#050A14]/95 backdrop-blur-lg border-t border-slate-800/60 px-6 py-6 space-y-4 animate-fade-in shadow-2xl">
-          <div className="flex flex-col space-y-3">
+        <div className="lg:hidden bg-[#F7FAF8] border-b border-[#E2EAE5] px-6 py-6 space-y-4 shadow-xl">
+          <div className="flex flex-col space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-left py-2 px-3 text-xs tracking-wider uppercase rounded transition-colors ${
+                className={`text-left py-2.5 px-3 text-sm rounded-xl transition-colors ${
                   currentView === item.id
-                    ? 'bg-slate-900/60 text-amber-300 font-semibold border-l-2 border-amber-400'
-                    : 'text-slate-100/80 hover:bg-slate-900/30 hover:text-white'
+                    ? 'bg-[#EBF1ED] text-[#233D34] font-semibold'
+                    : 'text-[#4A635B] hover:bg-[#EBF1ED]/50 hover:text-[#233D34]'
                 }`}
               >
                 {item.label}
@@ -131,26 +157,16 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </div>
 
-          <div className="pt-4 border-t border-slate-800/40 flex flex-col gap-3">
+          <div className="pt-3 border-t border-[#E2EAE5]">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenRoomBooking();
               }}
-              className="w-full bg-white text-[#0F172A] font-bold text-xs py-3 rounded-full text-center tracking-widest uppercase shadow-lg flex items-center justify-center gap-2"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#233D34] text-white text-sm font-medium py-3 rounded-full shadow-md"
             >
-              <Calendar className="w-4 h-4" />
-              <span>RÉSERVER UNE CHAMBRE</span>
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenTableBooking();
-              }}
-              className="w-full bg-slate-900/70 border border-slate-700/60 text-amber-200 font-medium text-xs py-2.5 rounded-full text-center tracking-widest uppercase flex items-center justify-center gap-2"
-            >
-              <UtensilsCrossed className="w-4 h-4 text-amber-400" />
-              <span>Réserver une table au restaurant</span>
+              <span>Réserver</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -158,4 +174,3 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
-

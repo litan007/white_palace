@@ -60,7 +60,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0A0F1C] text-amber-50 font-sans selection:bg-amber-500 selection:text-black">
+    <div className="min-h-screen flex flex-col bg-[#F7FAF8] text-[#233D34] font-sans selection:bg-[#233D34] selection:text-white">
       {/* Navigation Header */}
       <Header
         currentView={currentView}
@@ -133,8 +133,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer */}
-      <Footer onNavigate={handleNavigate} />
+      {/* Footer for non-home views */}
+      {currentView !== 'home' && <Footer onNavigate={handleNavigate} />}
 
       {/* Interactive Modals */}
       <BookingModal

@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --color-brand-forest: #233D34;
+  --color-brand-dark: #1E352F;
+  --color-brand-sage: #4D6D63;
+  --color-brand-mint: #D8E4DC;
+  --color-brand-light: #F7FAF8;
+  --color-brand-strip: #EDF2EE;
+  --color-brand-card: #FFFFFF;
+  --color-brand-border: #E2EAE5;
+  --color-brand-footer: #2A4745;
+  --color-brand-rooftop: #324F4D;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #F7FAF8;
+    color: #233D34;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom organic rounded curves matching the design */
+.organic-hero-curve {
+  border-top-left-radius: 120px;
+  border-bottom-right-radius: 80px;
+  border-top-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.organic-about-curve {
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+}
+
+.organic-location-curve {
+  border-top-right-radius: 90px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}

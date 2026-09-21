@@ -1,167 +1,171 @@
-﻿import React, { useState } from 'react';
-import { 
-  Trees, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Send, 
-  CheckCircle, 
-  Instagram, 
-  Facebook, 
-  Youtube, 
-  Sparkles 
-} from 'lucide-react';
-import { HOTEL_INFO } from '../data/hotelData';
+import React from 'react';
+import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (view: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-    }
-  };
-
   const handleNav = (view: string) => {
     onNavigate(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navLinks = [
+    { id: 'home', label: 'Accueil' },
+    { id: 'about', label: 'Hôtel' },
+    { id: 'rooms', label: 'Chambres' },
+    { id: 'restaurant', label: 'Restaurant' },
+    { id: 'experiences', label: 'Fitness' },
+    { id: 'gallery', label: 'Galerie' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
-    <footer className="bg-[#0A0F1C] text-slate-100/80 border-t border-slate-900/60 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
-        {/* Column 1: Brand Info */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-slate-900/60 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-md">
-              <Trees className="w-5 h-5 text-amber-300" />
-            </div>
-            <div>
-              <div className="font-serif text-xl font-bold tracking-widest text-amber-100 uppercase">
-                WHITE PALACE
-              </div>
-              <div className="text-[10px] tracking-widest uppercase text-amber-300/80 font-sans font-light">
-                LUXURY HOTEL & RESTAURANT
-              </div>
-            </div>
-          </div>
-
-          <p className="text-xs leading-relaxed text-slate-200/70 font-light">
-            Un hôtel & restaurant de luxe au cœur d'Andasibe, oÃ¹ la nature et l'élégance ne font qu'un. Immersion féérique parmi les forêts tropicales et les lémuriens d'exception.
-          </p>
-
-          <div className="flex items-center gap-3 pt-2">
-            <a href="#" className="w-8 h-8 rounded-full bg-slate-900/40 border border-slate-700/50 flex items-center justify-center text-emerald-300 hover:text-amber-300 hover:border-amber-400/60 transition-colors">
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-slate-900/40 border border-slate-700/50 flex items-center justify-center text-emerald-300 hover:text-amber-300 hover:border-amber-400/60 transition-colors">
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-8 h-8 rounded-full bg-slate-900/40 border border-slate-700/50 flex items-center justify-center text-emerald-300 hover:text-amber-300 hover:border-amber-400/60 transition-colors">
-              <Youtube className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-
-        {/* Column 2: Liens Rapides */}
-        <div className="space-y-3">
-          <h4 className="text-xs font-semibold tracking-widest uppercase text-amber-200 border-b border-slate-800/60 pb-2">
-            LIENS RAPIDES
-          </h4>
-          <ul className="space-y-2 text-xs">
-            <li><button onClick={() => handleNav('home')} className="hover:text-amber-300 transition-colors">Accueil</button></li>
-            <li><button onClick={() => handleNav('rooms')} className="hover:text-amber-300 transition-colors">Chambres & Suites</button></li>
-            <li><button onClick={() => handleNav('restaurant')} className="hover:text-amber-300 transition-colors">Restaurant & Carte</button></li>
-            <li><button onClick={() => handleNav('experiences')} className="hover:text-amber-300 transition-colors">Expériences & Activités</button></li>
-            <li><button onClick={() => handleNav('offers')} className="hover:text-amber-300 transition-colors">Offres Spéciales</button></li>
-            <li><button onClick={() => handleNav('blog')} className="hover:text-amber-300 transition-colors">Blog & Actualités</button></li>
-            <li><button onClick={() => handleNav('about')} className="hover:text-amber-300 transition-colors">À propos d'Andasibe</button></li>
-            <li><button onClick={() => handleNav('gallery')} className="hover:text-amber-300 transition-colors">Galerie Photos</button></li>
-            <li><button onClick={() => handleNav('contact')} className="hover:text-amber-300 transition-colors">Contact & Accès</button></li>
-          </ul>
-        </div>
-
-        {/* Column 3: Informations */}
-        <div className="space-y-3">
-          <h4 className="text-xs font-semibold tracking-widest uppercase text-amber-200 border-b border-slate-800/60 pb-2">
-            INFORMATIONS
-          </h4>
-          <ul className="space-y-2 text-xs text-slate-200/70">
-            <li className="flex items-center gap-1.5"><Sparkles className="w-3 h-3 text-amber-400" /> Meilleur tarif garanti</li>
-            <li>Conditions générales de vente</li>
-            <li>Politique de confidentialité</li>
-            <li>Mentions légales</li>
-            <li>Plan du domaine & Réserve</li>
-            <li>Faq & Conseils de voyage</li>
-          </ul>
-        </div>
-
-        {/* Column 4: Newsletter & Map Location */}
-        <div className="space-y-4">
-          <h4 className="text-xs font-semibold tracking-widest uppercase text-amber-200 border-b border-slate-800/60 pb-2">
-            NEWSLETTER
-          </h4>
-          <p className="text-xs text-slate-200/70">
-            Inscrivez-vous pour recevoir nos offres exclusives et actualités.
-          </p>
-
-          {subscribed ? (
-            <div className="bg-slate-900/60 border border-amber-400/40 rounded p-3 text-xs text-amber-200 flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Merci ! Vous êtes inscrit à notre newsletter exclusive.</span>
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <input
-                type="email"
-                required
-                placeholder="Votre email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-[#0F172A] border border-slate-800/80 text-xs px-3 py-2 rounded-lg text-white focus:outline-none focus:border-amber-400/60 flex-1 placeholder:text-slate-600/80"
-              />
-              <button
-                type="submit"
-                className="bg-[#1E293B] hover:bg-[#0F172A] text-white p-2 rounded-lg transition-all"
-                aria-label="S'abonner"
-              >
-                <Send className="w-3.5 h-3.5" />
-              </button>
-            </form>
-          )}
-
-          {/* Madagascar Map with Pin */}
-          <div className="pt-2 flex items-center justify-center">
-            <div className="relative w-36 h-28 flex items-center justify-center bg-[#0F172A]/50 rounded-xl border border-slate-900/40 p-2">
-              {/* Madagascar SVG silhouette */}
-              <svg viewBox="0 0 100 180" className="w-16 h-24 fill-slate-800/40 stroke-slate-600/40 stroke-[1.5]">
-                <path d="M 50,10 C 58,15 62,35 60,50 C 58,65 65,85 70,110 C 75,130 65,155 50,170 C 40,160 38,135 42,110 C 45,90 38,65 40,40 Z" />
-              </svg>
-              {/* Pin point on Andasibe (east central) */}
-              <div className="absolute top-[38%] right-[22%] flex items-center gap-1">
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping absolute" />
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-400 border border-black relative z-10" />
-                <span className="text-[10px] font-bold text-amber-300 tracking-wider uppercase drop-shadow ml-1">Andasibe</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <footer className="relative bg-[#2A4745] text-white pt-14 pb-8 overflow-hidden">
+      {/* Botanical leaf watermark bottom right matching mockup */}
+      <div className="absolute right-0 bottom-0 pointer-events-none opacity-10 translate-x-12 translate-y-12">
+        <svg width="260" height="260" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 5C35 25 20 45 25 75C28 90 40 95 50 95C60 95 72 90 75 75C80 45 65 25 50 5Z" stroke="white" strokeWidth="2"/>
+          <path d="M50 15V90M35 35L50 45M65 35L50 45M30 55L50 65M70 55L50 65M33 75L50 82M67 75L50 82" stroke="white" strokeWidth="1.5"/>
+        </svg>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-12 pt-6 border-t border-slate-900/40 text-center text-xs text-emerald-300/50 font-light">
-        Â© 2025 White Palace Luxury Hotel & Restaurant. Tous droits réservés.
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        {/* Top section: 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start pb-10">
+          {/* Col 1: Brand & tagline */}
+          <div className="md:col-span-4 space-y-3">
+            <button
+              onClick={() => handleNav('home')}
+              className="flex items-center gap-3 text-left focus:outline-none group"
+            >
+              {/* Crest SVG */}
+              <div className="w-10 h-10 flex items-center justify-center text-white shrink-0">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+                  <path
+                    d="M24 4L28 14H38L30 20L33 30L24 24L15 30L18 20L10 14H20L24 4Z"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12 36C12 36 17 32 24 32C31 32 36 36 36 36"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M15 42C15 42 19 39 24 39C29 39 33 42 33 42"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div className="font-serif text-lg font-bold tracking-[0.15em] text-white uppercase leading-tight">
+                  WHITE PALACE
+                </div>
+                <div className="font-serif italic text-xs text-white/80 leading-none tracking-wider">
+                  Hôtel
+                </div>
+              </div>
+            </button>
+            <p className="text-xs text-white/70 font-light pl-0.5">
+              Un lieu d'exception à Antananarivo
+            </p>
+          </div>
+
+          {/* Col 2: Navigation links */}
+          <div className="md:col-span-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/80 pt-2">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleNav(link.id)}
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Col 3: Contact info & Socials */}
+          <div className="md:col-span-4 space-y-3 md:text-right">
+            <div className="space-y-1.5 text-xs text-white/80">
+              <div className="flex items-center md:justify-end gap-2">
+                <Phone className="w-3.5 h-3.5 text-white/70" />
+                <span>+261 32 07 669 98</span>
+              </div>
+              <div className="flex items-center md:justify-end gap-2">
+                <Mail className="w-3.5 h-3.5 text-white/70" />
+                <span>whitepalacehtananarivo@gmail.com</span>
+              </div>
+              <div className="flex items-center md:justify-end gap-2">
+                <MapPin className="w-3.5 h-3.5 text-white/70" />
+                <span>Lot VB 12, Ambatoroka, Antananarivo</span>
+              </div>
+            </div>
+
+            {/* Social icons row */}
+            <div className="flex items-center md:justify-end gap-2 pt-2">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-[#2A4745] hover:border-white transition-all text-white/80"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-[#2A4745] hover:border-white transition-all text-white/80"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-[#2A4745] hover:border-white transition-all text-white/80"
+                aria-label="TikTok"
+              >
+                <span className="text-[10px] font-bold">Tk</span>
+              </a>
+              <a
+                href="https://tripadvisor.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-[#2A4745] hover:border-white transition-all text-white/80"
+                aria-label="TripAdvisor"
+              >
+                <span className="text-[10px] font-bold">Ta</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Separator line */}
+        <div className="border-t border-white/15 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/60">
+          <div>
+            © 2025 White Palace Hôtel. Tous droits réservés.
+          </div>
+          <div className="flex items-center gap-4">
+            <button onClick={() => handleNav('contact')} className="hover:text-white transition-colors">
+              Mentions légales
+            </button>
+            <span>|</span>
+            <button onClick={() => handleNav('contact')} className="hover:text-white transition-colors">
+              Politique de confidentialité
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   );
 };
-
