@@ -1,0 +1,7 @@
+{
+  "name": "White Palace Hôtel",
+  "description": "Site officiel du White Palace Hôtel 4 étoiles à Antananarivo, Madagascar - Chambres de luxe, Restaurant Rooftop, Fitness, Galerie et Réservations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

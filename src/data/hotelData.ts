@@ -1,0 +1,357 @@
+import { Room, CulinaryOffer, ServiceItem, GalleryPhoto, FAQItem } from '../types';
+
+export const HOTEL_INFO = {
+  name: 'WHITE PALACE',
+  subtitle: 'Hôtel',
+  tagline: "Un séjour d'exception à Antananarivo",
+  stars: '4★',
+  address: 'Lot VB 12, Ambatobe, Antananarivo',
+  phone: '+261 32 07 669 98',
+  email: 'whitepalacetana@gmail.com',
+  receptionHours: '24h/24 - 7j/7',
+  totalRooms: 64,
+  satisfaction: '100%',
+};
+
+export const ROOMS: Room[] = [
+  {
+    id: 'single',
+    name: 'Single',
+    price: '135 000 Ar',
+    priceNum: 135000,
+    bed: '1 lit simple',
+    capacity: '1 personne',
+    size: '18 m²',
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Une chambre individuelle confortable et calme, pensée pour les voyageurs solo ou les séjours d’affaires avec un bureau dédié et une literie de premier choix.',
+    amenities: ['1 lit simple', 'WiFi gratuit', 'TV écran plat', 'Climatisation', 'Salle de bain privée', 'Room service 24h/24'],
+  },
+  {
+    id: 'double',
+    name: 'Double',
+    price: '145 000 Ar',
+    priceNum: 145000,
+    bed: '1 lit double',
+    capacity: '2 personnes',
+    size: '24 m²',
+    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Idéale pour un séjour en couple ou entre amis, la chambre double allie confort moderne et ambiance chaleureuse. Profitez d’un espace spacieux, d’une literie de qualité et de toutes les commodités nécessaires pour un séjour agréable.',
+    amenities: [
+      '1 lit double',
+      'TV écran plat',
+      'WiFi gratuit',
+      'Mini bar',
+      'Climatisation',
+      'Coffre-fort',
+      'Salle de bain privée',
+      'Balcon / Vue jardin',
+    ],
+  },
+  {
+    id: 'twin',
+    name: 'Twin',
+    price: '135 000 Ar',
+    priceNum: 135000,
+    bed: '2 lits simples',
+    capacity: '2 personnes',
+    size: '22 m²',
+    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Parfaite pour les collègues ou amis voyageant ensemble, équipée de deux lits individuels séparés ultra-confortables et d’une salle d’eau moderne.',
+    amenities: ['2 lits simples', 'WiFi gratuit', 'TV écran plat', 'Climatisation', 'Salle de bain privée', 'Coffre-fort'],
+  },
+  {
+    id: 'luxe',
+    name: 'Luxe',
+    price: '250 000 Ar',
+    priceNum: 250000,
+    bed: '1 lit king size',
+    capacity: '2 personnes',
+    size: '35 m²',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Notre chambre de prestige offre un lit king-size somptueux, une baignoire îlot de relaxation, une vue panoramique sur les collines et un service VIP personnalisé.',
+    amenities: ['1 lit king size', 'Balcon panoramique', 'Baignoire de luxe', 'Machine espresso', 'WiFi très haut débit', 'Mini bar offert'],
+  },
+  {
+    id: 'cuisine',
+    name: 'Cuisine',
+    price: '200 000 Ar',
+    priceNum: 200000,
+    bed: '1 lit double + kitchenette',
+    capacity: '2 personnes',
+    size: '32 m²',
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Studio raffiné intégrant une kitchenette équipée moderne (réfrigérateur, plaques à induction, vaisselle), parfait pour les séjours de moyenne et longue durée.',
+    amenities: ['1 lit double', 'Kitchenette toute équipée', 'Réfrigérateur', 'WiFi gratuit', 'TV écran plat', 'Vaisselle complète'],
+  },
+  {
+    id: 'appartement',
+    name: 'Appartement',
+    price: '200 000 Ar',
+    priceNum: 200000,
+    bed: '1 lit king size + salon',
+    capacity: '3 personnes',
+    size: '45 m²',
+    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Une suite façon appartement privé avec chambre indépendante, salon contemporain aménagé, espace repas et salle de bain haut de gamme.',
+    amenities: ['1 lit king size + salon', 'Salon séparé', 'TV grand écran 55"', 'WiFi très haut débit', 'Service conciergerie VIP'],
+  },
+  {
+    id: 'familiale',
+    name: 'Familiale',
+    price: '175 000 Ar',
+    priceNum: 175000,
+    bed: '1 lit double + 2 lits simples',
+    capacity: '4 personnes',
+    size: '38 m²',
+    image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Espace spacieux et chaleureux spécialement pensé pour les familles, combinant un grand lit parental et des lits séparés pour enfants dans un environnement sécurisé.',
+    amenities: ['1 lit double + 2 lits simples', 'Espace famille', 'Salle de bain avec baignoire', 'TV avec chaînes jeunesse', 'WiFi gratuit'],
+  },
+  {
+    id: 'handicape',
+    name: 'Handicapé',
+    price: '180 000 Ar',
+    priceNum: 180000,
+    bed: '1 lit double accessible',
+    capacity: '2 personnes',
+    size: '30 m²',
+    image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80',
+    ],
+    description: 'Chambre spécialement aménagée PMR aux normes d’accessibilité : portes larges, douche à l’italienne de plain-pied avec barres de maintien et circulation fluide.',
+    amenities: ['1 lit double accessible', 'Douche à l’italienne PMR', 'Barres d’appui sécurisées', 'Ascenseur direct', 'Interphone d’urgence'],
+  },
+];
+
+export const CULINARY_OFFERS: CulinaryOffer[] = [
+  {
+    id: 'locales',
+    title: 'Spécialités locales',
+    description: 'Découvrez les saveurs de Madagascar préparées avec les meilleurs produits de la Grande Île.',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'fruits-mer',
+    title: 'Fruits de mer',
+    description: 'Fraîcheur et authenticité à chaque bouchée, arrivages côtiers sélectionnés chaque matin.',
+    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'internationale',
+    title: 'Cuisine internationale',
+    description: 'Des classiques revisités avec passion par nos chefs pour ravir tous les palais du monde.',
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'cocktails',
+    title: 'Bar & Cocktails',
+    description: 'Des boissons rafraîchissantes et savoureuses créées par nos mixologues talentueux.',
+    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80',
+  },
+];
+
+export const RESTAURANT_HOURS = [
+  { meal: 'Petit-déjeuner', time: '06h30 - 10h00' },
+  { meal: 'Déjeuner', time: '12h00 - 14h30' },
+  { meal: 'Dîner', time: '19h00 - 22h30' },
+  { meal: 'Bar', time: '10h00 - 23h00' },
+];
+
+export const PRINCIPAL_SERVICES: ServiceItem[] = [
+  {
+    id: 'wifi',
+    title: 'WiFi gratuit',
+    description: 'Restez connecté partout dans l’hôtel, que ce soit dans votre chambre ou dans les espaces communs.',
+    iconName: 'Wifi',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'conciergerie',
+    title: 'Service de conciergerie',
+    description: 'Notre équipe est disponible pour vous assister dans toutes vos demandes : excursions, transferts, réservations...',
+    iconName: 'Bell',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'securite',
+    title: 'Sécurité 24h/24',
+    description: 'Votre tranquillité est notre priorité. L’hôtel est sécurisé en permanence pour un séjour en toute sérénité.',
+    iconName: 'ShieldCheck',
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'transferts',
+    title: 'Transferts & Navettes',
+    description: 'Nous organisons vos transferts aéroport d’Ivato et vos déplacements privés dans toute la ville.',
+    iconName: 'Car',
+    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: 'bien-etre',
+    title: 'Bien-être & Détente',
+    description: 'Profitez de nos espaces de détente et de nos soins pour un moment de relaxation unique.',
+    iconName: 'Flower2',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+  },
+];
+
+export const OTHER_SERVICES = [
+  {
+    id: 'room-service',
+    title: 'Room service 24h/24',
+    description: 'Savourez vos plats préférés dans l’intimité de votre chambre.',
+    icon: 'UtensilsCrossed',
+  },
+  {
+    id: 'blanchisserie',
+    title: 'Blanchisserie',
+    description: 'Un service de blanchisserie rapide et soigné sur simple appel.',
+    icon: 'Shirt',
+  },
+  {
+    id: 'parking',
+    title: 'Parking sécurisé',
+    description: 'Un espace de stationnement privé et surveillé 24h/24.',
+    icon: 'Car',
+  },
+  {
+    id: 'location',
+    title: 'Location de véhicule',
+    description: 'Explorez Madagascar en toute liberté avec ou sans chauffeur.',
+    icon: 'Key',
+  },
+  {
+    id: 'excursions',
+    title: 'Activités & Excursions',
+    description: 'Découvrez les trésors d’Antananarivo avec nos guides partenaires.',
+    icon: 'Compass',
+  },
+];
+
+export const GALLERY_ITEMS: GalleryPhoto[] = [
+  {
+    id: '1',
+    title: 'Extérieur & Piscine',
+    category: 'Extérieur',
+    tag: 'Extérieur & Piscine',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '2',
+    title: 'Chambres',
+    category: 'Chambres',
+    tag: 'Chambres',
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '3',
+    title: 'Restaurant',
+    category: 'Restaurant',
+    tag: 'Restaurant',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '4',
+    title: 'Réception',
+    category: 'Hôtel',
+    tag: 'Réception',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '5',
+    title: 'Gastronomie',
+    category: 'Restaurant',
+    tag: 'Gastronomie',
+    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '6',
+    title: 'Espaces détente',
+    category: 'Hôtel',
+    tag: 'Espaces détente',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '7',
+    title: 'Vue depuis l’hôtel',
+    category: 'Extérieur',
+    tag: 'Vue depuis l’hôtel',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '8',
+    title: 'Terrasse',
+    category: 'Restaurant',
+    tag: 'Terrasse',
+    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: '9',
+    title: 'Services',
+    category: 'Services',
+    tag: 'Services',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80',
+  },
+];
+
+export const FAQ_ITEMS: FAQItem[] = [
+  {
+    id: 'faq-1',
+    question: 'Comment effectuer une réservation ?',
+    answer: 'Vous pouvez réserver directement en ligne sur notre site en cliquant sur le bouton "Réserver", par téléphone au +261 32 07 669 98, ou en nous écrivant à whitepalacetana@gmail.com. Une confirmation immédiate vous sera envoyée.',
+  },
+  {
+    id: 'faq-2',
+    question: 'Quels sont les moyens de paiement acceptés ?',
+    answer: 'Nous acceptons les cartes bancaires internationales (Visa, MasterCard), les espèces (Ariary, Euros, Dollars au taux du jour) ainsi que le Mobile Money (Mvola, Orange Money, Airtel Money).',
+  },
+  {
+    id: 'faq-3',
+    question: 'L’hôtel propose-t-il un service de transfert ?',
+    answer: 'Oui, nous mettons à votre disposition une navette privée VIP pour vos transferts entre l’Aéroport International d’Ivato et l’hôtel (environ 15 minutes de trajet). Il suffit de nous communiquer vos détails de vol lors de la réservation.',
+  },
+  {
+    id: 'faq-4',
+    question: 'Y a-t-il une connexion Wi-Fi ?',
+    answer: 'Une connexion Wi-Fi par fibre optique haut débit et sécurisée est disponible gratuitement et en illimité dans toutes les chambres ainsi que dans l’ensemble des espaces communs de l’établissement.',
+  },
+  {
+    id: 'faq-5',
+    question: 'Les animaux de compagnie sont-ils acceptés ?',
+    answer: 'Les petits animaux de compagnie propres et bien éduqués sont acceptés sur demande préalable auprès de notre équipe lors de la réservation de votre chambre.',
+  },
+];
