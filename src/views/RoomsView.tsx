@@ -276,9 +276,9 @@ export const RoomsView: React.FC<RoomsViewProps> = ({
               NOS CHAMBRES
             </div>
 
-            {/* Main Title */}
+            {/* Main Title - Uniformized Font */}
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] font-bold text-[#1E382F] leading-[1.08] tracking-tight">
-              Des <span className="italic font-normal">chambres élégantes</span><br />
+              Des chambres élégantes<br />
               pour tous vos séjours
             </h1>
 
@@ -332,51 +332,60 @@ export const RoomsView: React.FC<RoomsViewProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Organic S-curve blob clipped photo */}
+          {/* Right Column: Organic S-curve blob clipped photo with exact SVG paths */}
           <div className="relative w-full lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[56%] xl:w-[58%] h-[360px] sm:h-[450px] lg:h-full z-10">
             {/* Cursive script in top right */}
             <div className="absolute top-6 sm:top-10 right-6 sm:right-12 z-20 pointer-events-none text-right">
-              <span className="font-serif italic text-white text-2xl sm:text-3xl lg:text-4xl tracking-wide drop-shadow-md block font-normal -rotate-3 select-none">
-                Votre confort,<br />notre priorité
+              <span className="font-serif italic text-white text-2xl sm:text-3xl lg:text-4xl tracking-wide drop-shadow-md block font-normal -rotate-2 select-none">
+                Votre confort,<br />
+                <span className="relative inline-block">
+                  notre priorité
+                  <svg className="absolute -bottom-1 left-0 w-full h-2 text-white/70" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M 0 5 Q 50 10 100 3" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
+                  </svg>
+                </span>
               </span>
             </div>
 
             <svg
               className="w-full h-full"
-              viewBox="0 0 1000 650"
+              viewBox="550 -66 730 424"
               preserveAspectRatio="none"
             >
               <defs>
+                {/* Outer wave clip path (Path 2) */}
+                <clipPath id="roomsOuterWaveClip">
+                  <path d="M 1280 358 L 1280 -66 L 646.628 -66 L 646.628 -64.184 C 630.307 28.101 614.873 77.785 596.277 145.423 C 578.698 209.365 533.464 276.376 557.905 356.284 L 721.901 356.623 L 1280 358 Z" />
+                </clipPath>
+
+                {/* Inner main photo clip path (Path 1) */}
                 <clipPath id="roomsHeroBlobClip">
-                  <path d="M 170 0 C 120 50, 45 135, 50 240 C 58 335, 115 425, 155 490 C 195 555, 240 605, 285 650 L 1000 650 L 1000 0 Z" />
+                  <path d="M 1280 358 L 1280 -66 L 572.702 -66 L 572.702 -62.691 C 572.702 -36.164 641.066 83.009 650.304 137.695 C 660.324 168.813 661.881 210.903 660.29 237.456 C 656.625 298.638 676.362 343.694 717.099 355.801 L 717.099 358 L 1280 358 Z" />
                 </clipPath>
               </defs>
 
-              {/* Layered shadows */}
-              <path
-                d="M 70 0 C 20 60, -20 150, 8 245 C 32 335, 88 425, 128 490 C 168 555, 212 605, 250 650 L 315 650 C 275 600, 235 545, 195 480 C 155 410, 108 315, 95 235 C 80 155, 105 70, 125 0 Z"
-                fill="#B5C9BF"
-                opacity="0.55"
-              />
-              <path
-                d="M 105 0 C 55 50, 25 125, 35 195 C 48 265, 92 325, 138 375 C 112 305, 88 225, 92 150 C 102 80, 132 25, 158 0 Z"
-                fill="#8FA89D"
-                opacity="0.75"
-              />
-              <path
-                d="M 135 650 C 165 565, 215 515, 265 530 C 298 545, 328 595, 348 650 Z"
-                fill="#365349"
-                opacity="0.9"
-              />
+              {/* 1. Continuation of the photo on the outer wave with soft transparency */}
+              <g clipPath="url(#roomsOuterWaveClip)">
+                <image
+                  href="/nouvelles_photos/chambre_lit_4.jpg"
+                  x="550"
+                  y="-66"
+                  width="730"
+                  height="424"
+                  preserveAspectRatio="xMidYMid slice"
+                  opacity="0.45"
+                />
+                <rect x="550" y="-66" width="730" height="424" fill="#8EA99C" opacity="0.3" />
+              </g>
 
-              {/* Photo */}
+              {/* 2. Main opaque photo clipped by Path 1 */}
               <g clipPath="url(#roomsHeroBlobClip)">
                 <image
-                  href="/nouvelles_photos/chambre_de_fond.jpg"
-                  x="0"
-                  y="0"
-                  width="1000"
-                  height="650"
+                  href="/nouvelles_photos/chambre_lit_4.jpg"
+                  x="550"
+                  y="-66"
+                  width="730"
+                  height="424"
                   preserveAspectRatio="xMidYMid slice"
                 />
               </g>
@@ -693,21 +702,50 @@ export const RoomsView: React.FC<RoomsViewProps> = ({
       </section>
 
       {/* 5. SECTION: CTA BANNER ("Un séjour inoubliable au White Palace Hôtel") */}
-      <section className="w-full relative overflow-hidden min-h-[360px] sm:min-h-[420px] flex flex-col lg:flex-row items-stretch">
-        {/* Left Side: Photo */}
-        <div className="w-full lg:w-[55%] relative min-h-[260px] sm:min-h-[320px] lg:min-h-full">
+      <section className="w-full relative overflow-hidden h-[180px] sm:h-[220px] md:h-[250px] lg:h-[270px] xl:h-[290px] flex">
+        {/* Left Side: Photo with full height & wide aspect ratio */}
+        <div className="w-[52%] sm:w-[50%] lg:w-[48%] h-full relative shrink-0">
           <img
             src="/nouvelles_photos/terrasse_1.jpg"
             alt="Piscine et terrasse du White Palace Hôtel"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/10" />
         </div>
 
-        {/* Right Side: Deep Emerald Green with organic wavy edge */}
-        <div className="w-full lg:w-[48%] -mt-6 lg:-mt-0 lg:-ml-12 relative z-10 bg-[#1E382F] text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-center text-center space-y-6 rounded-t-3xl lg:rounded-t-none lg:rounded-l-[60px] shadow-xl overflow-hidden">
-          {/* Subtle botanical leaf silhouettes in background */}
-          <div className="absolute -right-8 top-1/2 -translate-y-1/2 pointer-events-none opacity-15 select-none w-48 h-auto">
+        {/* Right Side: Deep Forest/Emerald Green block covering the remaining width and overlapping photo via organic curve */}
+        <div className="flex-1 h-full relative bg-[#1E382F] text-white flex items-center justify-center -ml-[30px] sm:-ml-[45px] md:-ml-[60px] lg:-ml-[80px] z-10">
+          {/* Organic wave transition on the left edge */}
+          <svg
+            className="absolute -left-[39px] sm:-left-[59px] md:-left-[79px] lg:-left-[99px] top-0 bottom-0 h-full w-[40px] sm:w-[60px] md:w-[80px] lg:w-[100px] pointer-events-none text-[#1E382F]"
+            viewBox="0 0 100 300"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M100,0 C65,70 15,120 40,195 C55,245 85,275 100,300 L100,0 Z"
+              fill="currentColor"
+            />
+          </svg>
+
+          {/* Botanical leaf silhouettes on the left side of green area */}
+          <div className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 pointer-events-none opacity-20 select-none w-14 sm:w-20 md:w-28 lg:w-36">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="119.124 50 192 424"
+              className="w-full h-auto block"
+            >
+              <path
+                d="M 119.184 360.732 C 139.755 345.771 144.424 307.077 138.724 300.158 L 119.463 255.217 C 119.463 255.217 101.245 229.297 118.905 176.97 L 133.141 128.12 C 139.859 153.504 172.043 190.033 173.338 213.258 C 179.653 270.094 147.033 312.07 145.713 312.995 L 140.553 331.701 C 172.264 311.997 200.602 228.069 200.005 228.44 C 199.818 229.16 184.524 172.811 190.97 147.947 C 195.993 121.876 212.293 96.729 212.293 96.729 C 217.117 91.764 244.956 49.987 239.399 55.709 C 264.272 107.085 258.373 149.698 258.373 149.698 C 252.517 197.328 205.607 228.7 205.607 228.7 L 170.911 305.161 C 197.107 294.421 201.27 273.718 201.27 273.718 C 224.839 215.018 299.588 226.463 311.037 223.358 C 251.244 345.886 215.658 297.042 187.254 302.315 C 172.885 304.983 124.2 354.468 126.176 363.032 C 129.436 362.445 170.249 334.003 184.001 332.131 C 220.713 327.134 238.197 355.082 258.452 352.912 C 192.95 421.649 160.567 366.076 133.765 365.697 L 120.032 372.745"
+                fill="#ffffff"
+              />
+              <path
+                d="M 119.124 405.653 C 125.241 405.375 135.239 390.437 166.914 411.228 L 188.487 423.001 C 179.31 425.459 155.127 473.802 119.721 455.633"
+                fill="#ffffff"
+              />
+            </svg>
+          </div>
+
+          {/* Botanical leaf silhouettes on the right edge */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none opacity-20 select-none w-16 sm:w-24 md:w-32 lg:w-44">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="1267 -218 157 323"
@@ -720,18 +758,35 @@ export const RoomsView: React.FC<RoomsViewProps> = ({
             </svg>
           </div>
 
-          <div className="relative z-20 space-y-4 max-w-md">
-            <h2 className="font-serif italic text-3xl sm:text-4xl lg:text-[42px] font-normal text-white leading-tight tracking-wide">
-              Un séjour inoubliable<br />au White Palace Hôtel
+          {/* Content: Title with handwriting font + button */}
+          <div className="relative z-20 flex flex-col items-center text-center px-4 sm:px-8 max-w-lg space-y-3 sm:space-y-4">
+            <h2 className="font-['Caveat'] text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-normal text-white leading-tight tracking-wide select-none">
+              Un séjour inoubliable
+              <br />
+              <span className="relative inline-block mt-0.5">
+                au White Palace Hôtel
+                <svg
+                  className="absolute -bottom-1.5 sm:-bottom-2 left-1/2 -translate-x-1/2 w-4/5 h-2.5 sm:h-3 text-[#E2B158]/80"
+                  viewBox="0 0 160 12"
+                  fill="none"
+                >
+                  <path
+                    d="M 5 6 Q 80 12 155 4"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
             </h2>
-            
-            <div className="pt-2">
+
+            <div className="pt-1 sm:pt-2">
               <button
                 onClick={() => onOpenRoomBooking()}
-                className="inline-flex items-center gap-2.5 border border-white/80 hover:border-white hover:bg-white text-white hover:text-[#1E382F] text-xs sm:text-sm font-medium px-7 py-3 rounded-full transition-all duration-300 shadow-sm cursor-pointer"
+                className="inline-flex items-center gap-2 border border-white/80 hover:border-white hover:bg-white text-white hover:text-[#1E382F] text-[11px] sm:text-xs md:text-sm font-medium px-5 sm:px-7 py-2 sm:py-2.5 rounded-full transition-all duration-300 shadow-sm cursor-pointer"
               >
                 <span>Réserver maintenant</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>

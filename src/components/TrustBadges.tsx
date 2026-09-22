@@ -1,7 +1,6 @@
-import React from 'react';
 import { ShieldCheck, RefreshCw, Coffee, Lock } from 'lucide-react';
 
-export const TrustBadges: React.FC = () => {
+export const TrustBadges = () => {
   const badges = [
     {
       icon: ShieldCheck,

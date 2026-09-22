@@ -100,6 +100,7 @@ export default function App() {
 
         {currentView === 'restaurant' && (
           <RestaurantView
+            onNavigate={handleNavigate}
             onOpenTableBooking={() => setTableBookingOpen(true)}
             onOpenMenuPdf={() => setMenuPdfModalOpen(true)}
           />
