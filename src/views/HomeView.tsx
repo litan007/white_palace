@@ -755,9 +755,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* 8. SECTION: CTA BANNER "Votre séjour vous attend" (FROM IMAGE 1) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="relative rounded-3xl overflow-hidden shadow-lg">
+      {/* 8. SECTION: CTA BANNER "Votre séjour vous attend" (100% FULL WIDTH, NO BORDER-RADIUS) */}
+      <section className="w-full relative overflow-hidden">
+        <div className="relative w-full">
           {/* Background image: exact photo vue_sur_tana.jpg */}
           <div className="absolute inset-0 z-0">
             <img
@@ -777,7 +777,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           {/* Content */}
-          <div className="relative z-20 p-8 sm:p-12 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-white">
+          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 py-10 sm:py-14 lg:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-white">
             <div className="space-y-1.5 max-w-xl">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-white leading-tight">
                 Votre séjour vous attend

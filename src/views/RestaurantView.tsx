@@ -202,106 +202,114 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
           {/* Right Column: 4 Rounded Category Cards */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {/* Card 1: Spécialités locales */}
-            <div className="bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-gray-100">
+            <div className="bg-[#FAFBF9] rounded-2xl overflow-hidden border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
+              <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100">
                 <img
                   src="/nouvelles_photos/plat_carpaccio.jpg"
                   alt="Spécialités locales"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
-                Spécialités locales
-              </h3>
-              <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
-                Découvrez les trésors culinaires de Madagascar
-              </p>
-              <div className="pt-2 flex justify-end">
-                <button
-                  onClick={onOpenMenuPdf}
-                  className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors cursor-pointer"
-                  aria-label="Voir spécialités"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                </button>
+              <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between">
+                <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
+                  Spécialités locales
+                </h3>
+                <div className="flex items-end justify-between gap-2 mt-auto pt-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
+                    Découvrez les trésors culinaires de Madagascar
+                  </p>
+                  <button
+                    onClick={onOpenMenuPdf}
+                    className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors shrink-0 cursor-pointer"
+                    aria-label="Voir spécialités"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Card 2: Fruits de mer */}
-            <div className="bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-gray-100">
+            <div className="bg-[#FAFBF9] rounded-2xl overflow-hidden border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
+              <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100">
                 <img
                   src="/nouvelles_photos/plat_poisson.jpg"
                   alt="Fruits de mer & poissons"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
-                Fruits de mer
-              </h3>
-              <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
-                Fraîchement pêchés et cuisinés avec raffinement
-              </p>
-              <div className="pt-2 flex justify-end">
-                <button
-                  onClick={onOpenMenuPdf}
-                  className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors cursor-pointer"
-                  aria-label="Voir fruits de mer"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                </button>
+              <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between">
+                <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
+                  Fruits de mer
+                </h3>
+                <div className="flex items-end justify-between gap-2 mt-auto pt-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
+                    Fraîchement pêchés et cuisinés avec raffinement
+                  </p>
+                  <button
+                    onClick={onOpenMenuPdf}
+                    className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors shrink-0 cursor-pointer"
+                    aria-label="Voir fruits de mer"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Card 3: Cuisine internationale */}
-            <div className="bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-gray-100">
+            <div className="bg-[#FAFBF9] rounded-2xl overflow-hidden border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
+              <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100">
                 <img
-                  src="/nouvelles_photos/entree_salade.jpg"
+                  src="/images/gourmet_dish.jpeg"
                   alt="Cuisine internationale"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
-                Cuisine internationale
-              </h3>
-              <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
-                Des classiques revisités avec passion
-              </p>
-              <div className="pt-2 flex justify-end">
-                <button
-                  onClick={onOpenMenuPdf}
-                  className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors cursor-pointer"
-                  aria-label="Voir cuisine internationale"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                </button>
+              <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between">
+                <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
+                  Cuisine internationale
+                </h3>
+                <div className="flex items-end justify-between gap-2 mt-auto pt-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
+                    Des classiques revisités avec passion
+                  </p>
+                  <button
+                    onClick={onOpenMenuPdf}
+                    className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors shrink-0 cursor-pointer"
+                    aria-label="Voir cuisine internationale"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Card 4: Bar & Cocktails */}
-            <div className="bg-white rounded-2xl p-2.5 sm:p-3 border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-gray-100">
+            <div className="bg-[#FAFBF9] rounded-2xl overflow-hidden border border-[#E3EAE6] shadow-xs hover:shadow-md transition-all flex flex-col group">
+              <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100">
                 <img
                   src="/nouvelles_photos/boisson_cocktail.jpg"
                   alt="Bar & Cocktails"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
-                Bar & Cocktails
-              </h3>
-              <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
-                Des cocktails créatifs et rafraîchissants
-              </p>
-              <div className="pt-2 flex justify-end">
-                <button
-                  onClick={onOpenMenuPdf}
-                  className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors cursor-pointer"
-                  aria-label="Voir cocktails"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                </button>
+              <div className="p-3 sm:p-3.5 flex flex-col flex-1 justify-between">
+                <h3 className="font-serif text-xs sm:text-sm font-bold text-[#1E382F] mb-1">
+                  Bar & Cocktails
+                </h3>
+                <div className="flex items-end justify-between gap-2 mt-auto pt-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-[#60776F] font-light line-clamp-2 leading-tight flex-1">
+                    Des cocktails créatifs et rafraîchissants
+                  </p>
+                  <button
+                    onClick={onOpenMenuPdf}
+                    className="w-6 h-6 rounded-full bg-[#1E382F] text-white flex items-center justify-center hover:bg-[#2F5245] transition-colors shrink-0 cursor-pointer"
+                    aria-label="Voir cocktails"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
