@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { BookingModal } from './components/BookingModal';
+import { ReservationModal } from './components/ReservationModal';
 import { TableBookingModal } from './components/TableBookingModal';
 import { VideoModal } from './components/VideoModal';
 import { MenuPdfModal } from './components/MenuPdfModal';
 
-import { HomeView } from './views/HomeView';
-import { RoomsView } from './views/RoomsView';
-import { RoomDetailView } from './views/RoomDetailView';
-import { RestaurantView } from './views/RestaurantView';
-import { ExperiencesView } from './views/ExperiencesView';
-import { OffersView } from './views/OffersView';
-import { GalleryView } from './views/GalleryView';
-import { ContactView } from './views/ContactView';
-import { AboutView } from './views/AboutView';
-import { BlogView } from './views/BlogView';
+import { HomePage } from './pages/HomePage';
+import { RoomsPage } from './pages/RoomsPage';
+import { RoomDetailPage } from './pages/RoomDetailPage';
+import { RestaurantPage } from './pages/RestaurantPage';
+import { GalleryPage } from './pages/GalleryPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<string>('home');
-  const [selectedRoomId, setSelectedRoomId] = useState<string>('suite-lagon');
+  const [currentPage, setCurrentPage] = useState<string>('home');
+  const [selectedRoomId, setSelectedRoomId] = useState<string>('chambre-luxe');
 
   // Modal States
   const [roomBookingOpen, setRoomBookingOpen] = useState(false);
@@ -29,21 +25,21 @@ export default function App() {
 
   // Booking search params
   const [searchParams, setSearchParams] = useState({
-    checkIn: '2025-05-25',
-    checkOut: '2025-05-28',
+    checkIn: '2026-10-15',
+    checkOut: '2026-10-18',
     adults: 2,
     children: 0,
     promoCode: ''
   });
 
-  const handleNavigate = (view: string) => {
-    setCurrentView(view);
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenRoomDetail = (roomId: string) => {
     setSelectedRoomId(roomId);
-    setCurrentView('room-detail');
+    setCurrentPage('room-detail');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -63,16 +59,16 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-[#F7FAF8] text-[#233D34] font-sans selection:bg-[#233D34] selection:text-white">
       {/* Navigation Header */}
       <Header
-        currentView={currentView}
+        currentView={currentPage}
         onNavigate={handleNavigate}
         onOpenRoomBooking={() => handleOpenRoomBooking()}
         onOpenTableBooking={() => setTableBookingOpen(true)}
       />
 
-      {/* View Content Switcher */}
+      {/* Page Content Switcher */}
       <main className="flex-1">
-        {currentView === 'home' && (
-          <HomeView
+        {currentPage === 'home' && (
+          <HomePage
             onNavigate={handleNavigate}
             onOpenRoomDetail={handleOpenRoomDetail}
             onOpenVideoModal={() => setVideoModalOpen(true)}
@@ -82,67 +78,53 @@ export default function App() {
           />
         )}
 
-        {currentView === 'rooms' && (
-          <RoomsView
+        {currentPage === 'rooms' && (
+          <RoomsPage
             onNavigate={handleNavigate}
             onOpenRoomDetail={handleOpenRoomDetail}
             onOpenRoomBooking={handleOpenRoomBooking}
           />
         )}
 
-        {currentView === 'room-detail' && (
-          <RoomDetailView
+        {currentPage === 'room-detail' && (
+          <RoomDetailPage
             roomId={selectedRoomId}
             onNavigate={handleNavigate}
             onOpenRoomBooking={handleOpenRoomBooking}
           />
         )}
 
-        {currentView === 'restaurant' && (
-          <RestaurantView
+        {currentPage === 'restaurant' && (
+          <RestaurantPage
             onNavigate={handleNavigate}
             onOpenTableBooking={() => setTableBookingOpen(true)}
             onOpenMenuPdf={() => setMenuPdfModalOpen(true)}
           />
         )}
 
-        {currentView === 'experiences' && (
-          <ExperiencesView
+        {currentPage === 'gallery' && (
+          <GalleryPage
+            onNavigate={handleNavigate}
             onOpenRoomBooking={() => handleOpenRoomBooking()}
           />
         )}
 
-        {currentView === 'offers' && (
-          <OffersView
+        {currentPage === 'contact' && (
+          <ContactPage
+            onNavigate={handleNavigate}
             onOpenRoomBooking={() => handleOpenRoomBooking()}
           />
-        )}
-
-        {currentView === 'blog' && (
-          <BlogView onOpenRoomBooking={() => handleOpenRoomBooking()} />
-        )}
-
-        {currentView === 'gallery' && (
-          <GalleryView />
-        )}
-
-        {currentView === 'about' && (
-          <AboutView onOpenRoomBooking={() => handleOpenRoomBooking()} />
-        )}
-
-        {currentView === 'contact' && (
-          <ContactView />
         )}
       </main>
 
-      {/* Footer for non-home views */}
-      {currentView !== 'home' && <Footer onNavigate={handleNavigate} />}
+      {/* Footer for non-home pages (HomePage renders its own) */}
+      {currentPage !== 'home' && <Footer onNavigate={handleNavigate} />}
 
       {/* Interactive Modals */}
-      <BookingModal
+      <ReservationModal
         isOpen={roomBookingOpen}
         onClose={() => setRoomBookingOpen(false)}
-        preselectedRoomId={selectedRoomId}
+        selectedRoomId={selectedRoomId}
         initialCheckIn={searchParams.checkIn}
         initialCheckOut={searchParams.checkOut}
         initialAdults={searchParams.adults}

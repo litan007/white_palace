@@ -26,32 +26,6 @@ export interface MenuItem {
   recommended?: boolean;
 }
 
-export interface Experience {
-  id: string;
-  title: string;
-  category: 'nature' | 'aventure' | 'bien-etre' | 'culture';
-  price: number;
-  duration: string;
-  difficulty: string;
-  shortDescription: string;
-  fullDescription: string;
-  image: string;
-  included: string[];
-}
-
-export interface Offer {
-  id: string;
-  title: string;
-  subtitle: string;
-  price: number;
-  originalPrice?: number;
-  duration: string;
-  description: string;
-  inclusions: string[];
-  image: string;
-  badge: string;
-}
-
 export interface GalleryItem {
   id: string;
   title: string;
@@ -60,33 +34,10 @@ export interface GalleryItem {
   caption: string;
 }
 
-export interface BlogPost {
+export interface FAQItem {
   id: string;
-  title: string;
-  slug: string;
-  category: 'faune-flore' | 'gastronomie' | 'conseils' | 'conservation';
-  excerpt: string;
-  content: string[];
-  author: string;
-  date: string;
-  readTime: string;
-  image: string;
-  featured?: boolean;
-  tags: string[];
-}
-
-export interface BookingState {
-  checkIn: string;
-  checkOut: string;
-  guestsAdults: number;
-  guestsChildren: number;
-  roomId?: string;
-  selectedExtras: string[];
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
-  specialRequests: string;
-  promoCode?: string;
+  question: string;
+  answer: string;
 }
 
 export interface TableBookingState {

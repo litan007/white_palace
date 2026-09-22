@@ -16,13 +16,13 @@ import {
   ArrowLeft
 } from 'lucide-react';
 
-interface RoomDetailViewProps {
+interface RoomDetailPageProps {
   roomId: string;
   onNavigate: (view: string) => void;
   onOpenRoomBooking: (roomId: string) => void;
 }
 
-export const RoomDetailView: React.FC<RoomDetailViewProps> = ({
+export const RoomDetailPage: React.FC<RoomDetailPageProps> = ({
   roomId,
   onNavigate,
   onOpenRoomBooking

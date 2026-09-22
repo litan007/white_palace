@@ -13,10 +13,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
   const navLinks = [
     { id: 'home', label: 'Accueil' },
-    { id: 'about', label: 'Hôtel' },
     { id: 'rooms', label: 'Chambres' },
     { id: 'restaurant', label: 'Restaurant' },
-    { id: 'experiences', label: 'Fitness' },
     { id: 'gallery', label: 'Galerie' },
     { id: 'contact', label: 'Contact' },
   ];

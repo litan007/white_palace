@@ -19,7 +19,7 @@ import {
   Check
 } from 'lucide-react';
 
-interface RoomsViewProps {
+interface RoomsPageProps {
   onNavigate?: (view: string) => void;
   onOpenRoomDetail?: (roomId: string) => void;
   onOpenRoomBooking: (roomId?: string) => void;
@@ -189,7 +189,7 @@ const ROOM_CATEGORIES: RoomCategory[] = [
   },
 ];
 
-export const RoomsView: React.FC<RoomsViewProps> = ({
+export const RoomsPage: React.FC<RoomsPageProps> = ({
   onNavigate,
   onOpenRoomDetail,
   onOpenRoomBooking,

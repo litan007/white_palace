@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Footer } from '../components/Footer';
 
-interface HomeViewProps {
+interface HomePageProps {
   onNavigate: (view: string) => void;
   onOpenRoomDetail: (roomId: string) => void;
   onOpenVideoModal: () => void;
@@ -93,7 +93,7 @@ const HERO_SLIDES = [
   }
 ];
 
-export const HomeView: React.FC<HomeViewProps> = ({
+export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
   onOpenRoomDetail,
   onOpenRoomBooking
@@ -174,7 +174,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </button>
 
               <button
-                onClick={() => onNavigate('about')}
+                onClick={() => document.getElementById('a-propos')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center text-center border border-[#B0C4BA] hover:border-[#2E4A40] text-[#2E4A40] hover:bg-white/30 text-[13px] sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all duration-300 cursor-pointer"
               >
                 Découvrir l'hôtel
@@ -256,7 +256,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* 2. SECTION: À PROPOS DE NOUS (100% FULL WIDTH, GLUED TO LEFT, CLOSER TO HERO) */}
-      <section className="w-full relative overflow-hidden -mt-12 sm:-mt-16 lg:-mt-20 pt-2 pb-0">
+      <section id="a-propos" className="w-full relative overflow-hidden -mt-12 sm:-mt-16 lg:-mt-20 pt-2 pb-0">
         {/* Botanical leaf SVG exact from user mockup on the right edge (2x smaller) */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none z-10 w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28">
           <svg

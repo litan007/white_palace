@@ -56,29 +56,13 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-3 text-left group focus:outline-none"
         >
-          {/* Crest / Architectural emblem SVG */}
-          <div className="w-10 h-10 flex items-center justify-center text-[#233D34] group-hover:scale-105 transition-transform shrink-0">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
-              <path
-                d="M24 4L28 14H38L30 20L33 30L24 24L15 30L18 20L10 14H20L24 4Z"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 36C12 36 17 32 24 32C31 32 36 36 36 36"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              <path
-                d="M15 42C15 42 19 39 24 39C29 39 33 42 33 42"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
+          {/* White Palace logo */}
+          <div className="w-11 h-11 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+            <img
+              src="/nouvelles_photos/Logo white palace.jpeg"
+              alt="White Palace Hôtel"
+              className="w-11 h-11 object-contain"
+            />
           </div>
           <div>
             <div className="font-serif text-lg sm:text-xl font-bold tracking-[0.15em] text-[#233D34] uppercase leading-tight">

@@ -1,4 +1,4 @@
-import { Room, MenuItem, Experience, Offer, GalleryItem, BlogPost } from '../types';
+import { Room, MenuItem, GalleryItem, FAQItem } from '../types';
 
 const accueil1Img = '/nouvelles_photos/accueil_1.jpg';
 const accueil2Img = '/nouvelles_photos/accueil_2.jpg';
@@ -56,7 +56,6 @@ export const HOTEL_EXTERIOR_IMAGE = vueTanaImg;
 export const RESTAURANT_INTERIOR_IMAGE = salleRestaurant2Img;
 export const PRESTIGE_LIVING_IMAGE = coinDetente1Img;
 export const LEMUR_CLOSE_IMAGE = aPropos1Img;
-export const BLOG_HERO_IMAGE = terrasse1Img;
 export const ROOMS_HERO_IMAGE = chambreFondImg;
 
 export const ROOMS: Room[] = [
@@ -419,160 +418,6 @@ export const MENU_ITEMS: MenuItem[] = [
   }
 ];
 
-export const EXPERIENCES: Experience[] = [
-  {
-    id: 'massage-californien',
-    title: 'Massage Californien',
-    category: 'bien-etre',
-    price: 80000,
-    duration: '60 minutes',
-    difficulty: 'Relaxant',
-    shortDescription: 'Massage de relaxation profonde aux huiles essentielles, idéal pour évacuer le stress.',
-    fullDescription: 'Le massage Californien est une approche globale qui vise autant la détente que l\'éveil d\'une conscience psychocorporelle. Tina, notre experte au Paradis du Bien-Être, utilise de longs mouvements lents et fluides pour une relaxation physique et psychique profonde.',
-    image: salleMassageImg,
-    included: [
-      'Huiles végétales biologiques',
-      'Ambiance musicale zen',
-      'Boisson chaude détox'
-    ]
-  },
-  {
-    id: 'massage-hawaien',
-    title: 'Massage Hawaïen (Lomi-Lomi)',
-    category: 'bien-etre',
-    price: 80000,
-    duration: '60 minutes',
-    difficulty: 'Tonique et Relaxant',
-    shortDescription: 'Un massage enveloppant imitant le mouvement des vagues pour une harmonie totale.',
-    fullDescription: 'Profitez de la technique Lomi-Lomi pratiquée au Paradis du Bien-Être. Utilisant principalement les avant-bras, ce massage profond dissipe les tensions musculaires et rééquilibre l\'énergie vitale dans une atmosphère tropicale apaisante.',
-    image: salleRecuperationSportImg,
-    included: [
-      'Huile de massage tiède à la noix de coco',
-      'Soin profond',
-      'Espace dédié relaxant'
-    ]
-  },
-  {
-    id: 'pierres-chaudes',
-    title: 'Massage aux pierres chaudes',
-    category: 'bien-etre',
-    price: 100000,
-    duration: '90 minutes',
-    difficulty: 'Apaisant',
-    shortDescription: 'La chaleur des pierres volcaniques diffuse une détente absolue dans tout le corps.',
-    fullDescription: 'Une expérience sensorielle unique où des galets de basalte chauffés glissent sur votre peau et sont apposés sur des points énergétiques précis. La chaleur pénètre en profondeur pour un relâchement musculaire total.',
-    image: salleMassageImg,
-    included: [
-      'Pierres volcaniques lisses et chauffées',
-      'Huiles aromatiques',
-      'Détente musculaire ciblée'
-    ]
-  },
-  {
-    id: 'drainage-lymphatique',
-    title: 'Drainage Lymphatique',
-    category: 'bien-etre',
-    price: 90000,
-    duration: '60 minutes',
-    difficulty: 'Thérapeutique',
-    shortDescription: 'Massage doux et rythmé pour stimuler la circulation et détoxifier l\'organisme.',
-    fullDescription: 'Le drainage lymphatique manuel est un massage thérapeutique qui aide à réduire la rétention d\'eau et à éliminer les toxines. Une sensation de légèreté immédiate et un bienfait durable pour votre corps.',
-    image: salleRecuperationSportImg,
-    included: [
-      'Technique manuelle spécifique',
-      'Consultation préalable',
-      'Conseils bien-être'
-    ]
-  },
-  {
-    id: 'soin-visage-kobido',
-    title: 'Soin Anti-Âge + Kobido',
-    category: 'bien-etre',
-    price: 70000,
-    duration: '45 minutes',
-    difficulty: 'Régénérant',
-    shortDescription: 'Le lifting naturel japonais allié à un soin anti-âge complet.',
-    fullDescription: 'Le massage facial Kobido est un art traditionnel japonais qui stimule la microcirculation, repulpe la peau et lisse les traits du visage. Associé à nos produits anti-âge de haute qualité, votre peau retrouve éclat et jeunesse.',
-    image: aPropos1Img,
-    included: [
-      'Nettoyage et gommage doux',
-      'Sérum liftant',
-      'Massage facial tonique Kobido'
-    ]
-  },
-  {
-    id: 'foot-spa',
-    title: 'Foot Spa & Massage',
-    category: 'bien-etre',
-    price: 60000,
-    duration: '45 minutes',
-    difficulty: 'Réparateur',
-    shortDescription: 'Un bain relaxant suivi d\'un massage complet des pieds pour soulager les jambes lourdes.',
-    fullDescription: 'Après une journée de marche en centre-ville, offrez à vos pieds le repos qu\'ils méritent. Bain moussant aux sels minéraux suivi d\'une réflexologie plantaire apaisante pour une détente qui se propage dans tout le corps.',
-    image: coinDetente2Img,
-    included: [
-      'Bain de pieds aromatique',
-      'Gommage exfoliant',
-      'Massage plantaire (50 000 Ar seul)'
-    ]
-  }
-];
-
-export const OFFERS: Offer[] = [
-  {
-    id: 'carte-fidelite',
-    title: 'Offre Long Séjour',
-    subtitle: 'Carte de fidélité avantageuse',
-    price: 150000,
-    originalPrice: 200000,
-    duration: 'À partir de 7 Nuits',
-    description: 'Pour les longs séjours, nous avons élaboré une carte de fidélité. Bénéficiez d\'une remise exceptionnelle de 15% à 30% selon la durée de votre séjour au White Palace.',
-    inclusions: [
-      'Remise de 15% à 30%',
-      'Valable sur l\'hébergement et la restauration',
-      'Petit-déjeuner toujours inclus',
-      'Surclassement selon disponibilité',
-      'Accès prioritaire à l\'espace fitness'
-    ],
-    image: offre1Img,
-    badge: 'Fidélité'
-  },
-  {
-    id: 'sejour-affaires',
-    title: 'Séjour Affaires',
-    subtitle: 'Confort et connectivité en plein centre',
-    price: 135000,
-    originalPrice: 150000,
-    duration: '1 Nuit',
-    description: 'Profitez de notre localisation idéale en plein centre-ville d\'Antananarivo. Chambre Single ou Twin avec Wi-Fi très haut débit, calme absolu pour travailler et dîner en Rooftop.',
-    inclusions: [
-      'Nuitée en Chambre Single/Twin',
-      'Petit-déjeuner inclus',
-      'Connexion Wi-Fi par chambre gratuite',
-      'Service pressing express disponible'
-    ],
-    image: chambreLit3Img,
-    badge: 'Business'
-  },
-  {
-    id: 'pack-detente',
-    title: 'Pack Détente & Spa',
-    subtitle: 'Ressourcement holistique au Paradis du Bien-Être',
-    price: 250000,
-    originalPrice: 300000,
-    duration: '1 Nuit',
-    description: 'Séjournez dans l\'une de nos superbes chambres doubles et profitez d\'un soin exclusif au salon "Paradis du Bien-Être" avec Tina. Le combo parfait pour effacer le stress de la capitale.',
-    inclusions: [
-      'Nuit en Chambre Double',
-      'Petit-déjeuner complet',
-      'Massage au choix (60 min) au Paradis du Bien-Être',
-      'Accès à l\'espace détente et Rooftop'
-    ],
-    image: salleMassageImg,
-    badge: 'Cure Wellness'
-  }
-];
-
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g1',
@@ -700,96 +545,30 @@ export const HOTEL_INFO = {
   coordinates: { lat: -18.9100, lng: 47.5256 }
 };
 
-export const BLOG_POSTS: BlogPost[] = [
+export const FAQ_ITEMS: FAQItem[] = [
   {
-    id: 'b1',
-    title: 'Ouverture du salon "Paradis du Bien-Être"',
-    slug: 'ouverture-salon-paradis-bien-etre',
-    category: 'bien-etre',
-    excerpt: 'Tina vous accueille dans notre tout nouvel espace dédié à la relaxation profonde et aux soins du corps.',
-    content: [
-      'C\'est avec une immense joie que nous vous annonçons l\'ouverture officielle de notre salon "Paradis du Bien-Être" au sein du White Palace.',
-      'Sous la direction experte de Tina, cet espace a été conçu comme un véritable cocon de douceur loin de l\'agitation de la capitale. Venez découvrir une carte variée de soins allant du massage Californien relaxant au massage Hawaïen (Lomi-Lomi), en passant par des soins du visage Kobido anti-âge.',
-      'Parce que votre bien-être est notre priorité, nous utilisons des huiles et des produits naturels. N\'hésitez pas à réserver votre séance lors de votre séjour !'
-    ],
-    author: 'Direction White Palace',
-    date: '10 Août 2026',
-    readTime: '2 min de lecture',
-    image: salleMassageImg,
-    featured: true,
-    tags: ['Spa', 'Massage', 'Bien-être', 'Nouveauté']
+    id: 'faq-1',
+    question: 'Comment effectuer une réservation ?',
+    answer: 'Vous pouvez réserver directement en ligne sur notre site en cliquant sur le bouton "Réserver", par téléphone au +261 32 07 669 98, ou en nous écrivant à whitepalacetana@gmail.com. Une confirmation immédiate vous sera envoyée.'
   },
   {
-    id: 'b2',
-    title: 'Notre nouveau grand Chef Pâtissier au Rooftop',
-    slug: 'nouveau-chef-patissier-rooftop',
-    category: 'gastronomie',
-    excerpt: 'Un artiste du goût rejoint nos cuisines. Découvrez des desserts aux mille saveurs à déguster au 4ème étage.',
-    content: [
-      'Le restaurant du White Palace Tsaralalàna fait peau neuve pour sa carte des desserts avec l\'arrivée de notre nouveau cuisinier et grand pâtissier.',
-      'Des créations uniques, comme le gâteau Opéra revisité ou les mignardises aux mille saveurs, vous attendent désormais au Rooftop.',
-      'Vous organisez un anniversaire ou une fête de famille ? Vous pouvez commander vos gâteaux sur mesure (à partir de 60 000 Ar) pour vos célébrations. À déguster sur place avec une vue magnifique sur Antananarivo ou à emporter chez vous.',
-      'Contactez la pâtisserie au : 038 74 771 84 ou au 034 98 672 03.'
-    ],
-    author: 'Équipe Restauration',
-    date: '31 Juillet 2026',
-    readTime: '3 min de lecture',
-    image: gateau3Img,
-    featured: true,
-    tags: ['Pâtisserie', 'Gâteaux', 'Événements', 'Rooftop']
+    id: 'faq-2',
+    question: 'Quels sont les moyens de paiement acceptés ?',
+    answer: 'Nous acceptons les cartes bancaires internationales (Visa, MasterCard), les espèces (Ariary, Euros, Dollars au taux du jour) ainsi que le Mobile Money (Mvola, Orange Money, Airtel Money).'
   },
   {
-    id: 'b3',
-    title: 'Le 3ème étage du White Palace adopte un nouveau design',
-    slug: 'nouveau-design-3eme-etage',
-    category: 'hotel',
-    excerpt: 'Toujours soucieux d\'améliorer votre confort, le White Palace rénove ses espaces. Découvrez le nouveau visage de notre 3ème étage.',
-    content: [
-      'Le design et le confort de nos clients sont au centre de nos préoccupations. C\'est pourquoi nous avons le plaisir de vous dévoiler le nouveau design du 3ème étage du White Palace.',
-      'Avec des lignes plus modernes, une luminosité repensée et des matériaux chaleureux, chaque détail a été conçu pour vous faire vous sentir comme à la maison, tout en bénéficiant du standing d\'un hôtel de luxe.',
-      'Qu\'en pensez-vous ? N\'hésitez pas à partager votre avis lors de votre prochain passage à la réception !'
-    ],
-    author: 'Direction White Palace',
-    date: '15 Juin 2026',
-    readTime: '2 min de lecture',
-    image: chambreFondImg,
-    featured: false,
-    tags: ['Rénovation', 'Design', 'Confort']
+    id: 'faq-3',
+    question: 'L\'hôtel propose-t-il un service de transfert ?',
+    answer: 'Oui, nous mettons à votre disposition une navette privée pour vos transferts entre l\'Aéroport International d\'Ivato et l\'hôtel (environ 15 minutes de trajet). Il suffit de nous communiquer vos détails de vol lors de la réservation.'
   },
   {
-    id: 'b4',
-    title: 'Une réputation qui explose grâce à vous !',
-    slug: 'remerciements-clients-reputation',
-    category: 'hotel',
-    excerpt: 'Toute l\'équipe et la direction vous remercient pour votre confiance indéfectible qui fait le succès du White Palace.',
-    content: [
-      'Le White Palace Tsaralalàna n\'a de cesse de voir sa réputation exploser ces derniers mois. Ce succès retentissant, c\'est avant tout à vous que nous le devons.',
-      'Grâce à votre fidélité, à vos retours positifs et à votre confiance renouvelée lors de vos séjours professionnels ou personnels, nous continuons de grandir et d\'innover.',
-      'Au nom de tout le staff et de nos dirigeants, un immense et sincère MERCI. Nous continuerons à tout mettre en œuvre pour rendre chacun de vos passages mémorable.'
-    ],
-    author: 'Le Staff & Les Dirigeants',
-    date: '02 Mai 2026',
-    readTime: '2 min de lecture',
-    image: equipeEmployeImg,
-    featured: false,
-    tags: ['Merci', 'Succès', 'Clients']
+    id: 'faq-4',
+    question: 'Y a-t-il une connexion Wi-Fi ?',
+    answer: 'Une connexion Wi-Fi haut débit et sécurisée est disponible gratuitement et en illimité dans toutes les chambres ainsi que dans l\'ensemble des espaces communs de l\'établissement.'
   },
   {
-    id: 'b5',
-    title: 'Mise en avant de l\'artisanat local : Vitrine VETIVER',
-    slug: 'vitrine-vetiver-tsart-fibre',
-    category: 'artisanat',
-    excerpt: 'Découvrez la nouvelle vitrine de fabrication artisanale "Ts\'Art Fibre" exposée au White Palace.',
-    content: [
-      'Parce que nous avons à cœur de soutenir l\'artisanat local malgache et de mettre en valeur les talents de notre île, le White Palace accueille fièrement une nouvelle vitrine dans ses murs.',
-      'La collection VETIVER, fruit du travail minutieux de la fabrique artisanale Ts\'Art Fibre, y est désormais exposée. Vous y découvrirez des objets uniques, tressés avec passion, parfaits pour offrir ou pour ramener un souvenir authentique de votre passage.',
-      'Rendez-vous dans le hall de l\'hôtel pour admirer cette vitrine pleine de charme.'
-    ],
-    author: 'Équipe Conciergerie',
-    date: '10 Avril 2026',
-    readTime: '2 min de lecture',
-    image: vitrineVetiverImg,
-    featured: false,
-    tags: ['Artisanat', 'Madagascar', 'Exposition', 'Vetiver']
+    id: 'faq-5',
+    question: 'Les animaux de compagnie sont-ils acceptés ?',
+    answer: 'Les petits animaux de compagnie propres et bien éduqués sont acceptés sur demande préalable auprès de notre équipe lors de la réservation de votre chambre.'
   }
 ];

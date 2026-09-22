@@ -15,13 +15,13 @@ import {
   UtensilsCrossed
 } from 'lucide-react';
 
-interface RestaurantViewProps {
+interface RestaurantPageProps {
   onNavigate?: (view: string) => void;
   onOpenTableBooking: () => void;
   onOpenMenuPdf: () => void;
 }
 
-export const RestaurantView: React.FC<RestaurantViewProps> = ({
+export const RestaurantPage: React.FC<RestaurantPageProps> = ({
   onNavigate,
   onOpenTableBooking,
   onOpenMenuPdf
