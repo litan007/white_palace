@@ -3,30 +3,44 @@ import React, { useEffect, useRef, useState } from 'react';
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  duration?: number;
+  direction?: 'up' | 'down' | 'left' | 'right' | 'fade' | 'none';
   className?: string;
+  distance?: number;
+  threshold?: number;
 }
 
 export const Reveal: React.FC<RevealProps> = ({
   children,
   delay = 0,
+  duration = 800,
   direction = 'up',
-  className = ''
+  className = '',
+  distance = 32,
+  threshold = 0.12,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Check for prefers-reduced-motion
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target);
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px',
+        threshold,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 
@@ -37,16 +51,23 @@ export const Reveal: React.FC<RevealProps> = ({
     return () => {
       if (ref.current) observer.unobserve(ref.current);
     };
-  }, []);
+  }, [threshold]);
 
   const getTransform = () => {
-    if (isVisible) return 'translate(0, 0)';
+    if (isVisible) return 'translate3d(0, 0, 0)';
     switch (direction) {
-      case 'up': return 'translateY(40px)';
-      case 'down': return 'translateY(-40px)';
-      case 'left': return 'translateX(40px)';
-      case 'right': return 'translateX(-40px)';
-      default: return 'translate(0, 0)';
+      case 'up':
+        return `translate3d(0, ${distance}px, 0)`;
+      case 'down':
+        return `translate3d(0, -${distance}px, 0)`;
+      case 'left':
+        return `translate3d(${distance}px, 0, 0)`;
+      case 'right':
+        return `translate3d(-${distance}px, 0, 0)`;
+      case 'fade':
+      case 'none':
+      default:
+        return 'translate3d(0, 0, 0)';
     }
   };
 
@@ -57,9 +78,9 @@ export const Reveal: React.FC<RevealProps> = ({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        transition: `opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1)`,
+        transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
         transitionDelay: `${delay}ms`,
-        willChange: 'opacity, transform'
+        willChange: isVisible ? 'auto' : 'opacity, transform',
       }}
     >
       {children}
